@@ -15,6 +15,9 @@ namespace KeToanTienLuong.hethongform
         public NguoiDungForm()
         {
             InitializeComponent();
+
+            
+            
         }
 
         private void dataGridViewNguoiDung_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -25,6 +28,22 @@ namespace KeToanTienLuong.hethongform
         private void button1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void buttonLuu_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridViewNguoiDung_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+        }
+
+        private void NguoiDungForm_Load(object sender, EventArgs e)
+        {
+            var db = new ketoantienluongEntities();
+            dataGridViewNguoiDung.DataSource = db.nguoidungs.Select(p => p).ToList();
+            dataGridViewNguoiDung.Refresh();
         }
     }
 }

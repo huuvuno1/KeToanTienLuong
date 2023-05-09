@@ -8,18 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace KeToanTienLuong.categoryForm
+namespace KeToanTienLuong.chungtu
 {
-    public partial class ThamSoLuong : UserControl
+    public partial class PhieuKeToanForm : UserControl
     {
-        public ThamSoLuong()
+        public PhieuKeToanForm()
         {
             InitializeComponent();
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

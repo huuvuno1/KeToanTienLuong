@@ -41,6 +41,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
@@ -55,6 +56,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="bacluong.cs">
+      <DependentUpon>KeToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="bangcc.cs">
+      <DependentUpon>KeToan.tt</DependentUpon>
+    </Compile>
     <Compile Include="categoryForm\BaoCaoForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -79,17 +86,56 @@
     <Compile Include="categoryForm\ChungTuForm.Designer.cs">
       <DependentUpon>ChungTuForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="categoryForm\ThamSoLuong.cs">
+    <Compile Include="categoryForm\ThamSoLuongForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="categoryForm\ThamSoLuong.Designer.cs">
-      <DependentUpon>ThamSoLuong.cs</DependentUpon>
+    <Compile Include="categoryForm\ThamSoLuongForm.Designer.cs">
+      <DependentUpon>ThamSoLuongForm.cs</DependentUpon>
     </Compile>
     <Compile Include="categoryForm\TinhLuongForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="categoryForm\TinhLuongForm.Designer.cs">
       <DependentUpon>TinhLuongForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="chungtu\GiayBaoNoForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="chungtu\GiayBaoNoForm.Designer.cs">
+      <DependentUpon>GiayBaoNoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="chungtu\PhieuKeToanForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="chungtu\PhieuKeToanForm.Designer.cs">
+      <DependentUpon>PhieuKeToanForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="danhmucform\BoPhanForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="danhmucform\BoPhanForm.Designer.cs">
+      <DependentUpon>BoPhanForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="danhmucform\ChucVuForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="danhmucform\ChucVuForm.Designer.cs">
+      <DependentUpon>ChucVuForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="danhmucform\NhanVienForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="danhmucform\NhanVienForm.Designer.cs">
+      <DependentUpon>NhanVienForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="dmbp.cs">
+      <DependentUpon>KeToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dmcv.cs">
+      <DependentUpon>KeToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dmnv.cs">
+      <DependentUpon>KeToan.tt</DependentUpon>
     </Compile>
     <Compile Include="FormDangNhap.cs">
       <SubType>Form</SubType>
@@ -109,41 +155,69 @@
     <Compile Include="hethongform\NguoiDungForm.Designer.cs">
       <DependentUpon>NguoiDungForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="KeToan.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KeToan.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KeToan.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KeToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KeToan.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KeToan.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="ketoantienluongDataSet.cs">
+      <DependentUpon>ketoantienluongDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ketoantienluongDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ketoantienluongDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ketoantienluongDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ketoantienluongDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ketoantienluongDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ketoantienluongDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="nguoidung.cs">
+      <DependentUpon>KeToan.tt</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="tbl_category.cs">
-      <DependentUpon>TestEntity.tt</DependentUpon>
+    <Compile Include="thamsoluong.cs">
+      <DependentUpon>KeToan.tt</DependentUpon>
     </Compile>
-    <Compile Include="tbl_image.cs">
-      <DependentUpon>TestEntity.tt</DependentUpon>
+    <Compile Include="thamsoluongform\ThamSoBaoHiem.cs">
+      <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="tbl_order.cs">
-      <DependentUpon>TestEntity.tt</DependentUpon>
+    <Compile Include="thamsoluongform\ThamSoBaoHiem.Designer.cs">
+      <DependentUpon>ThamSoBaoHiem.cs</DependentUpon>
     </Compile>
-    <Compile Include="tbl_order_detail.cs">
-      <DependentUpon>TestEntity.tt</DependentUpon>
+    <Compile Include="thamsoluongform\ThamSoThueForm.cs">
+      <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="tbl_product.cs">
-      <DependentUpon>TestEntity.tt</DependentUpon>
+    <Compile Include="thamsoluongform\ThamSoThueForm.Designer.cs">
+      <DependentUpon>ThamSoThueForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="tbl_user.cs">
-      <DependentUpon>TestEntity.tt</DependentUpon>
+    <Compile Include="thamsothuetncn.cs">
+      <DependentUpon>KeToan.tt</DependentUpon>
     </Compile>
-    <Compile Include="TestEntity.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>TestEntity.Context.tt</DependentUpon>
+    <Compile Include="tinhluongfrm\ChamCongForm.cs">
+      <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="TestEntity.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>TestEntity.tt</DependentUpon>
+    <Compile Include="tinhluongfrm\ChamCongForm.Designer.cs">
+      <DependentUpon>ChamCongForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="TestEntity.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>TestEntity.edmx</DependentUpon>
-    </Compile>
+    <Compile Include="Util\Util.cs" />
     <EmbeddedResource Include="categoryForm\BaoCaoForm.resx">
       <DependentUpon>BaoCaoForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -156,11 +230,26 @@
     <EmbeddedResource Include="categoryForm\ChungTuForm.resx">
       <DependentUpon>ChungTuForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="categoryForm\ThamSoLuong.resx">
-      <DependentUpon>ThamSoLuong.cs</DependentUpon>
+    <EmbeddedResource Include="categoryForm\ThamSoLuongForm.resx">
+      <DependentUpon>ThamSoLuongForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="categoryForm\TinhLuongForm.resx">
       <DependentUpon>TinhLuongForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="chungtu\GiayBaoNoForm.resx">
+      <DependentUpon>GiayBaoNoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="chungtu\PhieuKeToanForm.resx">
+      <DependentUpon>PhieuKeToanForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="danhmucform\BoPhanForm.resx">
+      <DependentUpon>BoPhanForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="danhmucform\ChucVuForm.resx">
+      <DependentUpon>ChucVuForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="danhmucform\NhanVienForm.resx">
+      <DependentUpon>NhanVienForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormDangNhap.resx">
       <DependentUpon>FormDangNhap.cs</DependentUpon>
@@ -181,6 +270,55 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="thamsoluongform\ThamSoBaoHiem.resx">
+      <DependentUpon>ThamSoBaoHiem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="thamsoluongform\ThamSoThueForm.resx">
+      <DependentUpon>ThamSoThueForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="tinhluongfrm\ChamCongForm.resx">
+      <DependentUpon>ChamCongForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EntityDeploy Include="KeToan.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>KeToan.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="KeToan.edmx.diagram">
+      <DependentUpon>KeToan.edmx</DependentUpon>
+    </None>
+    <None Include="ketoantienluongDataSet.xsc">
+      <DependentUpon>ketoantienluongDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="ketoantienluongDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ketoantienluongDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ketoantienluongDataSet.xss">
+      <DependentUpon>ketoantienluongDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="ketoantienluongDataSet1.xsc">
+      <DependentUpon>ketoantienluongDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="ketoantienluongDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ketoantienluongDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ketoantienluongDataSet1.xss">
+      <DependentUpon>ketoantienluongDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="ketoantienluongDataSet2.xsc">
+      <DependentUpon>ketoantienluongDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="ketoantienluongDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ketoantienluongDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ketoantienluongDataSet2.xss">
+      <DependentUpon>ketoantienluongDataSet2.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -191,13 +329,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EntityDeploy Include="TestEntity.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>TestEntity.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="TestEntity.edmx.diagram">
-      <DependentUpon>TestEntity.edmx</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -257,19 +388,24 @@
     <None Include="resource\plus.png" />
     <None Include="resource\power.png" />
     <None Include="resource\accountant.png" />
-    <Content Include="TestEntity.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>TestEntity.Context.cs</LastGenOutput>
-      <DependentUpon>TestEntity.edmx</DependentUpon>
-    </Content>
-    <Content Include="TestEntity.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>TestEntity.edmx</DependentUpon>
-      <LastGenOutput>TestEntity.cs</LastGenOutput>
-    </Content>
+    <None Include="resource\bg.jpg" />
+    <None Include="resource\logo.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="KeToan.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>KeToan.edmx</DependentUpon>
+      <LastGenOutput>KeToan.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="KeToan.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>KeToan.edmx</DependentUpon>
+      <LastGenOutput>KeToan.cs</LastGenOutput>
+    </Content>
+    <None Include="resource\eye.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

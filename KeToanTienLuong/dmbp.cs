@@ -12,27 +12,23 @@ namespace KeToanTienLuong
     using System;
     using System.Collections.Generic;
     
-    public partial class tbl_order
+    public partial class dmbp
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public tbl_order()
+        public dmbp()
         {
-            this.tbl_order_detail = new HashSet<tbl_order_detail>();
+            this.bangccs = new HashSet<bangcc>();
+            this.dmnvs = new HashSet<dmnv>();
         }
     
-        public int id { get; set; }
-        public string phone_number { get; set; }
-        public string customer_name { get; set; }
-        public string address { get; set; }
-        public byte delivery_status { get; set; }
-        public string phoneNumber { get; set; }
-        public string type { get; set; }
-        public string note { get; set; }
-        public Nullable<System.DateTime> createdAt { get; set; }
-        public Nullable<System.DateTime> updatedAt { get; set; }
-        public string email { get; set; }
+        public string Mabp { get; set; }
+        public string Tenbp { get; set; }
+        public string sdt { get; set; }
+        public string diachi { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tbl_order_detail> tbl_order_detail { get; set; }
+        public virtual ICollection<bangcc> bangccs { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<dmnv> dmnvs { get; set; }
     }
 }

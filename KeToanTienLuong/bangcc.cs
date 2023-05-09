@@ -12,9 +12,15 @@ namespace KeToanTienLuong
     using System;
     using System.Collections.Generic;
     
-    public partial class tbl_category
+    public partial class bangcc
     {
-        public int id { get; set; }
-        public string name { get; set; }
+        public string so { get; set; }
+        public Nullable<int> thang { get; set; }
+        public Nullable<int> nam { get; set; }
+        public Nullable<int> ngaycong { get; set; }
+        public string mabp { get; set; }
+        public string noidung { get; set; }
+    
+        public virtual dmbp dmbp { get; set; }
     }
 }

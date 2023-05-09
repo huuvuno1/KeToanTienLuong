@@ -51,7 +51,7 @@ namespace KeToanTienLuong
 
         private void thamSốLươngToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ThamSoLuong f = new ThamSoLuong();
+            ThamSoLuongForm f = new ThamSoLuongForm();
             f.Dock = DockStyle.Fill;
             this.panelParent.Controls.Clear();
             this.panelParent.Controls.Add(f);
@@ -96,6 +96,11 @@ namespace KeToanTienLuong
         }
 
         private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
         {
 
         }

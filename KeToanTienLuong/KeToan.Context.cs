@@ -13,10 +13,10 @@ namespace KeToanTienLuong
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class weblaptopEntities : DbContext
+    public partial class ketoantienluongEntities : DbContext
     {
-        public weblaptopEntities()
-            : base("name=weblaptopEntities")
+        public ketoantienluongEntities()
+            : base("name=ketoantienluongEntities")
         {
         }
     
@@ -25,11 +25,13 @@ namespace KeToanTienLuong
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<tbl_category> tbl_category { get; set; }
-        public virtual DbSet<tbl_image> tbl_image { get; set; }
-        public virtual DbSet<tbl_order> tbl_order { get; set; }
-        public virtual DbSet<tbl_order_detail> tbl_order_detail { get; set; }
-        public virtual DbSet<tbl_product> tbl_product { get; set; }
-        public virtual DbSet<tbl_user> tbl_user { get; set; }
+        public virtual DbSet<bangcc> bangccs { get; set; }
+        public virtual DbSet<dmbp> dmbps { get; set; }
+        public virtual DbSet<dmcv> dmcvs { get; set; }
+        public virtual DbSet<nguoidung> nguoidungs { get; set; }
+        public virtual DbSet<thamsoluong> thamsoluongs { get; set; }
+        public virtual DbSet<thamsothuetncn> thamsothuetncns { get; set; }
+        public virtual DbSet<bacluong> bacluongs { get; set; }
+        public virtual DbSet<dmnv> dmnvs { get; set; }
     }
 }

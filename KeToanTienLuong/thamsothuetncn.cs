@@ -12,12 +12,12 @@ namespace KeToanTienLuong
     using System;
     using System.Collections.Generic;
     
-    public partial class tbl_user
+    public partial class thamsothuetncn
     {
-        public int id { get; set; }
-        public string username { get; set; }
-        public string fullname { get; set; }
-        public string password { get; set; }
-        public byte role { get; set; }
+        public string mucthue { get; set; }
+        public Nullable<double> tientu { get; set; }
+        public Nullable<double> tienden { get; set; }
+        public Nullable<double> tyle { get; set; }
+        public Nullable<int> muc { get; set; }
     }
 }

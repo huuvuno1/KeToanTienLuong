@@ -101,6 +101,7 @@ namespace KeToanTienLuong.categoryForm
             this.panelContent.Name = "panelContent";
             this.panelContent.Size = new System.Drawing.Size(904, 707);
             this.panelContent.TabIndex = 4;
+            this.panelContent.Paint += new System.Windows.Forms.PaintEventHandler(this.panelContent_Paint);
             // 
             // button4
             // 

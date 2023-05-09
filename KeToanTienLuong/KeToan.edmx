@@ -1,0 +1,457 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ketoantienluongModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="bacluong">
+          <Key>
+            <PropertyRef Name="mabl" />
+          </Key>
+          <Property Name="mabl" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="noidung" Type="nvarchar" MaxLength="250" />
+          <Property Name="tien" Type="float" />
+        </EntityType>
+        <EntityType Name="bangcc">
+          <Key>
+            <PropertyRef Name="so" />
+          </Key>
+          <Property Name="so" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="thang" Type="int" />
+          <Property Name="nam" Type="int" />
+          <Property Name="ngaycong" Type="int" />
+          <Property Name="mabp" Type="nchar" MaxLength="10" />
+          <Property Name="noidung" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="dmbp">
+          <Key>
+            <PropertyRef Name="Mabp" />
+          </Key>
+          <Property Name="Mabp" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Tenbp" Type="nvarchar" MaxLength="250" />
+          <Property Name="sdt" Type="nvarchar" MaxLength="15" />
+          <Property Name="diachi" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="dmcv">
+          <Key>
+            <PropertyRef Name="macv" />
+          </Key>
+          <Property Name="macv" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="tencv" Type="nvarchar" MaxLength="30" />
+          <Property Name="mota" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="dmnv">
+          <Key>
+            <PropertyRef Name="manv" />
+          </Key>
+          <Property Name="manv" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="tenv" Type="nvarchar" MaxLength="30" />
+          <Property Name="ngaysinh" Type="smalldatetime" />
+          <Property Name="diachi" Type="nvarchar" MaxLength="250" />
+          <Property Name="masothue" Type="nvarchar" MaxLength="15" />
+          <Property Name="gioitinh" Type="nvarchar" MaxLength="10" />
+          <Property Name="macv" Type="nchar" MaxLength="10" />
+          <Property Name="mabp" Type="nchar" MaxLength="10" />
+          <Property Name="mabl" Type="nchar" MaxLength="10" />
+          <Property Name="hesoluong" Type="float" />
+          <Property Name="bangcap" Type="nvarchar" MaxLength="10" />
+          <Property Name="trinhdo" Type="nvarchar" MaxLength="10" />
+          <Property Name="songuoiphuthuoc" Type="int" />
+          <Property Name="trangthai" Type="int" />
+        </EntityType>
+        <EntityType Name="nguoidung">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="tendangnhap" Type="varchar" MaxLength="50" />
+          <Property Name="tennguoidung" Type="nvarchar" MaxLength="50" />
+          <Property Name="matkhau" Type="varchar" MaxLength="100" />
+          <Property Name="quyen" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="thamsoluong">
+          <Key>
+            <PropertyRef Name="mats" />
+          </Key>
+          <Property Name="mats" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="tents" Type="nvarchar" MaxLength="250" />
+          <Property Name="noidung" Type="nvarchar" MaxLength="250" />
+          <Property Name="tyle" Type="float" />
+        </EntityType>
+        <EntityType Name="thamsothuetncn">
+          <Key>
+            <PropertyRef Name="mucthue" />
+          </Key>
+          <Property Name="mucthue" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="tientu" Type="float" />
+          <Property Name="tienden" Type="float" />
+          <Property Name="tyle" Type="float" />
+          <Property Name="muc" Type="int" />
+        </EntityType>
+        <Association Name="FK__bangcc__mabp__3D5E1FD2">
+          <End Role="dmbp" Type="Self.dmbp" Multiplicity="0..1" />
+          <End Role="bangcc" Type="Self.bangcc" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dmbp">
+              <PropertyRef Name="Mabp" />
+            </Principal>
+            <Dependent Role="bangcc">
+              <PropertyRef Name="mabp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__dmnv__mabl__49C3F6B7">
+          <End Role="bacluong" Type="Self.bacluong" Multiplicity="0..1" />
+          <End Role="dmnv" Type="Self.dmnv" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="bacluong">
+              <PropertyRef Name="mabl" />
+            </Principal>
+            <Dependent Role="dmnv">
+              <PropertyRef Name="mabl" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__dmnv__mabp__48CFD27E">
+          <End Role="dmbp" Type="Self.dmbp" Multiplicity="0..1" />
+          <End Role="dmnv" Type="Self.dmnv" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dmbp">
+              <PropertyRef Name="Mabp" />
+            </Principal>
+            <Dependent Role="dmnv">
+              <PropertyRef Name="mabp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__dmnv__macv__47DBAE45">
+          <End Role="dmcv" Type="Self.dmcv" Multiplicity="0..1" />
+          <End Role="dmnv" Type="Self.dmnv" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dmcv">
+              <PropertyRef Name="macv" />
+            </Principal>
+            <Dependent Role="dmnv">
+              <PropertyRef Name="macv" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ketoantienluongModelStoreContainer">
+          <EntitySet Name="bacluong" EntityType="Self.bacluong" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="bangcc" EntityType="Self.bangcc" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="dmbp" EntityType="Self.dmbp" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="dmcv" EntityType="Self.dmcv" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="dmnv" EntityType="Self.dmnv" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="nguoidung" EntityType="Self.nguoidung" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="thamsoluong" EntityType="Self.thamsoluong" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="thamsothuetncn" EntityType="Self.thamsothuetncn" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__bangcc__mabp__3D5E1FD2" Association="Self.FK__bangcc__mabp__3D5E1FD2">
+            <End Role="dmbp" EntitySet="dmbp" />
+            <End Role="bangcc" EntitySet="bangcc" />
+          </AssociationSet>
+          <AssociationSet Name="FK__dmnv__mabl__49C3F6B7" Association="Self.FK__dmnv__mabl__49C3F6B7">
+            <End Role="bacluong" EntitySet="bacluong" />
+            <End Role="dmnv" EntitySet="dmnv" />
+          </AssociationSet>
+          <AssociationSet Name="FK__dmnv__mabp__48CFD27E" Association="Self.FK__dmnv__mabp__48CFD27E">
+            <End Role="dmbp" EntitySet="dmbp" />
+            <End Role="dmnv" EntitySet="dmnv" />
+          </AssociationSet>
+          <AssociationSet Name="FK__dmnv__macv__47DBAE45" Association="Self.FK__dmnv__macv__47DBAE45">
+            <End Role="dmcv" EntitySet="dmcv" />
+            <End Role="dmnv" EntitySet="dmnv" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ketoantienluongModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="bangcc">
+          <Key>
+            <PropertyRef Name="so" />
+          </Key>
+          <Property Name="so" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="thang" Type="Int32" />
+          <Property Name="nam" Type="Int32" />
+          <Property Name="ngaycong" Type="Int32" />
+          <Property Name="mabp" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="noidung" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="dmbp" Relationship="Self.FK__bangcc__mabp__3D5E1FD2" FromRole="bangcc" ToRole="dmbp" />
+        </EntityType>
+        <EntityType Name="dmbp">
+          <Key>
+            <PropertyRef Name="Mabp" />
+          </Key>
+          <Property Name="Mabp" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Tenbp" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="sdt" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="diachi" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="bangccs" Relationship="Self.FK__bangcc__mabp__3D5E1FD2" FromRole="dmbp" ToRole="bangcc" />
+          <NavigationProperty Name="dmnvs" Relationship="ketoantienluongModel.FK__dmnv__mabp__48CFD27E" FromRole="dmbp" ToRole="dmnv" />
+        </EntityType>
+        <EntityType Name="dmcv">
+          <Key>
+            <PropertyRef Name="macv" />
+          </Key>
+          <Property Name="macv" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="tencv" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="mota" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="dmnvs" Relationship="ketoantienluongModel.FK__dmnv__macv__47DBAE45" FromRole="dmcv" ToRole="dmnv" />
+        </EntityType>
+        <EntityType Name="nguoidung">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="tendangnhap" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="tennguoidung" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="matkhau" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="quyen" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="thamsoluong">
+          <Key>
+            <PropertyRef Name="mats" />
+          </Key>
+          <Property Name="mats" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="tents" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="noidung" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="tyle" Type="Double" />
+        </EntityType>
+        <EntityType Name="thamsothuetncn">
+          <Key>
+            <PropertyRef Name="mucthue" />
+          </Key>
+          <Property Name="mucthue" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="tientu" Type="Double" />
+          <Property Name="tienden" Type="Double" />
+          <Property Name="tyle" Type="Double" />
+          <Property Name="muc" Type="Int32" />
+        </EntityType>
+        <Association Name="FK__bangcc__mabp__3D5E1FD2">
+          <End Role="dmbp" Type="Self.dmbp" Multiplicity="0..1" />
+          <End Role="bangcc" Type="Self.bangcc" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dmbp">
+              <PropertyRef Name="Mabp" />
+            </Principal>
+            <Dependent Role="bangcc">
+              <PropertyRef Name="mabp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ketoantienluongEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="bangccs" EntityType="Self.bangcc" />
+          <EntitySet Name="dmbps" EntityType="Self.dmbp" />
+          <EntitySet Name="dmcvs" EntityType="Self.dmcv" />
+          <EntitySet Name="nguoidungs" EntityType="Self.nguoidung" />
+          <EntitySet Name="thamsoluongs" EntityType="Self.thamsoluong" />
+          <EntitySet Name="thamsothuetncns" EntityType="Self.thamsothuetncn" />
+          <AssociationSet Name="FK__bangcc__mabp__3D5E1FD2" Association="Self.FK__bangcc__mabp__3D5E1FD2">
+            <End Role="dmbp" EntitySet="dmbps" />
+            <End Role="bangcc" EntitySet="bangccs" />
+          </AssociationSet>
+          <EntitySet Name="bacluongs" EntityType="ketoantienluongModel.bacluong" />
+          <EntitySet Name="dmnvs" EntityType="ketoantienluongModel.dmnv" />
+          <AssociationSet Name="FK__dmnv__mabl__49C3F6B7" Association="ketoantienluongModel.FK__dmnv__mabl__49C3F6B7">
+            <End Role="bacluong" EntitySet="bacluongs" />
+            <End Role="dmnv" EntitySet="dmnvs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__dmnv__mabp__48CFD27E" Association="ketoantienluongModel.FK__dmnv__mabp__48CFD27E">
+            <End Role="dmbp" EntitySet="dmbps" />
+            <End Role="dmnv" EntitySet="dmnvs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__dmnv__macv__47DBAE45" Association="ketoantienluongModel.FK__dmnv__macv__47DBAE45">
+            <End Role="dmcv" EntitySet="dmcvs" />
+            <End Role="dmnv" EntitySet="dmnvs" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="bacluong">
+          <Key>
+            <PropertyRef Name="mabl" />
+          </Key>
+          <Property Name="mabl" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="noidung" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="tien" Type="Double" />
+          <NavigationProperty Name="dmnvs" Relationship="ketoantienluongModel.FK__dmnv__mabl__49C3F6B7" FromRole="bacluong" ToRole="dmnv" />
+        </EntityType>
+        <EntityType Name="dmnv">
+          <Key>
+            <PropertyRef Name="manv" />
+          </Key>
+          <Property Name="manv" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="tenv" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="ngaysinh" Type="DateTime" Precision="0" />
+          <Property Name="diachi" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="masothue" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="gioitinh" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="macv" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="mabp" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="mabl" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="hesoluong" Type="Double" />
+          <Property Name="bangcap" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="trinhdo" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="songuoiphuthuoc" Type="Int32" />
+          <Property Name="trangthai" Type="Int32" />
+          <NavigationProperty Name="bacluong" Relationship="ketoantienluongModel.FK__dmnv__mabl__49C3F6B7" FromRole="dmnv" ToRole="bacluong" />
+          <NavigationProperty Name="dmbp" Relationship="ketoantienluongModel.FK__dmnv__mabp__48CFD27E" FromRole="dmnv" ToRole="dmbp" />
+          <NavigationProperty Name="dmcv" Relationship="ketoantienluongModel.FK__dmnv__macv__47DBAE45" FromRole="dmnv" ToRole="dmcv" />
+        </EntityType>
+        <Association Name="FK__dmnv__mabl__49C3F6B7">
+          <End Type="ketoantienluongModel.bacluong" Role="bacluong" Multiplicity="0..1" />
+          <End Type="ketoantienluongModel.dmnv" Role="dmnv" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="bacluong">
+              <PropertyRef Name="mabl" />
+            </Principal>
+            <Dependent Role="dmnv">
+              <PropertyRef Name="mabl" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__dmnv__mabp__48CFD27E">
+          <End Type="ketoantienluongModel.dmbp" Role="dmbp" Multiplicity="0..1" />
+          <End Type="ketoantienluongModel.dmnv" Role="dmnv" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dmbp">
+              <PropertyRef Name="Mabp" />
+            </Principal>
+            <Dependent Role="dmnv">
+              <PropertyRef Name="mabp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__dmnv__macv__47DBAE45">
+          <End Type="ketoantienluongModel.dmcv" Role="dmcv" Multiplicity="0..1" />
+          <End Type="ketoantienluongModel.dmnv" Role="dmnv" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dmcv">
+              <PropertyRef Name="macv" />
+            </Principal>
+            <Dependent Role="dmnv">
+              <PropertyRef Name="macv" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ketoantienluongModelStoreContainer" CdmEntityContainer="ketoantienluongEntities">
+          <EntitySetMapping Name="bangccs">
+            <EntityTypeMapping TypeName="ketoantienluongModel.bangcc">
+              <MappingFragment StoreEntitySet="bangcc">
+                <ScalarProperty Name="so" ColumnName="so" />
+                <ScalarProperty Name="thang" ColumnName="thang" />
+                <ScalarProperty Name="nam" ColumnName="nam" />
+                <ScalarProperty Name="ngaycong" ColumnName="ngaycong" />
+                <ScalarProperty Name="mabp" ColumnName="mabp" />
+                <ScalarProperty Name="noidung" ColumnName="noidung" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dmbps">
+            <EntityTypeMapping TypeName="ketoantienluongModel.dmbp">
+              <MappingFragment StoreEntitySet="dmbp">
+                <ScalarProperty Name="Mabp" ColumnName="Mabp" />
+                <ScalarProperty Name="Tenbp" ColumnName="Tenbp" />
+                <ScalarProperty Name="sdt" ColumnName="sdt" />
+                <ScalarProperty Name="diachi" ColumnName="diachi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dmcvs">
+            <EntityTypeMapping TypeName="ketoantienluongModel.dmcv">
+              <MappingFragment StoreEntitySet="dmcv">
+                <ScalarProperty Name="macv" ColumnName="macv" />
+                <ScalarProperty Name="tencv" ColumnName="tencv" />
+                <ScalarProperty Name="mota" ColumnName="mota" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="nguoidungs">
+            <EntityTypeMapping TypeName="ketoantienluongModel.nguoidung">
+              <MappingFragment StoreEntitySet="nguoidung">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="tendangnhap" ColumnName="tendangnhap" />
+                <ScalarProperty Name="tennguoidung" ColumnName="tennguoidung" />
+                <ScalarProperty Name="matkhau" ColumnName="matkhau" />
+                <ScalarProperty Name="quyen" ColumnName="quyen" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="thamsoluongs">
+            <EntityTypeMapping TypeName="ketoantienluongModel.thamsoluong">
+              <MappingFragment StoreEntitySet="thamsoluong">
+                <ScalarProperty Name="mats" ColumnName="mats" />
+                <ScalarProperty Name="tents" ColumnName="tents" />
+                <ScalarProperty Name="noidung" ColumnName="noidung" />
+                <ScalarProperty Name="tyle" ColumnName="tyle" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="thamsothuetncns">
+            <EntityTypeMapping TypeName="ketoantienluongModel.thamsothuetncn">
+              <MappingFragment StoreEntitySet="thamsothuetncn">
+                <ScalarProperty Name="mucthue" ColumnName="mucthue" />
+                <ScalarProperty Name="tientu" ColumnName="tientu" />
+                <ScalarProperty Name="tienden" ColumnName="tienden" />
+                <ScalarProperty Name="tyle" ColumnName="tyle" />
+                <ScalarProperty Name="muc" ColumnName="muc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="bacluongs">
+            <EntityTypeMapping TypeName="ketoantienluongModel.bacluong">
+              <MappingFragment StoreEntitySet="bacluong">
+                <ScalarProperty Name="tien" ColumnName="tien" />
+                <ScalarProperty Name="noidung" ColumnName="noidung" />
+                <ScalarProperty Name="mabl" ColumnName="mabl" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dmnvs">
+            <EntityTypeMapping TypeName="ketoantienluongModel.dmnv">
+              <MappingFragment StoreEntitySet="dmnv">
+                <ScalarProperty Name="trangthai" ColumnName="trangthai" />
+                <ScalarProperty Name="songuoiphuthuoc" ColumnName="songuoiphuthuoc" />
+                <ScalarProperty Name="trinhdo" ColumnName="trinhdo" />
+                <ScalarProperty Name="bangcap" ColumnName="bangcap" />
+                <ScalarProperty Name="hesoluong" ColumnName="hesoluong" />
+                <ScalarProperty Name="mabl" ColumnName="mabl" />
+                <ScalarProperty Name="mabp" ColumnName="mabp" />
+                <ScalarProperty Name="macv" ColumnName="macv" />
+                <ScalarProperty Name="gioitinh" ColumnName="gioitinh" />
+                <ScalarProperty Name="masothue" ColumnName="masothue" />
+                <ScalarProperty Name="diachi" ColumnName="diachi" />
+                <ScalarProperty Name="ngaysinh" ColumnName="ngaysinh" />
+                <ScalarProperty Name="tenv" ColumnName="tenv" />
+                <ScalarProperty Name="manv" ColumnName="manv" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

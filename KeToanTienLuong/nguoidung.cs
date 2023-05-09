@@ -12,10 +12,12 @@ namespace KeToanTienLuong
     using System;
     using System.Collections.Generic;
     
-    public partial class tbl_image
+    public partial class nguoidung
     {
         public int id { get; set; }
-        public string path { get; set; }
-        public Nullable<int> product_id { get; set; }
+        public string tendangnhap { get; set; }
+        public string tennguoidung { get; set; }
+        public string matkhau { get; set; }
+        public string quyen { get; set; }
     }
 }

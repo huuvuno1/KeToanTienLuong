@@ -47,5 +47,10 @@ namespace KeToanTienLuong.categoryForm
             button4.BackColor = Color.White;
             panelContent.Focus();
         }
+
+        private void panelContent_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

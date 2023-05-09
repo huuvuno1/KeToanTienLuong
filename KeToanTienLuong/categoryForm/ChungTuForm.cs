@@ -1,4 +1,6 @@
-﻿using System;
+﻿using KeToanTienLuong.chungtu;
+using KeToanTienLuong.thamsoluongform;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,6 +22,15 @@ namespace KeToanTienLuong.categoryForm
         private void ChungTu_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            PhieuKeToanForm f = new PhieuKeToanForm();
+            f.Dock = DockStyle.Top;
+            this.panelContent.Controls.Clear();
+            this.panelContent.Controls.Add(f);
+            f.Show();
         }
     }
 }
