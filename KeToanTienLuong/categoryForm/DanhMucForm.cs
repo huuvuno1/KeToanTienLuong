@@ -20,9 +20,9 @@ namespace KeToanTienLuong.categoryForm
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Util.Util.changeBackground(buttonBoPhan, buttonChucVu, buttonNhanVien);
-            
-            BoPhanForm f = new BoPhanForm();
+            Util.Util.changeBackground(buttonTk, buttonNhanVien, buttonChucVu, buttonTk);
+
+            DanhMucTaiKhoanForm f = new DanhMucTaiKhoanForm();
             f.Dock = DockStyle.Top;
             this.panelContent.Controls.Clear();
             this.panelContent.Controls.Add(f);
@@ -31,7 +31,7 @@ namespace KeToanTienLuong.categoryForm
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Util.Util.changeBackground(buttonNhanVien, buttonChucVu, buttonBoPhan);
+            Util.Util.changeBackground(buttonNhanVien, buttonChucVu, buttonTk, btnBoPhan);
 
             NhanVienForm f = new NhanVienForm();
             f.Dock = DockStyle.Top;
@@ -47,8 +47,19 @@ namespace KeToanTienLuong.categoryForm
 
         private void button4_Click(object sender, EventArgs e)
         {
-            Util.Util.changeBackground(buttonChucVu, buttonNhanVien, buttonBoPhan);
+            Util.Util.changeBackground(buttonChucVu, buttonNhanVien, buttonTk, btnBoPhan);
             ChucVuForm f = new ChucVuForm();
+            f.Dock = DockStyle.Top;
+            this.panelContent.Controls.Clear();
+            this.panelContent.Controls.Add(f);
+            f.Show();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            Util.Util.changeBackground(btnBoPhan, buttonTk, buttonChucVu, buttonNhanVien);
+
+            BoPhanForm f = new BoPhanForm();
             f.Dock = DockStyle.Top;
             this.panelContent.Controls.Clear();
             this.panelContent.Controls.Add(f);

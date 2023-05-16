@@ -33,5 +33,10 @@ namespace KeToanTienLuong
         public virtual DbSet<thamsothuetncn> thamsothuetncns { get; set; }
         public virtual DbSet<bacluong> bacluongs { get; set; }
         public virtual DbSet<dmnv> dmnvs { get; set; }
+        public virtual DbSet<bangluong> bangluongs { get; set; }
+        public virtual DbSet<chitietphieu> chitietphieux { get; set; }
+        public virtual DbSet<dmtk> dmtks { get; set; }
+        public virtual DbSet<phieuchi> phieuchis { get; set; }
+        public virtual DbSet<chitietbangcc> chitietbangccs { get; set; }
     }
 }

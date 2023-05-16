@@ -14,6 +14,14 @@ namespace KeToanTienLuong
     
     public partial class dmnv
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public dmnv()
+        {
+            this.bangluongs = new HashSet<bangluong>();
+            this.phieuchis = new HashSet<phieuchi>();
+            this.chitietbangccs = new HashSet<chitietbangcc>();
+        }
+    
         public string manv { get; set; }
         public string tenv { get; set; }
         public Nullable<System.DateTime> ngaysinh { get; set; }
@@ -32,5 +40,11 @@ namespace KeToanTienLuong
         public virtual bacluong bacluong { get; set; }
         public virtual dmbp dmbp { get; set; }
         public virtual dmcv dmcv { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<bangluong> bangluongs { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<phieuchi> phieuchis { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<chitietbangcc> chitietbangccs { get; set; }
     }
 }

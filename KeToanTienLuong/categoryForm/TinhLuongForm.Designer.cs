@@ -141,6 +141,9 @@ namespace KeToanTienLuong.categoryForm
             // 
             // panelContent
             // 
+            this.panelContent.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panelContent.Location = new System.Drawing.Point(300, 3);
             this.panelContent.Name = "panelContent";
             this.panelContent.Size = new System.Drawing.Size(968, 729);

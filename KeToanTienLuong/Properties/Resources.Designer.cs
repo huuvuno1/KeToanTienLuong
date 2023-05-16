@@ -121,6 +121,16 @@ namespace KeToanTienLuong.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] cham_cong_form {
+            get {
+                object obj = ResourceManager.GetObject("cham_cong_form", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap checkmark {
@@ -156,6 +166,16 @@ namespace KeToanTienLuong.Properties {
         internal static System.Drawing.Bitmap department {
             get {
                 object obj = ResourceManager.GetObject("department", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap download2 {
+            get {
+                object obj = ResourceManager.GetObject("download2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -346,6 +366,16 @@ namespace KeToanTienLuong.Properties {
         internal static System.Drawing.Bitmap taxes {
             get {
                 object obj = ResourceManager.GetObject("taxes", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap upload_file {
+            get {
+                object obj = ResourceManager.GetObject("upload-file", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

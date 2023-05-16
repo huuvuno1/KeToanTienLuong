@@ -23,6 +23,7 @@ namespace KeToanTienLuong.categoryForm
             Util.Util.changeBackground(btnChamCong, btnThueTNCN, btnTinhLuong);
 
             ChamCongForm f = new ChamCongForm();
+            f.Dock = DockStyle.Top;
             this.panelContent.Controls.Clear();
             this.panelContent.Controls.Add(f);
             f.Show();
