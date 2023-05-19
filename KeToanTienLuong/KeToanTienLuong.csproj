@@ -147,6 +147,9 @@
     <Compile Include="chitietphieu.cs">
       <DependentUpon>KeToan.tt</DependentUpon>
     </Compile>
+    <Compile Include="chitietsocai.cs">
+      <DependentUpon>KeToan.tt</DependentUpon>
+    </Compile>
     <Compile Include="chungtu\GiayBaoNoForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -286,6 +289,9 @@
       <DependentUpon>ChamCongForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Util\Util.cs" />
+    <Compile Include="vsocai.cs">
+      <DependentUpon>KeToan.tt</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="categoryForm\BaoCaoForm.resx">
       <DependentUpon>BaoCaoForm.cs</DependentUpon>
     </EmbeddedResource>

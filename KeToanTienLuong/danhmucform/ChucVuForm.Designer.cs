@@ -30,35 +30,36 @@ namespace KeToanTienLuong.danhmucform
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.inpMoTa = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.inpTen = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.inpMaCv = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.buttonLuu = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.buttonThem = new System.Windows.Forms.Button();
             this.dataGridView = new System.Windows.Forms.DataGridView();
-            this.ketoantienluongDataSet = new KeToanTienLuong.ketoantienluongDataSet();
-            this.dmcvBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dmcvTableAdapter = new KeToanTienLuong.ketoantienluongDataSetTableAdapters.dmcvTableAdapter();
             this.macvDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tencvDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.motaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dmcvBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.ketoantienluongDataSet = new KeToanTienLuong.ketoantienluongDataSet();
+            this.dmcvTableAdapter = new KeToanTienLuong.ketoantienluongDataSetTableAdapters.dmcvTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ketoantienluongDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dmcvBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ketoantienluongDataSet)).BeginInit();
             this.SuspendLayout();
             // 
-            // textBox3
+            // inpMoTa
             // 
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(226, 156);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(336, 27);
-            this.textBox3.TabIndex = 40;
+            this.inpMoTa.Enabled = false;
+            this.inpMoTa.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inpMoTa.Location = new System.Drawing.Point(226, 156);
+            this.inpMoTa.Name = "inpMoTa";
+            this.inpMoTa.Size = new System.Drawing.Size(336, 27);
+            this.inpMoTa.TabIndex = 40;
             // 
             // label2
             // 
@@ -70,13 +71,14 @@ namespace KeToanTienLuong.danhmucform
             this.label2.TabIndex = 39;
             this.label2.Text = "Mô tả";
             // 
-            // textBox2
+            // inpTen
             // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(226, 96);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(336, 27);
-            this.textBox2.TabIndex = 38;
+            this.inpTen.Enabled = false;
+            this.inpTen.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inpTen.Location = new System.Drawing.Point(226, 96);
+            this.inpTen.Name = "inpTen";
+            this.inpTen.Size = new System.Drawing.Size(336, 27);
+            this.inpTen.TabIndex = 38;
             // 
             // label1
             // 
@@ -88,13 +90,14 @@ namespace KeToanTienLuong.danhmucform
             this.label1.TabIndex = 37;
             this.label1.Text = "Tên chức vụ";
             // 
-            // textBox1
+            // inpMaCv
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(226, 43);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(336, 27);
-            this.textBox1.TabIndex = 36;
+            this.inpMaCv.Enabled = false;
+            this.inpMaCv.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inpMaCv.Location = new System.Drawing.Point(226, 43);
+            this.inpMaCv.Name = "inpMaCv";
+            this.inpMaCv.Size = new System.Drawing.Size(336, 27);
+            this.inpMaCv.TabIndex = 36;
             // 
             // label3
             // 
@@ -118,6 +121,7 @@ namespace KeToanTienLuong.danhmucform
             this.buttonLuu.Text = "   Lưu";
             this.buttonLuu.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonLuu.UseVisualStyleBackColor = true;
+            this.buttonLuu.Click += new System.EventHandler(this.buttonLuu_Click);
             // 
             // button3
             // 
@@ -157,6 +161,7 @@ namespace KeToanTienLuong.danhmucform
             this.buttonThem.Text = "  Thêm";
             this.buttonThem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonThem.UseVisualStyleBackColor = true;
+            this.buttonThem.Click += new System.EventHandler(this.buttonThem_Click);
             // 
             // dataGridView
             // 
@@ -176,20 +181,6 @@ namespace KeToanTienLuong.danhmucform
             this.dataGridView.RowTemplate.Height = 24;
             this.dataGridView.Size = new System.Drawing.Size(1212, 436);
             this.dataGridView.TabIndex = 46;
-            // 
-            // ketoantienluongDataSet
-            // 
-            this.ketoantienluongDataSet.DataSetName = "ketoantienluongDataSet";
-            this.ketoantienluongDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // dmcvBindingSource
-            // 
-            this.dmcvBindingSource.DataMember = "dmcv";
-            this.dmcvBindingSource.DataSource = this.ketoantienluongDataSet;
-            // 
-            // dmcvTableAdapter
-            // 
-            this.dmcvTableAdapter.ClearBeforeFill = true;
             // 
             // macvDataGridViewTextBoxColumn
             // 
@@ -212,6 +203,20 @@ namespace KeToanTienLuong.danhmucform
             this.motaDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.motaDataGridViewTextBoxColumn.Name = "motaDataGridViewTextBoxColumn";
             // 
+            // dmcvBindingSource
+            // 
+            this.dmcvBindingSource.DataMember = "dmcv";
+            this.dmcvBindingSource.DataSource = this.ketoantienluongDataSet;
+            // 
+            // ketoantienluongDataSet
+            // 
+            this.ketoantienluongDataSet.DataSetName = "ketoantienluongDataSet";
+            this.ketoantienluongDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // dmcvTableAdapter
+            // 
+            this.dmcvTableAdapter.ClearBeforeFill = true;
+            // 
             // ChucVuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -221,18 +226,18 @@ namespace KeToanTienLuong.danhmucform
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.buttonThem);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.inpMoTa);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.inpTen);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.inpMaCv);
             this.Controls.Add(this.label3);
             this.Name = "ChucVuForm";
             this.Size = new System.Drawing.Size(1215, 739);
             this.Load += new System.EventHandler(this.ChucVuForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ketoantienluongDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dmcvBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ketoantienluongDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -243,11 +248,11 @@ namespace KeToanTienLuong.danhmucform
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button buttonThem;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox inpMoTa;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox inpTen;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox inpMaCv;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView dataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn macvDataGridViewTextBoxColumn;

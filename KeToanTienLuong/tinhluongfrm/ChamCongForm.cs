@@ -161,7 +161,7 @@ namespace KeToanTienLuong.tinhluongfrm
             DataTable dataTable = (DataTable)dataGridViewChamCong.DataSource;
             foreach (DataRow row in dataTable.Rows)
             {
-                string so = DateTime.Now.ToString("HH_mm_ss_") + row[0].ToString();
+                string so = txtso.Text;
                 string manv = row[1].ToString();
                 string ngaycong = row[2].ToString();
                 string ngayphep = row[3].ToString();
@@ -206,6 +206,65 @@ namespace KeToanTienLuong.tinhluongfrm
 
             cbomabp.DataSource = db.dmbps.Select(item => item).ToList();
             cbomabp.Refresh();
+        }
+
+        private void buttonXem_Click(object sender, EventArgs e)
+        {
+            inpThang.Text = DateTime.Now.ToString("MM");
+            inpNam.Text = DateTime.Now.ToString("yyyy");
+            buttonXem.BackColor = SystemColors.ControlDark;
+            buttonThem.BackColor = System.Drawing.Color.White;
+
+            labelNam1.Visible = labelThang1.Visible = labelSo.Visible =
+                labelNgayCong.Visible = labelBoPhan.Visible = labelNoiDung.Visible =
+                txtso.Visible = txtthang.Visible = txtnam.Visible =
+                txtngaycong.Visible = cbomabp.Visible = txtnoidung.Visible = false;
+
+            labelNam.Visible = labelThang.Visible = inpThang.Visible = inpNam.Visible = buttonLookup.Visible = buttonLookup.Visible = true;
+
+            dataGridViewChamCong.Visible = false;
+            dataGridViewBangCong.Visible = true;
+
+            var db = new ketoantienluongEntities();
+            int t = int.Parse( inpThang.Text);
+            int n = int.Parse(inpNam.Text);
+            var query = from bcc in db.bangccs
+                        join ctbcc in db.chitietbangccs on bcc.so equals ctbcc.so
+                        where bcc.thang == t && bcc.nam == n
+                        select new {
+                            ctbcc
+                        };
+            dataGridViewBangCong.DataSource = query.Select(p => p.ctbcc).ToList();
+        }
+
+        private void buttonThem_Click(object sender, EventArgs e)
+        {
+            buttonXem.BackColor = System.Drawing.Color.White;
+            buttonThem.BackColor =  SystemColors.ControlDark;
+
+            dataGridViewChamCong.Visible = true;
+            dataGridViewBangCong.Visible = false;
+
+            labelNam1.Visible = labelThang1.Visible = labelSo.Visible =
+                labelNgayCong.Visible = labelBoPhan.Visible = labelNoiDung.Visible =
+                txtso.Visible = txtthang.Visible = txtnam.Visible =
+                txtngaycong.Visible = cbomabp.Visible = txtnoidung.Visible = true;
+
+            labelNam.Visible = labelThang.Visible = inpThang.Visible = inpNam.Visible = false;
+        }
+
+        private void buttonLookup_Click(object sender, EventArgs e)
+        {
+            var db = new ketoantienluongEntities();
+            int t = int.Parse(inpThang.Text);
+            int n = int.Parse(inpNam.Text);
+            var query = from bcc in db.bangccs
+                        join ctbcc in db.chitietbangccs on bcc.so equals ctbcc.so
+                        where bcc.thang == t && bcc.nam == n
+                        select new {
+                            ctbcc
+                        };
+            dataGridViewBangCong.DataSource = query.Select(p => p.ctbcc).ToList();
         }
     }
 }

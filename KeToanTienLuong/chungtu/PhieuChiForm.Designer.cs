@@ -29,7 +29,7 @@ namespace KeToanTienLuong.chungtu
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tien = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.noidung = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.coltkco = new System.Windows.Forms.DataGridViewComboBoxColumn();
@@ -45,7 +45,6 @@ namespace KeToanTienLuong.chungtu
             this.dtngay = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.txtctlq = new System.Windows.Forms.TextBox();
-            this.btnthemdmkh = new System.Windows.Forms.Button();
             this.pnDoiTuong = new System.Windows.Forms.Panel();
             this.buttonLuu = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -56,10 +55,10 @@ namespace KeToanTienLuong.chungtu
             // tien
             // 
             this.tien.DataPropertyName = "tien";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
-            dataGridViewCellStyle3.Format = "N0";
-            dataGridViewCellStyle3.NullValue = "0";
-            this.tien.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
+            dataGridViewCellStyle1.Format = "N0";
+            dataGridViewCellStyle1.NullValue = "0";
+            this.tien.DefaultCellStyle = dataGridViewCellStyle1;
             this.tien.HeaderText = "Thành tiền";
             this.tien.MinimumWidth = 6;
             this.tien.Name = "tien";
@@ -179,7 +178,7 @@ namespace KeToanTienLuong.chungtu
             // 
             // dtngay
             // 
-            this.dtngay.CustomFormat = "dd/MM/yy";
+            this.dtngay.CustomFormat = "dd/MM/yyyy";
             this.dtngay.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtngay.Location = new System.Drawing.Point(893, 98);
             this.dtngay.Margin = new System.Windows.Forms.Padding(4);
@@ -207,23 +206,10 @@ namespace KeToanTienLuong.chungtu
             this.txtctlq.Size = new System.Drawing.Size(244, 28);
             this.txtctlq.TabIndex = 5;
             // 
-            // btnthemdmkh
-            // 
-            this.btnthemdmkh.BackColor = System.Drawing.Color.White;
-            this.btnthemdmkh.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnthemdmkh.Location = new System.Drawing.Point(451, 156);
-            this.btnthemdmkh.Margin = new System.Windows.Forms.Padding(4);
-            this.btnthemdmkh.Name = "btnthemdmkh";
-            this.btnthemdmkh.Size = new System.Drawing.Size(41, 31);
-            this.btnthemdmkh.TabIndex = 3;
-            this.btnthemdmkh.Text = "+";
-            this.btnthemdmkh.UseVisualStyleBackColor = false;
-            // 
             // pnDoiTuong
             // 
             this.pnDoiTuong.BackColor = System.Drawing.Color.Transparent;
             this.pnDoiTuong.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pnDoiTuong.Controls.Add(this.btnthemdmkh);
             this.pnDoiTuong.Controls.Add(this.txtctlq);
             this.pnDoiTuong.Controls.Add(this.label2);
             this.pnDoiTuong.Controls.Add(this.dtngay);
@@ -253,6 +239,7 @@ namespace KeToanTienLuong.chungtu
             this.buttonLuu.Text = "   Lưu";
             this.buttonLuu.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonLuu.UseVisualStyleBackColor = true;
+            this.buttonLuu.Click += new System.EventHandler(this.buttonLuu_Click);
             // 
             // button3
             // 
@@ -300,7 +287,6 @@ namespace KeToanTienLuong.chungtu
         private System.Windows.Forms.DateTimePicker dtngay;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtctlq;
-        private System.Windows.Forms.Button btnthemdmkh;
         private System.Windows.Forms.Panel pnDoiTuong;
         private System.Windows.Forms.Button buttonLuu;
         private System.Windows.Forms.Button button3;

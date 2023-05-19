@@ -14,7 +14,6 @@ namespace KeToanTienLuong
     
     public partial class bangluong
     {
-        public string so { get; set; }
         public Nullable<int> thang { get; set; }
         public Nullable<int> nam { get; set; }
         public Nullable<int> Ngaycong { get; set; }
@@ -43,6 +42,10 @@ namespace KeToanTienLuong
         public Nullable<decimal> giamtruphuthuoc { get; set; }
         public Nullable<decimal> giamtrucanhan { get; set; }
         public Nullable<decimal> tonggiamtru { get; set; }
+        public Nullable<double> ngaykhongphep { get; set; }
+        public Nullable<double> tienbhyt { get; set; }
+        public Nullable<double> tienbhtn { get; set; }
+        public int so { get; set; }
     
         public virtual dmnv dmnv { get; set; }
     }

@@ -28,15 +28,17 @@ namespace KeToanTienLuong
         public virtual DbSet<bangcc> bangccs { get; set; }
         public virtual DbSet<dmbp> dmbps { get; set; }
         public virtual DbSet<dmcv> dmcvs { get; set; }
-        public virtual DbSet<nguoidung> nguoidungs { get; set; }
         public virtual DbSet<thamsoluong> thamsoluongs { get; set; }
         public virtual DbSet<thamsothuetncn> thamsothuetncns { get; set; }
         public virtual DbSet<bacluong> bacluongs { get; set; }
         public virtual DbSet<dmnv> dmnvs { get; set; }
-        public virtual DbSet<bangluong> bangluongs { get; set; }
         public virtual DbSet<chitietphieu> chitietphieux { get; set; }
         public virtual DbSet<dmtk> dmtks { get; set; }
         public virtual DbSet<phieuchi> phieuchis { get; set; }
+        public virtual DbSet<chitietsocai> chitietsocais { get; set; }
+        public virtual DbSet<vsocai> vsocais { get; set; }
         public virtual DbSet<chitietbangcc> chitietbangccs { get; set; }
+        public virtual DbSet<nguoidung> nguoidungs { get; set; }
+        public virtual DbSet<bangluong> bangluongs { get; set; }
     }
 }

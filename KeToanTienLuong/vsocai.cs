@@ -12,17 +12,13 @@ namespace KeToanTienLuong
     using System;
     using System.Collections.Generic;
     
-    public partial class chitietbangcc
+    public partial class vsocai
     {
-        public string so { get; set; }
-        public string manv { get; set; }
-        public Nullable<double> ngaycong { get; set; }
-        public Nullable<double> ngayphep { get; set; }
-        public Nullable<double> ngaykhongphep { get; set; }
-        public Nullable<double> tienphucap { get; set; }
-        public Nullable<double> tienthuong { get; set; }
-        public int id { get; set; }
-    
-        public virtual dmnv dmnv { get; set; }
+        public Nullable<System.DateTime> ngaybatdau { get; set; }
+        public Nullable<System.DateTime> ngayketthuc { get; set; }
+        public string matk { get; set; }
+        public Nullable<System.DateTime> thoigian { get; set; }
+        public string tentk { get; set; }
+        public string tkno { get; set; }
     }
 }

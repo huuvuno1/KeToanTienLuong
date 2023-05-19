@@ -28,7 +28,6 @@
           <Key>
             <PropertyRef Name="so" />
           </Key>
-          <Property Name="so" Type="nchar" MaxLength="10" Nullable="false" />
           <Property Name="thang" Type="int" />
           <Property Name="nam" Type="int" />
           <Property Name="Ngaycong" Type="int" />
@@ -57,10 +56,14 @@
           <Property Name="giamtruphuthuoc" Type="numeric" Precision="18" Scale="0" />
           <Property Name="giamtrucanhan" Type="numeric" Precision="18" Scale="0" />
           <Property Name="tonggiamtru" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="ngaykhongphep" Type="float" />
+          <Property Name="tienbhyt" Type="float" />
+          <Property Name="tienbhtn" Type="float" />
+          <Property Name="so" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
         </EntityType>
         <EntityType Name="chitietbangcc">
           <Key>
-            <PropertyRef Name="so" />
+            <PropertyRef Name="id" />
           </Key>
           <Property Name="so" Type="nchar" MaxLength="10" Nullable="false" />
           <Property Name="manv" Type="nchar" MaxLength="10" Nullable="false" />
@@ -69,6 +72,7 @@
           <Property Name="ngaykhongphep" Type="float" />
           <Property Name="tienphucap" Type="float" />
           <Property Name="tienthuong" Type="float" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
         </EntityType>
         <EntityType Name="chitietphieu">
           <Key>
@@ -79,6 +83,17 @@
           <Property Name="tkco" Type="nchar" MaxLength="10" />
           <Property Name="noidung" Type="nvarchar" MaxLength="250" />
           <Property Name="tien" Type="float" />
+        </EntityType>
+        <EntityType Name="chitietsocai">
+          <Key>
+            <PropertyRef Name="so" />
+          </Key>
+          <Property Name="so" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="ngay" Type="smalldatetime" />
+          <Property Name="lydo" Type="nvarchar" MaxLength="250" />
+          <Property Name="tkdu" Type="nvarchar" MaxLength="250" />
+          <Property Name="tienno" Type="float" />
+          <Property Name="tienco" Type="float" />
         </EntityType>
         <EntityType Name="dmbp">
           <Key>
@@ -129,7 +144,7 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="tendangnhap" Type="varchar" MaxLength="50" />
           <Property Name="tennguoidung" Type="nvarchar" MaxLength="50" />
           <Property Name="matkhau" Type="varchar" MaxLength="100" />
@@ -163,6 +178,17 @@
           <Property Name="tienden" Type="float" />
           <Property Name="tyle" Type="float" />
           <Property Name="muc" Type="int" />
+        </EntityType>
+        <EntityType Name="vsocai">
+          <Key>
+            <PropertyRef Name="matk" />
+          </Key>
+          <Property Name="ngaybatdau" Type="smalldatetime" />
+          <Property Name="ngayketthuc" Type="smalldatetime" />
+          <Property Name="matk" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="thoigian" Type="smalldatetime" />
+          <Property Name="tentk" Type="nvarchar" MaxLength="250" />
+          <Property Name="tkno" Type="nchar" MaxLength="10" />
         </EntityType>
         <Association Name="FK__bangcc__mabp__3D5E1FD2">
           <End Role="dmbp" Type="Self.dmbp" Multiplicity="0..1" />
@@ -254,6 +280,7 @@
           <EntitySet Name="bangluong" EntityType="Self.bangluong" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="chitietbangcc" EntityType="Self.chitietbangcc" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="chitietphieu" EntityType="Self.chitietphieu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="chitietsocai" EntityType="Self.chitietsocai" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="dmbp" EntityType="Self.dmbp" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="dmcv" EntityType="Self.dmcv" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="dmnv" EntityType="Self.dmnv" Schema="dbo" store:Type="Tables" />
@@ -262,6 +289,7 @@
           <EntitySet Name="phieuchi" EntityType="Self.phieuchi" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="thamsoluong" EntityType="Self.thamsoluong" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="thamsothuetncn" EntityType="Self.thamsothuetncn" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="vsocai" EntityType="Self.vsocai" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK__bangcc__mabp__3D5E1FD2" Association="Self.FK__bangcc__mabp__3D5E1FD2">
             <End Role="dmbp" EntitySet="dmbp" />
             <End Role="bangcc" EntitySet="bangcc" />
@@ -327,16 +355,6 @@
           <Property Name="mota" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="dmnvs" Relationship="ketoantienluongModel.FK__dmnv__macv__47DBAE45" FromRole="dmcv" ToRole="dmnv" />
         </EntityType>
-        <EntityType Name="nguoidung">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
-          <Property Name="tendangnhap" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="tennguoidung" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="matkhau" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="quyen" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-        </EntityType>
         <EntityType Name="thamsoluong">
           <Key>
             <PropertyRef Name="mats" />
@@ -372,7 +390,6 @@
           <EntitySet Name="bangccs" EntityType="Self.bangcc" />
           <EntitySet Name="dmbps" EntityType="Self.dmbp" />
           <EntitySet Name="dmcvs" EntityType="Self.dmcv" />
-          <EntitySet Name="nguoidungs" EntityType="Self.nguoidung" />
           <EntitySet Name="thamsoluongs" EntityType="Self.thamsoluong" />
           <EntitySet Name="thamsothuetncns" EntityType="Self.thamsothuetncn" />
           <AssociationSet Name="FK__bangcc__mabp__3D5E1FD2" Association="Self.FK__bangcc__mabp__3D5E1FD2">
@@ -393,22 +410,25 @@
             <End Role="dmcv" EntitySet="dmcvs" />
             <End Role="dmnv" EntitySet="dmnvs" />
           </AssociationSet>
-          <EntitySet Name="bangluongs" EntityType="ketoantienluongModel.bangluong" />
           <EntitySet Name="chitietphieux" EntityType="ketoantienluongModel.chitietphieu" />
           <EntitySet Name="dmtks" EntityType="ketoantienluongModel.dmtk" />
           <EntitySet Name="phieuchis" EntityType="ketoantienluongModel.phieuchi" />
-          <AssociationSet Name="FK__bangluong__manv__6383C8BA" Association="ketoantienluongModel.FK__bangluong__manv__6383C8BA">
-            <End Role="dmnv" EntitySet="dmnvs" />
-            <End Role="bangluong" EntitySet="bangluongs" />
-          </AssociationSet>
           <AssociationSet Name="FK__phieuchi__manv__66603565" Association="ketoantienluongModel.FK__phieuchi__manv__66603565">
             <End Role="dmnv" EntitySet="dmnvs" />
             <End Role="phieuchi" EntitySet="phieuchis" />
           </AssociationSet>
+          <EntitySet Name="chitietsocais" EntityType="ketoantienluongModel.chitietsocai" />
+          <EntitySet Name="vsocais" EntityType="ketoantienluongModel.vsocai" />
           <EntitySet Name="chitietbangccs" EntityType="ketoantienluongModel.chitietbangcc" />
           <AssociationSet Name="FK__chitietban__manv__6D0D32F4" Association="ketoantienluongModel.FK__chitietban__manv__6D0D32F4">
             <End Role="dmnv" EntitySet="dmnvs" />
             <End Role="chitietbangcc" EntitySet="chitietbangccs" />
+          </AssociationSet>
+          <EntitySet Name="nguoidungs" EntityType="ketoantienluongModel.nguoidung" />
+          <EntitySet Name="bangluongs" EntityType="ketoantienluongModel.bangluong" />
+          <AssociationSet Name="FK__bangluong__manv__6383C8BA" Association="ketoantienluongModel.FK__bangluong__manv__6383C8BA">
+            <End Role="dmnv" EntitySet="dmnvs" />
+            <End Role="bangluong" EntitySet="bangluongs" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="bacluong">
@@ -441,9 +461,9 @@
           <NavigationProperty Name="bacluong" Relationship="ketoantienluongModel.FK__dmnv__mabl__49C3F6B7" FromRole="dmnv" ToRole="bacluong" />
           <NavigationProperty Name="dmbp" Relationship="ketoantienluongModel.FK__dmnv__mabp__48CFD27E" FromRole="dmnv" ToRole="dmbp" />
           <NavigationProperty Name="dmcv" Relationship="ketoantienluongModel.FK__dmnv__macv__47DBAE45" FromRole="dmnv" ToRole="dmcv" />
-          <NavigationProperty Name="bangluongs" Relationship="ketoantienluongModel.FK__bangluong__manv__6383C8BA" FromRole="dmnv" ToRole="bangluong" />
           <NavigationProperty Name="phieuchis" Relationship="ketoantienluongModel.FK__phieuchi__manv__66603565" FromRole="dmnv" ToRole="phieuchi" />
           <NavigationProperty Name="chitietbangccs" Relationship="ketoantienluongModel.FK__chitietban__manv__6D0D32F4" FromRole="dmnv" ToRole="chitietbangcc" />
+          <NavigationProperty Name="bangluongs" Relationship="ketoantienluongModel.FK__bangluong__manv__6383C8BA" FromRole="dmnv" ToRole="bangluong" />
         </EntityType>
         <Association Name="FK__dmnv__mabl__49C3F6B7">
           <End Type="ketoantienluongModel.bacluong" Role="bacluong" Multiplicity="0..1" />
@@ -481,41 +501,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="bangluong">
-          <Key>
-            <PropertyRef Name="so" />
-          </Key>
-          <Property Name="so" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="thang" Type="Int32" />
-          <Property Name="nam" Type="Int32" />
-          <Property Name="Ngaycong" Type="Int32" />
-          <Property Name="noidung" Type="String" MaxLength="250" FixedLength="true" Unicode="true" />
-          <Property Name="manv" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="tenv" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="masothue" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
-          <Property Name="songuoiphuthuoc" Type="Int32" />
-          <Property Name="Mabp" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="ngaycongthucte" Type="Int32" />
-          <Property Name="ngayphep" Type="Int32" />
-          <Property Name="tienphucap" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="tienthuong" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="mabl" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="tienluongcoban" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="bhxh" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="bhyt" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="bhtn" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="tientamung" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="tienluong" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="tienbhxh" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="tientruocthue" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="tienthue" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="tongbaohiem" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="tienthuclinh" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="giamtruphuthuoc" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="giamtrucanhan" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="tonggiamtru" Type="Decimal" Precision="18" Scale="0" />
-          <NavigationProperty Name="dmnv" Relationship="ketoantienluongModel.FK__bangluong__manv__6383C8BA" FromRole="bangluong" ToRole="dmnv" />
-        </EntityType>
         <EntityType Name="chitietphieu">
           <Key>
             <PropertyRef Name="so" />
@@ -546,18 +531,6 @@
           <Property Name="ctlq" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="dmnv" Relationship="ketoantienluongModel.FK__phieuchi__manv__66603565" FromRole="phieuchi" ToRole="dmnv" />
         </EntityType>
-        <Association Name="FK__bangluong__manv__6383C8BA">
-          <End Type="ketoantienluongModel.dmnv" Role="dmnv" Multiplicity="1" />
-          <End Type="ketoantienluongModel.bangluong" Role="bangluong" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="dmnv">
-              <PropertyRef Name="manv" />
-            </Principal>
-            <Dependent Role="bangluong">
-              <PropertyRef Name="manv" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__phieuchi__manv__66603565">
           <End Type="ketoantienluongModel.dmnv" Role="dmnv" Multiplicity="1" />
           <End Type="ketoantienluongModel.phieuchi" Role="phieuchi" Multiplicity="*" />
@@ -570,9 +543,31 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="chitietbangcc">
+        <EntityType Name="chitietsocai">
           <Key>
             <PropertyRef Name="so" />
+          </Key>
+          <Property Name="so" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="ngay" Type="DateTime" Precision="0" />
+          <Property Name="lydo" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="tkdu" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="tienno" Type="Double" />
+          <Property Name="tienco" Type="Double" />
+        </EntityType>
+        <EntityType Name="vsocai">
+          <Key>
+            <PropertyRef Name="matk" />
+          </Key>
+          <Property Name="ngaybatdau" Type="DateTime" Precision="0" />
+          <Property Name="ngayketthuc" Type="DateTime" Precision="0" />
+          <Property Name="matk" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="thoigian" Type="DateTime" Precision="0" />
+          <Property Name="tentk" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="tkno" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="chitietbangcc">
+          <Key>
+            <PropertyRef Name="id" />
           </Key>
           <Property Name="so" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="manv" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
@@ -581,6 +576,7 @@
           <Property Name="ngaykhongphep" Type="Double" />
           <Property Name="tienphucap" Type="Double" />
           <Property Name="tienthuong" Type="Double" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <NavigationProperty Name="dmnv" Relationship="ketoantienluongModel.FK__chitietban__manv__6D0D32F4" FromRole="chitietbangcc" ToRole="dmnv" />
         </EntityType>
         <Association Name="FK__chitietban__manv__6D0D32F4">
@@ -591,6 +587,66 @@
               <PropertyRef Name="manv" />
             </Principal>
             <Dependent Role="chitietbangcc">
+              <PropertyRef Name="manv" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="nguoidung">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tendangnhap" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="tennguoidung" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="matkhau" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="quyen" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="bangluong">
+          <Key>
+            <PropertyRef Name="so" />
+          </Key>
+          <Property Name="thang" Type="Int32" />
+          <Property Name="nam" Type="Int32" />
+          <Property Name="Ngaycong" Type="Int32" />
+          <Property Name="noidung" Type="String" MaxLength="250" FixedLength="true" Unicode="true" />
+          <Property Name="manv" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="tenv" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="masothue" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="songuoiphuthuoc" Type="Int32" />
+          <Property Name="Mabp" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="ngaycongthucte" Type="Int32" />
+          <Property Name="ngayphep" Type="Int32" />
+          <Property Name="tienphucap" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="tienthuong" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="mabl" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="tienluongcoban" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="bhxh" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="bhyt" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="bhtn" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="tientamung" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="tienluong" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="tienbhxh" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="tientruocthue" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="tienthue" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="tongbaohiem" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="tienthuclinh" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="giamtruphuthuoc" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="giamtrucanhan" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="tonggiamtru" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="ngaykhongphep" Type="Double" />
+          <Property Name="tienbhyt" Type="Double" />
+          <Property Name="tienbhtn" Type="Double" />
+          <Property Name="so" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="dmnv" Relationship="ketoantienluongModel.FK__bangluong__manv__6383C8BA" FromRole="bangluong" ToRole="dmnv" />
+        </EntityType>
+        <Association Name="FK__bangluong__manv__6383C8BA">
+          <End Type="ketoantienluongModel.dmnv" Role="dmnv" Multiplicity="1" />
+          <End Type="ketoantienluongModel.bangluong" Role="bangluong" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dmnv">
+              <PropertyRef Name="manv" />
+            </Principal>
+            <Dependent Role="bangluong">
               <PropertyRef Name="manv" />
             </Dependent>
           </ReferentialConstraint>
@@ -629,17 +685,6 @@
                 <ScalarProperty Name="macv" ColumnName="macv" />
                 <ScalarProperty Name="tencv" ColumnName="tencv" />
                 <ScalarProperty Name="mota" ColumnName="mota" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="nguoidungs">
-            <EntityTypeMapping TypeName="ketoantienluongModel.nguoidung">
-              <MappingFragment StoreEntitySet="nguoidung">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="tendangnhap" ColumnName="tendangnhap" />
-                <ScalarProperty Name="tennguoidung" ColumnName="tennguoidung" />
-                <ScalarProperty Name="matkhau" ColumnName="matkhau" />
-                <ScalarProperty Name="quyen" ColumnName="quyen" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -693,41 +738,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="bangluongs">
-            <EntityTypeMapping TypeName="ketoantienluongModel.bangluong">
-              <MappingFragment StoreEntitySet="bangluong">
-                <ScalarProperty Name="tonggiamtru" ColumnName="tonggiamtru" />
-                <ScalarProperty Name="giamtrucanhan" ColumnName="giamtrucanhan" />
-                <ScalarProperty Name="giamtruphuthuoc" ColumnName="giamtruphuthuoc" />
-                <ScalarProperty Name="tienthuclinh" ColumnName="tienthuclinh" />
-                <ScalarProperty Name="tongbaohiem" ColumnName="tongbaohiem" />
-                <ScalarProperty Name="tienthue" ColumnName="tienthue" />
-                <ScalarProperty Name="tientruocthue" ColumnName="tientruocthue" />
-                <ScalarProperty Name="tienbhxh" ColumnName="tienbhxh" />
-                <ScalarProperty Name="tienluong" ColumnName="tienluong" />
-                <ScalarProperty Name="tientamung" ColumnName="tientamung" />
-                <ScalarProperty Name="bhtn" ColumnName="bhtn" />
-                <ScalarProperty Name="bhyt" ColumnName="bhyt" />
-                <ScalarProperty Name="bhxh" ColumnName="bhxh" />
-                <ScalarProperty Name="tienluongcoban" ColumnName="tienluongcoban" />
-                <ScalarProperty Name="mabl" ColumnName="mabl" />
-                <ScalarProperty Name="tienthuong" ColumnName="tienthuong" />
-                <ScalarProperty Name="tienphucap" ColumnName="tienphucap" />
-                <ScalarProperty Name="ngayphep" ColumnName="ngayphep" />
-                <ScalarProperty Name="ngaycongthucte" ColumnName="ngaycongthucte" />
-                <ScalarProperty Name="Mabp" ColumnName="Mabp" />
-                <ScalarProperty Name="songuoiphuthuoc" ColumnName="songuoiphuthuoc" />
-                <ScalarProperty Name="masothue" ColumnName="masothue" />
-                <ScalarProperty Name="tenv" ColumnName="tenv" />
-                <ScalarProperty Name="manv" ColumnName="manv" />
-                <ScalarProperty Name="noidung" ColumnName="noidung" />
-                <ScalarProperty Name="Ngaycong" ColumnName="Ngaycong" />
-                <ScalarProperty Name="nam" ColumnName="nam" />
-                <ScalarProperty Name="thang" ColumnName="thang" />
-                <ScalarProperty Name="so" ColumnName="so" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="chitietphieux">
             <EntityTypeMapping TypeName="ketoantienluongModel.chitietphieu">
               <MappingFragment StoreEntitySet="chitietphieu">
@@ -760,9 +770,34 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="chitietsocais">
+            <EntityTypeMapping TypeName="ketoantienluongModel.chitietsocai">
+              <MappingFragment StoreEntitySet="chitietsocai">
+                <ScalarProperty Name="tienco" ColumnName="tienco" />
+                <ScalarProperty Name="tienno" ColumnName="tienno" />
+                <ScalarProperty Name="tkdu" ColumnName="tkdu" />
+                <ScalarProperty Name="lydo" ColumnName="lydo" />
+                <ScalarProperty Name="ngay" ColumnName="ngay" />
+                <ScalarProperty Name="so" ColumnName="so" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vsocais">
+            <EntityTypeMapping TypeName="ketoantienluongModel.vsocai">
+              <MappingFragment StoreEntitySet="vsocai">
+                <ScalarProperty Name="tkno" ColumnName="tkno" />
+                <ScalarProperty Name="tentk" ColumnName="tentk" />
+                <ScalarProperty Name="thoigian" ColumnName="thoigian" />
+                <ScalarProperty Name="matk" ColumnName="matk" />
+                <ScalarProperty Name="ngayketthuc" ColumnName="ngayketthuc" />
+                <ScalarProperty Name="ngaybatdau" ColumnName="ngaybatdau" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="chitietbangccs">
             <EntityTypeMapping TypeName="ketoantienluongModel.chitietbangcc">
               <MappingFragment StoreEntitySet="chitietbangcc">
+                <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="tienthuong" ColumnName="tienthuong" />
                 <ScalarProperty Name="tienphucap" ColumnName="tienphucap" />
                 <ScalarProperty Name="ngaykhongphep" ColumnName="ngaykhongphep" />
@@ -770,6 +805,55 @@
                 <ScalarProperty Name="ngaycong" ColumnName="ngaycong" />
                 <ScalarProperty Name="manv" ColumnName="manv" />
                 <ScalarProperty Name="so" ColumnName="so" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="nguoidungs">
+            <EntityTypeMapping TypeName="ketoantienluongModel.nguoidung">
+              <MappingFragment StoreEntitySet="nguoidung">
+                <ScalarProperty Name="quyen" ColumnName="quyen" />
+                <ScalarProperty Name="matkhau" ColumnName="matkhau" />
+                <ScalarProperty Name="tennguoidung" ColumnName="tennguoidung" />
+                <ScalarProperty Name="tendangnhap" ColumnName="tendangnhap" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="bangluongs">
+            <EntityTypeMapping TypeName="ketoantienluongModel.bangluong">
+              <MappingFragment StoreEntitySet="bangluong">
+                <ScalarProperty Name="so" ColumnName="so" />
+                <ScalarProperty Name="tienbhtn" ColumnName="tienbhtn" />
+                <ScalarProperty Name="tienbhyt" ColumnName="tienbhyt" />
+                <ScalarProperty Name="ngaykhongphep" ColumnName="ngaykhongphep" />
+                <ScalarProperty Name="tonggiamtru" ColumnName="tonggiamtru" />
+                <ScalarProperty Name="giamtrucanhan" ColumnName="giamtrucanhan" />
+                <ScalarProperty Name="giamtruphuthuoc" ColumnName="giamtruphuthuoc" />
+                <ScalarProperty Name="tienthuclinh" ColumnName="tienthuclinh" />
+                <ScalarProperty Name="tongbaohiem" ColumnName="tongbaohiem" />
+                <ScalarProperty Name="tienthue" ColumnName="tienthue" />
+                <ScalarProperty Name="tientruocthue" ColumnName="tientruocthue" />
+                <ScalarProperty Name="tienbhxh" ColumnName="tienbhxh" />
+                <ScalarProperty Name="tienluong" ColumnName="tienluong" />
+                <ScalarProperty Name="tientamung" ColumnName="tientamung" />
+                <ScalarProperty Name="bhtn" ColumnName="bhtn" />
+                <ScalarProperty Name="bhyt" ColumnName="bhyt" />
+                <ScalarProperty Name="bhxh" ColumnName="bhxh" />
+                <ScalarProperty Name="tienluongcoban" ColumnName="tienluongcoban" />
+                <ScalarProperty Name="mabl" ColumnName="mabl" />
+                <ScalarProperty Name="tienthuong" ColumnName="tienthuong" />
+                <ScalarProperty Name="tienphucap" ColumnName="tienphucap" />
+                <ScalarProperty Name="ngayphep" ColumnName="ngayphep" />
+                <ScalarProperty Name="ngaycongthucte" ColumnName="ngaycongthucte" />
+                <ScalarProperty Name="Mabp" ColumnName="Mabp" />
+                <ScalarProperty Name="songuoiphuthuoc" ColumnName="songuoiphuthuoc" />
+                <ScalarProperty Name="masothue" ColumnName="masothue" />
+                <ScalarProperty Name="tenv" ColumnName="tenv" />
+                <ScalarProperty Name="manv" ColumnName="manv" />
+                <ScalarProperty Name="noidung" ColumnName="noidung" />
+                <ScalarProperty Name="Ngaycong" ColumnName="Ngaycong" />
+                <ScalarProperty Name="nam" ColumnName="nam" />
+                <ScalarProperty Name="thang" ColumnName="thang" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -65,6 +65,7 @@ namespace KeToanTienLuong.hethongform
             // 
             // inpTenDangNhap
             // 
+            this.inpTenDangNhap.Enabled = false;
             this.inpTenDangNhap.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.inpTenDangNhap.Location = new System.Drawing.Point(227, 76);
             this.inpTenDangNhap.Name = "inpTenDangNhap";
@@ -83,6 +84,7 @@ namespace KeToanTienLuong.hethongform
             // 
             // inpTenNguoiDung
             // 
+            this.inpTenNguoiDung.Enabled = false;
             this.inpTenNguoiDung.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.inpTenNguoiDung.Location = new System.Drawing.Point(227, 129);
             this.inpTenNguoiDung.Name = "inpTenNguoiDung";
@@ -101,6 +103,7 @@ namespace KeToanTienLuong.hethongform
             // 
             // inpMatKhau
             // 
+            this.inpMatKhau.Enabled = false;
             this.inpMatKhau.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.inpMatKhau.Location = new System.Drawing.Point(227, 189);
             this.inpMatKhau.Name = "inpMatKhau";
@@ -129,11 +132,13 @@ namespace KeToanTienLuong.hethongform
             // 
             // comboQuyenHeThong
             // 
+            this.comboQuyenHeThong.Enabled = false;
             this.comboQuyenHeThong.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboQuyenHeThong.FormattingEnabled = true;
             this.comboQuyenHeThong.Items.AddRange(new object[] {
             "Admin",
-            "Kế toán"});
+            "Kế toán",
+            "Kế toán trưởng"});
             this.comboQuyenHeThong.Location = new System.Drawing.Point(227, 246);
             this.comboQuyenHeThong.Name = "comboQuyenHeThong";
             this.comboQuyenHeThong.Size = new System.Drawing.Size(336, 28);
@@ -191,6 +196,7 @@ namespace KeToanTienLuong.hethongform
             this.buttonThem.Text = "  Thêm";
             this.buttonThem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonThem.UseVisualStyleBackColor = true;
+            this.buttonThem.Click += new System.EventHandler(this.buttonThem_Click);
             // 
             // dataGridViewNguoiDung
             // 
@@ -217,31 +223,43 @@ namespace KeToanTienLuong.hethongform
             // 
             // idDataGridViewTextBoxColumn
             // 
+            this.idDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
+            this.idDataGridViewTextBoxColumn.Frozen = true;
             this.idDataGridViewTextBoxColumn.HeaderText = "id";
             this.idDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.Width = 227;
             // 
             // tendangnhapDataGridViewTextBoxColumn
             // 
+            this.tendangnhapDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.tendangnhapDataGridViewTextBoxColumn.DataPropertyName = "tendangnhap";
+            this.tendangnhapDataGridViewTextBoxColumn.Frozen = true;
             this.tendangnhapDataGridViewTextBoxColumn.HeaderText = "Tên đăng nhập";
             this.tendangnhapDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.tendangnhapDataGridViewTextBoxColumn.Name = "tendangnhapDataGridViewTextBoxColumn";
+            this.tendangnhapDataGridViewTextBoxColumn.Width = 227;
             // 
             // tennguoidungDataGridViewTextBoxColumn
             // 
+            this.tennguoidungDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.tennguoidungDataGridViewTextBoxColumn.DataPropertyName = "tennguoidung";
+            this.tennguoidungDataGridViewTextBoxColumn.Frozen = true;
             this.tennguoidungDataGridViewTextBoxColumn.HeaderText = "Tên người dùng";
             this.tennguoidungDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.tennguoidungDataGridViewTextBoxColumn.Name = "tennguoidungDataGridViewTextBoxColumn";
+            this.tennguoidungDataGridViewTextBoxColumn.Width = 228;
             // 
             // matkhauDataGridViewTextBoxColumn
             // 
+            this.matkhauDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.matkhauDataGridViewTextBoxColumn.DataPropertyName = "matkhau";
+            this.matkhauDataGridViewTextBoxColumn.Frozen = true;
             this.matkhauDataGridViewTextBoxColumn.HeaderText = "Mật khẩu";
             this.matkhauDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.matkhauDataGridViewTextBoxColumn.Name = "matkhauDataGridViewTextBoxColumn";
+            this.matkhauDataGridViewTextBoxColumn.Width = 227;
             // 
             // quyenDataGridViewTextBoxColumn
             // 

@@ -16,5 +16,10 @@ namespace KeToanTienLuong.chungtu
         {
             InitializeComponent();
         }
+
+        private void buttonLuu_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

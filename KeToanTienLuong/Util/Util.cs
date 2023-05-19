@@ -11,6 +11,7 @@ namespace KeToanTienLuong.Util
 {
     class Util
     {
+        public static nguoidung user_login = null;
         public static string getConnectionString()
         {
             string strcon = ConfigurationManager.ConnectionStrings["WebLaptopConnection"].ConnectionString;

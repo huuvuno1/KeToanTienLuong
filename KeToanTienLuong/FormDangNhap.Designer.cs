@@ -31,11 +31,13 @@ namespace KeToanTienLuong
         {
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.inpUsername = new System.Windows.Forms.TextBox();
+            this.inpMatKhau = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.checkboxSavePass = new DevExpress.XtraEditors.CheckEdit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkboxSavePass.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -58,21 +60,23 @@ namespace KeToanTienLuong
             this.label3.TabIndex = 3;
             this.label3.Text = "Tên đăng nhập";
             // 
-            // textBox1
+            // inpUsername
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(232, 112);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(336, 27);
-            this.textBox1.TabIndex = 4;
+            this.inpUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inpUsername.Location = new System.Drawing.Point(232, 112);
+            this.inpUsername.Name = "inpUsername";
+            this.inpUsername.Size = new System.Drawing.Size(336, 27);
+            this.inpUsername.TabIndex = 4;
             // 
-            // textBox2
+            // inpMatKhau
             // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(232, 159);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(336, 27);
-            this.textBox2.TabIndex = 6;
+            this.inpMatKhau.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inpMatKhau.Location = new System.Drawing.Point(232, 159);
+            this.inpMatKhau.Name = "inpMatKhau";
+            this.inpMatKhau.PasswordChar = '•';
+            this.inpMatKhau.Size = new System.Drawing.Size(336, 27);
+            this.inpMatKhau.TabIndex = 6;
+            this.inpMatKhau.UseSystemPasswordChar = true;
             // 
             // label1
             // 
@@ -89,7 +93,7 @@ namespace KeToanTienLuong
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.Image = global::KeToanTienLuong.Properties.Resources.power;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(321, 218);
+            this.button2.Location = new System.Drawing.Point(320, 247);
             this.button2.Name = "button2";
             this.button2.Padding = new System.Windows.Forms.Padding(20, 5, 0, 5);
             this.button2.Size = new System.Drawing.Size(201, 55);
@@ -104,7 +108,7 @@ namespace KeToanTienLuong
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Image = global::KeToanTienLuong.Properties.Resources.accountant;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(84, 218);
+            this.button1.Location = new System.Drawing.Point(83, 247);
             this.button1.Name = "button1";
             this.button1.Padding = new System.Windows.Forms.Padding(20, 5, 0, 5);
             this.button1.Size = new System.Drawing.Size(213, 55);
@@ -114,17 +118,26 @@ namespace KeToanTienLuong
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // checkboxSavePass
+            // 
+            this.checkboxSavePass.Location = new System.Drawing.Point(232, 208);
+            this.checkboxSavePass.Name = "checkboxSavePass";
+            this.checkboxSavePass.Properties.Caption = "Lưu mật khẩu";
+            this.checkboxSavePass.Size = new System.Drawing.Size(145, 24);
+            this.checkboxSavePass.TabIndex = 9;
+            // 
             // FormDangNhap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(607, 357);
             this.ControlBox = false;
+            this.Controls.Add(this.checkboxSavePass);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.inpMatKhau);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.inpUsername);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Name = "FormDangNhap";
@@ -133,6 +146,7 @@ namespace KeToanTienLuong
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.FormDangNhap_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.checkboxSavePass.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -142,10 +156,11 @@ namespace KeToanTienLuong
 
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox inpUsername;
+        private System.Windows.Forms.TextBox inpMatKhau;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private DevExpress.XtraEditors.CheckEdit checkboxSavePass;
     }
 }
