@@ -29,11 +29,8 @@ namespace KeToanTienLuong.chungtu
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.tien = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.noidung = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.coltkco = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.coltkno = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvchitietchungtu = new System.Windows.Forms.DataGridView();
             this.lblsp = new System.Windows.Forms.Label();
             this.lblngay = new System.Windows.Forms.Label();
@@ -46,44 +43,21 @@ namespace KeToanTienLuong.chungtu
             this.label2 = new System.Windows.Forms.Label();
             this.txtctlq = new System.Windows.Forms.TextBox();
             this.pnDoiTuong = new System.Windows.Forms.Panel();
+            this.labelMessage = new System.Windows.Forms.Label();
             this.buttonLuu = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.ketoantienluongDataSet = new KeToanTienLuong.ketoantienluongDataSet();
+            this.dmtkBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dmtkTableAdapter = new KeToanTienLuong.ketoantienluongDataSetTableAdapters.dmtkTableAdapter();
+            this.tkno = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.tkco = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.noidung = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tien = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvchitietchungtu)).BeginInit();
             this.pnDoiTuong.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ketoantienluongDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dmtkBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // tien
-            // 
-            this.tien.DataPropertyName = "tien";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
-            dataGridViewCellStyle1.Format = "N0";
-            dataGridViewCellStyle1.NullValue = "0";
-            this.tien.DefaultCellStyle = dataGridViewCellStyle1;
-            this.tien.HeaderText = "Thành tiền";
-            this.tien.MinimumWidth = 6;
-            this.tien.Name = "tien";
-            // 
-            // noidung
-            // 
-            this.noidung.DataPropertyName = "noidung";
-            this.noidung.HeaderText = "Nội dung";
-            this.noidung.MinimumWidth = 6;
-            this.noidung.Name = "noidung";
-            // 
-            // coltkco
-            // 
-            this.coltkco.DataPropertyName = "tkco";
-            this.coltkco.HeaderText = "Tk có";
-            this.coltkco.MinimumWidth = 6;
-            this.coltkco.Name = "coltkco";
-            this.coltkco.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // coltkno
-            // 
-            this.coltkno.DataPropertyName = "tkno";
-            this.coltkno.HeaderText = "Tk nợ";
-            this.coltkno.MinimumWidth = 6;
-            this.coltkno.Name = "coltkno";
             // 
             // dgvchitietchungtu
             // 
@@ -92,8 +66,8 @@ namespace KeToanTienLuong.chungtu
             this.dgvchitietchungtu.BackgroundColor = System.Drawing.Color.White;
             this.dgvchitietchungtu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvchitietchungtu.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.coltkno,
-            this.coltkco,
+            this.tkno,
+            this.tkco,
             this.noidung,
             this.tien});
             this.dgvchitietchungtu.Location = new System.Drawing.Point(4, 366);
@@ -102,6 +76,7 @@ namespace KeToanTienLuong.chungtu
             this.dgvchitietchungtu.RowHeadersWidth = 51;
             this.dgvchitietchungtu.Size = new System.Drawing.Size(1166, 199);
             this.dgvchitietchungtu.TabIndex = 6;
+            this.dgvchitietchungtu.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.kkk);
             // 
             // lblsp
             // 
@@ -210,6 +185,7 @@ namespace KeToanTienLuong.chungtu
             // 
             this.pnDoiTuong.BackColor = System.Drawing.Color.Transparent;
             this.pnDoiTuong.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pnDoiTuong.Controls.Add(this.labelMessage);
             this.pnDoiTuong.Controls.Add(this.txtctlq);
             this.pnDoiTuong.Controls.Add(this.label2);
             this.pnDoiTuong.Controls.Add(this.dtngay);
@@ -226,6 +202,19 @@ namespace KeToanTienLuong.chungtu
             this.pnDoiTuong.Name = "pnDoiTuong";
             this.pnDoiTuong.Size = new System.Drawing.Size(1166, 354);
             this.pnDoiTuong.TabIndex = 5;
+            this.pnDoiTuong.Paint += new System.Windows.Forms.PaintEventHandler(this.pnDoiTuong_Paint);
+            // 
+            // labelMessage
+            // 
+            this.labelMessage.AutoSize = true;
+            this.labelMessage.BackColor = System.Drawing.Color.Transparent;
+            this.labelMessage.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMessage.ForeColor = System.Drawing.Color.DarkRed;
+            this.labelMessage.Location = new System.Drawing.Point(17, 277);
+            this.labelMessage.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelMessage.Name = "labelMessage";
+            this.labelMessage.Size = new System.Drawing.Size(0, 23);
+            this.labelMessage.TabIndex = 43;
             // 
             // buttonLuu
             // 
@@ -254,6 +243,55 @@ namespace KeToanTienLuong.chungtu
             this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button3.UseVisualStyleBackColor = true;
             // 
+            // ketoantienluongDataSet
+            // 
+            this.ketoantienluongDataSet.DataSetName = "ketoantienluongDataSet";
+            this.ketoantienluongDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // dmtkBindingSource
+            // 
+            this.dmtkBindingSource.DataMember = "dmtk";
+            this.dmtkBindingSource.DataSource = this.ketoantienluongDataSet;
+            // 
+            // dmtkTableAdapter
+            // 
+            this.dmtkTableAdapter.ClearBeforeFill = true;
+            // 
+            // tkno
+            // 
+            this.tkno.DataPropertyName = "tkno";
+            this.tkno.DataSource = this.dmtkBindingSource;
+            this.tkno.DisplayMember = "matk";
+            this.tkno.HeaderText = "Tài khoản nợ";
+            this.tkno.MinimumWidth = 6;
+            this.tkno.Name = "tkno";
+            this.tkno.ValueMember = "matk";
+            // 
+            // tkco
+            // 
+            this.tkco.DataPropertyName = "tkco";
+            this.tkco.HeaderText = "Tài khoản có";
+            this.tkco.MinimumWidth = 6;
+            this.tkco.Name = "tkco";
+            // 
+            // noidung
+            // 
+            this.noidung.DataPropertyName = "noidung";
+            this.noidung.HeaderText = "Nội dung";
+            this.noidung.MinimumWidth = 6;
+            this.noidung.Name = "noidung";
+            // 
+            // tien
+            // 
+            this.tien.DataPropertyName = "tien";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
+            dataGridViewCellStyle4.Format = "N0";
+            dataGridViewCellStyle4.NullValue = "0";
+            this.tien.DefaultCellStyle = dataGridViewCellStyle4;
+            this.tien.HeaderText = "Thành tiền";
+            this.tien.MinimumWidth = 6;
+            this.tien.Name = "tien";
+            // 
             // PhieuChiForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -264,18 +302,17 @@ namespace KeToanTienLuong.chungtu
             this.Controls.Add(this.dgvchitietchungtu);
             this.Name = "PhieuChiForm";
             this.Size = new System.Drawing.Size(1175, 689);
+            this.Load += new System.EventHandler(this.PhieuChiForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvchitietchungtu)).EndInit();
             this.pnDoiTuong.ResumeLayout(false);
             this.pnDoiTuong.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ketoantienluongDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dmtkBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.DataGridViewTextBoxColumn tien;
-        private System.Windows.Forms.DataGridViewTextBoxColumn noidung;
-        private System.Windows.Forms.DataGridViewComboBoxColumn coltkco;
-        private System.Windows.Forms.DataGridViewComboBoxColumn coltkno;
         private System.Windows.Forms.DataGridView dgvchitietchungtu;
         private System.Windows.Forms.Label lblsp;
         private System.Windows.Forms.Label lblngay;
@@ -290,5 +327,13 @@ namespace KeToanTienLuong.chungtu
         private System.Windows.Forms.Panel pnDoiTuong;
         private System.Windows.Forms.Button buttonLuu;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label labelMessage;
+        private System.Windows.Forms.BindingSource dmtkBindingSource;
+        private ketoantienluongDataSet ketoantienluongDataSet;
+        private ketoantienluongDataSetTableAdapters.dmtkTableAdapter dmtkTableAdapter;
+        private System.Windows.Forms.DataGridViewComboBoxColumn tkno;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tkco;
+        private System.Windows.Forms.DataGridViewTextBoxColumn noidung;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tien;
     }
 }

@@ -100,6 +100,7 @@ namespace KeToanTienLuong.categoryForm
             this.btnTinhLuong.TabIndex = 1;
             this.btnTinhLuong.Text = "Tính lương";
             this.btnTinhLuong.UseVisualStyleBackColor = false;
+            this.btnTinhLuong.Click += new System.EventHandler(this.btnTinhLuong_Click);
             // 
             // btnChamCong
             // 

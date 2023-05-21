@@ -33,14 +33,15 @@ namespace KeToanTienLuong.categoryForm
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.imageList2 = new System.Windows.Forms.ImageList(this.components);
-            this.button2 = new System.Windows.Forms.Button();
-            this.panelContent = new System.Windows.Forms.Panel();
             this.btnBoPhan = new System.Windows.Forms.Button();
             this.buttonChucVu = new System.Windows.Forms.Button();
             this.buttonNhanVien = new System.Windows.Forms.Button();
             this.buttonTk = new System.Windows.Forms.Button();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.imageList2 = new System.Windows.Forms.ImageList(this.components);
+            this.button2 = new System.Windows.Forms.Button();
+            this.panelContent = new System.Windows.Forms.Panel();
+            this.btnNganHang = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -61,6 +62,7 @@ namespace KeToanTienLuong.categoryForm
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.panel1.Controls.Add(this.btnNganHang);
             this.panel1.Controls.Add(this.btnBoPhan);
             this.panel1.Controls.Add(this.buttonChucVu);
             this.panel1.Controls.Add(this.buttonNhanVien);
@@ -70,39 +72,6 @@ namespace KeToanTienLuong.categoryForm
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(350, 650);
             this.panel1.TabIndex = 4;
-            // 
-            // imageList1
-            // 
-            this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
-            this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            // 
-            // imageList2
-            // 
-            this.imageList2.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
-            this.imageList2.ImageSize = new System.Drawing.Size(16, 16);
-            this.imageList2.TransparentColor = System.Drawing.Color.Transparent;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(686, 26);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(8, 8);
-            this.button2.TabIndex = 7;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // panelContent
-            // 
-            this.panelContent.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelContent.AutoScroll = true;
-            this.panelContent.Location = new System.Drawing.Point(356, 0);
-            this.panelContent.Name = "panelContent";
-            this.panelContent.Size = new System.Drawing.Size(739, 650);
-            this.panelContent.TabIndex = 8;
-            this.panelContent.Paint += new System.Windows.Forms.PaintEventHandler(this.panelContent_Paint);
             // 
             // btnBoPhan
             // 
@@ -172,6 +141,56 @@ namespace KeToanTienLuong.categoryForm
             this.buttonTk.UseVisualStyleBackColor = false;
             this.buttonTk.Click += new System.EventHandler(this.button1_Click);
             // 
+            // imageList1
+            // 
+            this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            // 
+            // imageList2
+            // 
+            this.imageList2.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.imageList2.ImageSize = new System.Drawing.Size(16, 16);
+            this.imageList2.TransparentColor = System.Drawing.Color.Transparent;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(686, 26);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(8, 8);
+            this.button2.TabIndex = 7;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // panelContent
+            // 
+            this.panelContent.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelContent.AutoScroll = true;
+            this.panelContent.Location = new System.Drawing.Point(356, 0);
+            this.panelContent.Name = "panelContent";
+            this.panelContent.Size = new System.Drawing.Size(739, 650);
+            this.panelContent.TabIndex = 8;
+            this.panelContent.Paint += new System.Windows.Forms.PaintEventHandler(this.panelContent_Paint);
+            // 
+            // btnNganHang
+            // 
+            this.btnNganHang.BackColor = System.Drawing.SystemColors.Control;
+            this.btnNganHang.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnNganHang.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNganHang.ForeColor = System.Drawing.Color.Black;
+            this.btnNganHang.Image = global::KeToanTienLuong.Properties.Resources.market_positioning;
+            this.btnNganHang.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNganHang.Location = new System.Drawing.Point(0, 268);
+            this.btnNganHang.Name = "btnNganHang";
+            this.btnNganHang.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btnNganHang.Size = new System.Drawing.Size(350, 67);
+            this.btnNganHang.TabIndex = 4;
+            this.btnNganHang.Text = "Ngân hàng";
+            this.btnNganHang.UseVisualStyleBackColor = false;
+            this.btnNganHang.Click += new System.EventHandler(this.btnNganHang_Click);
+            // 
             // DanhMucForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -201,5 +220,6 @@ namespace KeToanTienLuong.categoryForm
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Panel panelContent;
         private System.Windows.Forms.Button btnBoPhan;
+        private System.Windows.Forms.Button btnNganHang;
     }
 }

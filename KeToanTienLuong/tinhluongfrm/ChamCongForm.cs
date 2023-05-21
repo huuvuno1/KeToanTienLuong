@@ -23,7 +23,10 @@ namespace KeToanTienLuong.tinhluongfrm
 
         private void ChamCongForm_Load(object sender, EventArgs e)
         {
+            inpThang.Text = DateTime.Now.ToString("MM");
+            inpNam.Text = DateTime.Now.ToString("yyyy");
 
+            //UpdateBangLuong(null);
         }
 
         private void buttonUpload_Click(object sender, EventArgs e)
@@ -148,15 +151,7 @@ namespace KeToanTienLuong.tinhluongfrm
 
         private void buttonLuu_Click(object sender, EventArgs e)
         {
-            var db = new ketoantienluongEntities();
-            db.bangccs.Add(new bangcc() {
-                so = txtso.Text,
-                mabp = cbomabp.SelectedValue.ToString(),
-                ngaycong = int.Parse(txtngaycong.Text),
-                nam = int.Parse(txtngaycong.Text),
-                noidung = txtnoidung.Text,
-                thang = int.Parse(txtthang.Text)
-            });
+            var list = new List<chitietbangcc>();
 
             DataTable dataTable = (DataTable)dataGridViewChamCong.DataSource;
             foreach (DataRow row in dataTable.Rows)
@@ -168,7 +163,7 @@ namespace KeToanTienLuong.tinhluongfrm
                 string ngaykhongphep = row[4].ToString();
                 string tienphucap = row[5].ToString();
                 string tienthuong = row[6].ToString();
-                db.chitietbangccs.Add(new chitietbangcc() {
+                list.Add(new chitietbangcc() {
                     so = so,
                     manv = manv,
                     ngaycong = double.Parse(ngaycong),
@@ -179,8 +174,32 @@ namespace KeToanTienLuong.tinhluongfrm
                 });
             }
 
+            var db = new ketoantienluongEntities();
+
+            int thang = int.Parse(inpThang.Text);
+            int nam = int.Parse(inpNam.Text);
+            string mabp = cbomabp.SelectedValue.ToString();
+
+            // delete old value in same month
+            var oldValue = db.bangccs.Where(x => x.thang == thang
+             && x.nam == nam && x.mabp == mabp);
+
+            db.bangccs.RemoveRange(oldValue);
             db.SaveChanges();
 
+            var data = new bangcc() {
+                so = txtso.Text,
+                mabp = cbomabp.SelectedValue.ToString(),
+                ngaycong = int.Parse(txtngaycong.Text),
+                nam = int.Parse(txtnam.Text),
+                noidung = txtnoidung.Text,
+                thang = int.Parse(txtthang.Text),
+                chitietbangccs = list
+            };
+            db.bangccs.Add(data);
+            db.SaveChanges();
+
+            UpdateBangLuong(db, txtso.Text);
             dataGridViewChamCong.DataSource = null;
             txtso.Text
                 = txtngaycong.Text
@@ -190,7 +209,34 @@ namespace KeToanTienLuong.tinhluongfrm
 
             cbomabp.SelectedIndex = 0;
 
+            // update bang luong
+
             MessageBox.Show("Lưu thành công!");
+
+            
+        }
+
+        private void UpdateBangLuong(ketoantienluongEntities db, string so)
+        {
+            var list = new List<bangluongnhanvien>();
+            int thang = int.Parse(inpThang.Text);
+            int nam = int.Parse(inpNam.Text);
+            //var bangcc = db.bangccs.Where(p => p.nam == nam && p.thang == thang);
+            var data = db.bangccs.Find(so);
+            data.chitietbangccs.ToList().ForEach((ctbcc) => {
+                var nv = db.dmnvs.Find(ctbcc.manv);
+                var lcb = nv.luongcoban;
+                data.bangluongnhanviens.Add(new bangluongnhanvien() {
+                    bhtn =  0.01m,
+                    bhxh = 0.08m,
+                    bhyt =  0.015m,
+                    tienbhtn = lcb * 0.08m,
+                    tienbhyt = lcb * 0.01m,
+                    tienbhxh = lcb * 0.015m
+                });
+            });
+
+            db.SaveChanges();
         }
 
         private void cbomabp_SelectedIndexChanged(object sender, EventArgs e)

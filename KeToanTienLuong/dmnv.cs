@@ -17,9 +17,10 @@ namespace KeToanTienLuong
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public dmnv()
         {
-            this.phieuchis = new HashSet<phieuchi>();
             this.chitietbangccs = new HashSet<chitietbangcc>();
-            this.bangluongs = new HashSet<bangluong>();
+            this.giaybaonoes = new HashSet<giaybaono>();
+            this.phieuchis = new HashSet<phieuchi>();
+            this.phieuketoans = new HashSet<phieuketoan>();
         }
     
         public string manv { get; set; }
@@ -30,21 +31,21 @@ namespace KeToanTienLuong
         public string gioitinh { get; set; }
         public string macv { get; set; }
         public string mabp { get; set; }
-        public string mabl { get; set; }
-        public Nullable<double> hesoluong { get; set; }
         public string bangcap { get; set; }
         public string trinhdo { get; set; }
         public Nullable<int> songuoiphuthuoc { get; set; }
         public Nullable<int> trangthai { get; set; }
+        public Nullable<decimal> luongcoban { get; set; }
     
-        public virtual bacluong bacluong { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<chitietbangcc> chitietbangccs { get; set; }
         public virtual dmbp dmbp { get; set; }
         public virtual dmcv dmcv { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<giaybaono> giaybaonoes { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<phieuchi> phieuchis { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<chitietbangcc> chitietbangccs { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<bangluong> bangluongs { get; set; }
+        public virtual ICollection<phieuketoan> phieuketoans { get; set; }
     }
 }

@@ -47,66 +47,94 @@ namespace KeToanTienLuong.chungtu
 
         private void buttonLuu_Click(object sender, EventArgs e)
         {
-            if (kiemtradulieu() == false) return;
+            List<chitietphieu> list = new List<chitietphieu>();
+
+            foreach (DataGridViewRow clickedRow in dgvchitietchungtu.Rows)
+            {
+                if (clickedRow.IsNewRow)
+                    break;
+                // Lấy dữ liệu của cả hàng
+                string[] rowData = clickedRow.Cells.Cast<DataGridViewCell>()
+                                                  .Select(cell => cell.Value?.ToString())
+                                                  .ToArray();
+
+                string tien = string.IsNullOrEmpty(rowData[3]) ? "0" : rowData[3];
+                list.Add(new chitietphieu() {
+                    so = txtso.Text,
+                    tkno = rowData[0],
+                    tkco = rowData[1],
+                    noidung = rowData[2],
+                    tien = double.Parse(tien)
+                });
+            }
+
+
+            var db = new ketoantienluongEntities();
+            db.phieuchis.Add(new phieuchi() {
+                so = txtso.Text,
+                ctlq = txtctlq.Text,
+                manv = cbomanv.SelectedValue.ToString(),
+                ngay = dtngay.Value,
+                chitietphieux = list,
+                type= "giay-bao-no",
+                manh = cbomanh.SelectedValue.ToString(),
+            });
+
             try
             {
-                if (_them == 1)
-                {
-                    string tentruong = "so,ngay,manv,manh,noidung,ctlq";
-                    string giatri = "'" + txtso.Text +
-                        "',N'" + Convert.ToDateTime(dtngay.Value.ToShortDateString()).ToString("MM/dd/yy") +
-                        "','" + cbomanv.SelectedValue +
-                        "','" + cbomanh.SelectedValue +
-                        "',N'" + txtnoidung.Text +
-                        "',N'" + txtctlq.Text + "'";
-                    if (kn.them(_Tenbang, tentruong, giatri, "so", txtso.Text.Trim(), true) == true)
-                    {
-                        MessageBox.Show("Thêm thành công");
-                    }
-                    else
-                    {
-                        txtso.Text = "";
-                        MessageBox.Show("mã đã tồn tại");
-                        txtso.Select();
-                        return;
-                    }
-                }
-                else
-                {
-                    string capnhat = "ngay=N'" + Convert.ToDateTime(dtngay.Value.ToShortDateString()).ToString("MM/dd/yy") + "',";
-                    capnhat += "manv='" + cbomanv.SelectedValue + "',";
-                    capnhat += "manh='" + cbomanh.SelectedValue + "',";
-                    capnhat += "noidung=N'" + txtnoidung.Text + "',";
-                    capnhat += "ctlq='" + txtctlq.Text + "'";
-                    if (kn.sua(_Tenbang, capnhat, "so", txtso.Text.Trim()))
-                    {
-                        MessageBox.Show("cập nhật thành công");
-
-                    }
-                    else
-                    {
-                        MessageBox.Show("cập nhật thất bại");
-                        return;
-                    }
-                }
-
-
-
-                kn.xoa(_Tenbangchitiet, "so", _so);
-                for (int i = 0; i < dtct.Rows.Count; i++)
-                {
-                    string tentruong = "so,tkno,tkco,noidung,tien";
-                    string giatri = "'" + txtso.Text +
-                        "','" + dtct.Rows[i]["tkno"].ToString() +
-                        "','" + dtct.Rows[i]["tkco"].ToString() +
-                        "',N'" + dtct.Rows[i]["noidung"].ToString() +
-                        "'," + dtct.Rows[i]["tien"].ToString();
-                    kn.them(_Tenbangchitiet, tentruong, giatri);
-                }
+                db.SaveChanges();
             }
-            catch
+            catch (Exception ee)
             {
+                labelMessage.Text = $"* Lỗi: mã phiếu đã tồn tại";
+                return;
+            };
+            MessageBox.Show($"* Lưu phiếu {txtso.Text} thành công!");
+
+            txtctlq.Text = txtnoidung.Text = txtso.Text = "";
+            dtngay.Value = DateTime.Now;
+            cbomanh.SelectedIndex = 0;
+            cbomanv.SelectedIndex = 0;
+            dgvchitietchungtu.Rows.Clear();
+
+            
+        }
+
+        private void GiayBaoNoForm_Load(object sender, EventArgs e)
+        {
+            var db = new ketoantienluongEntities();
+            cbomanh.DataSource = db.dmnhs.Select(p => p).ToList();
+            cbomanh.DisplayMember = "stk";
+            cbomanh.ValueMember = "so";
+            cbomanh.Format += ComboBox1_Format;
+
+            cbomanv.DataSource = db.dmnvs.Select(p => p).ToList();
+            cbomanv.DisplayMember = "tenv";
+            cbomanv.ValueMember = "manv";
+
+            DataGridViewComboBoxColumn a = dgvchitietchungtu.Columns["tkno"] as DataGridViewComboBoxColumn;
+            a.DataSource = db.dmtks.Select(p => p).ToList();
+
+            foreach (DataGridViewRow row in dgvchitietchungtu.Rows)
+            {
+                row.Cells["tkco"].Value = "1112";
+                row.Cells["tkco"].ReadOnly = true;
             }
+        }
+
+        private void ComboBox1_Format(object sender, ListControlConvertEventArgs e)
+        {
+            // Định dạng lại giá trị hiển thị cho từng mục trong ComboBox
+            if (e.ListItem is dmnh value)
+            {
+                // Tùy chỉnh định dạng ở đây, ví dụ: thêm tiền tố vào tên
+                e.Value = value.stk.Trim() + " - " + value.tennh;
+            }
+        }
+
+        private void addComboboxCell(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+
         }
     }
 }

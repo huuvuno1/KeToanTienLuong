@@ -1,7 +1,7 @@
 ﻿
-namespace KeToanTienLuong.thamsoluongform
+namespace KeToanTienLuong.danhmucform
 {
-    partial class ThamSoThueForm
+    partial class NganHangForm
     {
         /// <summary> 
         /// Required designer variable.
@@ -31,29 +31,31 @@ namespace KeToanTienLuong.thamsoluongform
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView = new System.Windows.Forms.DataGridView();
-            this.mucthueDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tientuDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tiendenDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tyleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mucDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.thamsothuetncnBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.ketoantienluongDataSet = new KeToanTienLuong.ketoantienluongDataSet();
             this.buttonLuu = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.buttonThem = new System.Windows.Forms.Button();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.inpTen = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.inpMa = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.inpStk = new System.Windows.Forms.TextBox();
+            this.dmcvBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.ketoantienluongDataSet = new KeToanTienLuong.ketoantienluongDataSet();
+            this.dmcvTableAdapter = new KeToanTienLuong.ketoantienluongDataSetTableAdapters.dmcvTableAdapter();
+            this.dmnhBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dmnhTableAdapter = new KeToanTienLuong.ketoantienluongDataSetTableAdapters.dmnhTableAdapter();
+            this.soDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stkDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tennhDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chinhanhDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label4 = new System.Windows.Forms.Label();
-            this.thamsothuetncnTableAdapter = new KeToanTienLuong.ketoantienluongDataSetTableAdapters.thamsothuetncnTableAdapter();
+            this.inpChiNhanh = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.thamsothuetncnBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dmcvBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ketoantienluongDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dmnhBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView
@@ -64,70 +66,24 @@ namespace KeToanTienLuong.thamsoluongform
             this.dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.mucthueDataGridViewTextBoxColumn,
-            this.tientuDataGridViewTextBoxColumn,
-            this.tiendenDataGridViewTextBoxColumn,
-            this.tyleDataGridViewTextBoxColumn,
-            this.mucDataGridViewTextBoxColumn});
-            this.dataGridView.DataSource = this.thamsothuetncnBindingSource;
-            this.dataGridView.Location = new System.Drawing.Point(1, 325);
+            this.soDataGridViewTextBoxColumn,
+            this.stkDataGridViewTextBoxColumn,
+            this.tennhDataGridViewTextBoxColumn,
+            this.chinhanhDataGridViewTextBoxColumn});
+            this.dataGridView.DataSource = this.dmnhBindingSource;
+            this.dataGridView.Location = new System.Drawing.Point(3, 297);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.RowHeadersWidth = 51;
             this.dataGridView.RowTemplate.Height = 24;
-            this.dataGridView.Size = new System.Drawing.Size(1215, 436);
+            this.dataGridView.Size = new System.Drawing.Size(1164, 499);
             this.dataGridView.TabIndex = 57;
-            // 
-            // mucthueDataGridViewTextBoxColumn
-            // 
-            this.mucthueDataGridViewTextBoxColumn.DataPropertyName = "mucthue";
-            this.mucthueDataGridViewTextBoxColumn.HeaderText = "Mức thuê";
-            this.mucthueDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.mucthueDataGridViewTextBoxColumn.Name = "mucthueDataGridViewTextBoxColumn";
-            // 
-            // tientuDataGridViewTextBoxColumn
-            // 
-            this.tientuDataGridViewTextBoxColumn.DataPropertyName = "tientu";
-            this.tientuDataGridViewTextBoxColumn.HeaderText = "Từ mức tiền";
-            this.tientuDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.tientuDataGridViewTextBoxColumn.Name = "tientuDataGridViewTextBoxColumn";
-            // 
-            // tiendenDataGridViewTextBoxColumn
-            // 
-            this.tiendenDataGridViewTextBoxColumn.DataPropertyName = "tienden";
-            this.tiendenDataGridViewTextBoxColumn.HeaderText = "Đến mức tiền";
-            this.tiendenDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.tiendenDataGridViewTextBoxColumn.Name = "tiendenDataGridViewTextBoxColumn";
-            // 
-            // tyleDataGridViewTextBoxColumn
-            // 
-            this.tyleDataGridViewTextBoxColumn.DataPropertyName = "tyle";
-            this.tyleDataGridViewTextBoxColumn.HeaderText = "Tỷ lệ";
-            this.tyleDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.tyleDataGridViewTextBoxColumn.Name = "tyleDataGridViewTextBoxColumn";
-            // 
-            // mucDataGridViewTextBoxColumn
-            // 
-            this.mucDataGridViewTextBoxColumn.DataPropertyName = "muc";
-            this.mucDataGridViewTextBoxColumn.HeaderText = "Mức";
-            this.mucDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.mucDataGridViewTextBoxColumn.Name = "mucDataGridViewTextBoxColumn";
-            // 
-            // thamsothuetncnBindingSource
-            // 
-            this.thamsothuetncnBindingSource.DataMember = "thamsothuetncn";
-            this.thamsothuetncnBindingSource.DataSource = this.ketoantienluongDataSet;
-            // 
-            // ketoantienluongDataSet
-            // 
-            this.ketoantienluongDataSet.DataSetName = "ketoantienluongDataSet";
-            this.ketoantienluongDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // buttonLuu
             // 
             this.buttonLuu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonLuu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonLuu.Image = global::KeToanTienLuong.Properties.Resources.checkmark;
-            this.buttonLuu.Location = new System.Drawing.Point(839, 125);
+            this.buttonLuu.Location = new System.Drawing.Point(742, 119);
             this.buttonLuu.Name = "buttonLuu";
             this.buttonLuu.Size = new System.Drawing.Size(137, 42);
             this.buttonLuu.TabIndex = 56;
@@ -141,7 +97,7 @@ namespace KeToanTienLuong.thamsoluongform
             this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.Image = global::KeToanTienLuong.Properties.Resources.delete;
-            this.button3.Location = new System.Drawing.Point(1021, 125);
+            this.button3.Location = new System.Drawing.Point(924, 119);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(137, 42);
             this.button3.TabIndex = 55;
@@ -154,7 +110,7 @@ namespace KeToanTienLuong.thamsoluongform
             this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.Image = global::KeToanTienLuong.Properties.Resources.pencil;
-            this.button2.Location = new System.Drawing.Point(1021, 62);
+            this.button2.Location = new System.Drawing.Point(924, 56);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(137, 42);
             this.button2.TabIndex = 54;
@@ -167,113 +123,166 @@ namespace KeToanTienLuong.thamsoluongform
             this.buttonThem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonThem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonThem.Image = global::KeToanTienLuong.Properties.Resources.plus;
-            this.buttonThem.Location = new System.Drawing.Point(839, 62);
+            this.buttonThem.Location = new System.Drawing.Point(742, 56);
             this.buttonThem.Name = "buttonThem";
             this.buttonThem.Size = new System.Drawing.Size(137, 42);
             this.buttonThem.TabIndex = 53;
             this.buttonThem.Text = "  Thêm";
             this.buttonThem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonThem.UseVisualStyleBackColor = true;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(299, 156);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(336, 27);
-            this.textBox3.TabIndex = 52;
+            this.buttonThem.Click += new System.EventHandler(this.buttonThem_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(38, 159);
+            this.label2.Location = new System.Drawing.Point(40, 153);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(42, 20);
+            this.label2.Size = new System.Drawing.Size(113, 20);
             this.label2.TabIndex = 51;
-            this.label2.Text = "Đến";
+            this.label2.Text = "Số tài khoản";
             // 
-            // textBox2
+            // inpTen
             // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(299, 96);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(336, 27);
-            this.textBox2.TabIndex = 50;
+            this.inpTen.Enabled = false;
+            this.inpTen.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inpTen.Location = new System.Drawing.Point(229, 90);
+            this.inpTen.Name = "inpTen";
+            this.inpTen.Size = new System.Drawing.Size(336, 27);
+            this.inpTen.TabIndex = 50;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(38, 99);
+            this.label1.Location = new System.Drawing.Point(40, 93);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(30, 20);
+            this.label1.Size = new System.Drawing.Size(132, 20);
             this.label1.TabIndex = 49;
-            this.label1.Text = "Từ";
+            this.label1.Text = "Tên ngân hàng";
             // 
-            // textBox1
+            // inpMa
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(299, 43);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(336, 27);
-            this.textBox1.TabIndex = 48;
+            this.inpMa.Enabled = false;
+            this.inpMa.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inpMa.Location = new System.Drawing.Point(229, 37);
+            this.inpMa.Name = "inpMa";
+            this.inpMa.Size = new System.Drawing.Size(336, 27);
+            this.inpMa.TabIndex = 48;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(38, 46);
+            this.label3.Location = new System.Drawing.Point(40, 40);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(123, 20);
+            this.label3.Size = new System.Drawing.Size(126, 20);
             this.label3.TabIndex = 47;
-            this.label3.Text = "Mức tính thuế";
+            this.label3.Text = "Mã ngân hàng";
             // 
-            // textBox4
+            // inpStk
             // 
-            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(299, 221);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(336, 27);
-            this.textBox4.TabIndex = 59;
+            this.inpStk.Enabled = false;
+            this.inpStk.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inpStk.Location = new System.Drawing.Point(229, 150);
+            this.inpStk.Name = "inpStk";
+            this.inpStk.Size = new System.Drawing.Size(336, 27);
+            this.inpStk.TabIndex = 52;
+            // 
+            // dmcvBindingSource
+            // 
+            this.dmcvBindingSource.DataMember = "dmcv";
+            this.dmcvBindingSource.DataSource = this.ketoantienluongDataSet;
+            // 
+            // ketoantienluongDataSet
+            // 
+            this.ketoantienluongDataSet.DataSetName = "ketoantienluongDataSet";
+            this.ketoantienluongDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // dmcvTableAdapter
+            // 
+            this.dmcvTableAdapter.ClearBeforeFill = true;
+            // 
+            // dmnhBindingSource
+            // 
+            this.dmnhBindingSource.DataMember = "dmnh";
+            this.dmnhBindingSource.DataSource = this.ketoantienluongDataSet;
+            // 
+            // dmnhTableAdapter
+            // 
+            this.dmnhTableAdapter.ClearBeforeFill = true;
+            // 
+            // soDataGridViewTextBoxColumn
+            // 
+            this.soDataGridViewTextBoxColumn.DataPropertyName = "so";
+            this.soDataGridViewTextBoxColumn.HeaderText = "Mã ngân hàng";
+            this.soDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.soDataGridViewTextBoxColumn.Name = "soDataGridViewTextBoxColumn";
+            // 
+            // stkDataGridViewTextBoxColumn
+            // 
+            this.stkDataGridViewTextBoxColumn.DataPropertyName = "stk";
+            this.stkDataGridViewTextBoxColumn.HeaderText = "Số tài khoản";
+            this.stkDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.stkDataGridViewTextBoxColumn.Name = "stkDataGridViewTextBoxColumn";
+            // 
+            // tennhDataGridViewTextBoxColumn
+            // 
+            this.tennhDataGridViewTextBoxColumn.DataPropertyName = "tennh";
+            this.tennhDataGridViewTextBoxColumn.HeaderText = "Tên ngân hàng";
+            this.tennhDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.tennhDataGridViewTextBoxColumn.Name = "tennhDataGridViewTextBoxColumn";
+            // 
+            // chinhanhDataGridViewTextBoxColumn
+            // 
+            this.chinhanhDataGridViewTextBoxColumn.DataPropertyName = "chinhanh";
+            this.chinhanhDataGridViewTextBoxColumn.HeaderText = "Chi nhánh";
+            this.chinhanhDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.chinhanhDataGridViewTextBoxColumn.Name = "chinhanhDataGridViewTextBoxColumn";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(38, 224);
+            this.label4.Location = new System.Drawing.Point(40, 209);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(174, 20);
+            this.label4.Size = new System.Drawing.Size(93, 20);
             this.label4.TabIndex = 58;
-            this.label4.Text = "Phần trăm tính thuế";
+            this.label4.Text = "Chi nhánh";
             // 
-            // thamsothuetncnTableAdapter
+            // inpChiNhanh
             // 
-            this.thamsothuetncnTableAdapter.ClearBeforeFill = true;
+            this.inpChiNhanh.Enabled = false;
+            this.inpChiNhanh.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inpChiNhanh.Location = new System.Drawing.Point(229, 206);
+            this.inpChiNhanh.Name = "inpChiNhanh";
+            this.inpChiNhanh.Size = new System.Drawing.Size(336, 27);
+            this.inpChiNhanh.TabIndex = 59;
             // 
-            // ThamSoThueForm
+            // NganHangForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.textBox4);
             this.Controls.Add(this.label4);
+            this.Controls.Add(this.inpChiNhanh);
             this.Controls.Add(this.dataGridView);
             this.Controls.Add(this.buttonLuu);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.buttonThem);
-            this.Controls.Add(this.textBox3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.inpTen);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.inpMa);
             this.Controls.Add(this.label3);
-            this.Name = "ThamSoThueForm";
-            this.Size = new System.Drawing.Size(1216, 763);
-            this.Load += new System.EventHandler(this.ThamSoThueForm_Load);
+            this.Controls.Add(this.inpStk);
+            this.Name = "NganHangForm";
+            this.Size = new System.Drawing.Size(1170, 799);
+            this.Load += new System.EventHandler(this.NganHangForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.thamsothuetncnBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dmcvBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ketoantienluongDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dmnhBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -281,26 +290,27 @@ namespace KeToanTienLuong.thamsoluongform
 
         #endregion
 
+        private ketoantienluongDataSetTableAdapters.dmcvTableAdapter dmcvTableAdapter;
+        private System.Windows.Forms.BindingSource dmcvBindingSource;
+        private ketoantienluongDataSet ketoantienluongDataSet;
         private System.Windows.Forms.DataGridView dataGridView;
         private System.Windows.Forms.Button buttonLuu;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button buttonThem;
-        private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox inpTen;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox inpMa;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox inpStk;
+        private System.Windows.Forms.BindingSource dmnhBindingSource;
+        private ketoantienluongDataSetTableAdapters.dmnhTableAdapter dmnhTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn soDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn stkDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tennhDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn chinhanhDataGridViewTextBoxColumn;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn mucthueDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tientuDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tiendenDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tyleDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn mucDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource thamsothuetncnBindingSource;
-        private ketoantienluongDataSet ketoantienluongDataSet;
-        private ketoantienluongDataSetTableAdapters.thamsothuetncnTableAdapter thamsothuetncnTableAdapter;
+        private System.Windows.Forms.TextBox inpChiNhanh;
     }
 }

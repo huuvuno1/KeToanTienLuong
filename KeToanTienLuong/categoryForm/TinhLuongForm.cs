@@ -33,5 +33,16 @@ namespace KeToanTienLuong.categoryForm
         {
 
         }
+
+        private void btnTinhLuong_Click(object sender, EventArgs e)
+        {
+            Util.Util.changeBackground(btnTinhLuong, btnChamCong, btnThueTNCN);
+
+            BangLuongForm f = new BangLuongForm();
+            f.Dock = DockStyle.Top;
+            this.panelContent.Controls.Clear();
+            this.panelContent.Controls.Add(f);
+            f.Show();
+        }
     }
 }

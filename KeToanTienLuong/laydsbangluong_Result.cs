@@ -10,20 +10,21 @@
 namespace KeToanTienLuong
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class chitietbangcc
+    public partial class laydsbangluong_Result
     {
-        public string so { get; set; }
         public string manv { get; set; }
-        public Nullable<double> ngaycong { get; set; }
+        public string tenv { get; set; }
+        public Nullable<System.DateTime> ngaysinh { get; set; }
+        public Nullable<int> songuoiphuthuoc { get; set; }
+        public Nullable<decimal> luongcoban { get; set; }
+        public Nullable<int> thang { get; set; }
+        public Nullable<int> nam { get; set; }
+        public string noidung { get; set; }
+        public Nullable<int> ngaycong { get; set; }
         public Nullable<double> ngayphep { get; set; }
         public Nullable<double> ngaykhongphep { get; set; }
         public Nullable<double> tienphucap { get; set; }
         public Nullable<double> tienthuong { get; set; }
-        public int id { get; set; }
-    
-        public virtual bangcc bangcc { get; set; }
-        public virtual dmnv dmnv { get; set; }
     }
 }

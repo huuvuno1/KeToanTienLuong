@@ -33,6 +33,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Charts.v22.2.Core, Version=22.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Dashboard.v22.2.Core, Version=22.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Dashboard.v22.2.Win, Version=22.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -78,12 +82,20 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="EntityFramework.Utilities, Version=1.0.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.Utilities.Denis.1.0.5\lib\EntityFramework.Utilities.dll</HintPath>
+    </Reference>
+    <Reference Include="FastMember, Version=1.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FastMember.1.5.0\lib\net461\FastMember.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -96,13 +108,10 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="bacluong.cs">
-      <DependentUpon>KeToan.tt</DependentUpon>
-    </Compile>
     <Compile Include="bangcc.cs">
       <DependentUpon>KeToan.tt</DependentUpon>
     </Compile>
-    <Compile Include="bangluong.cs">
+    <Compile Include="bangluongnhanvien.cs">
       <DependentUpon>KeToan.tt</DependentUpon>
     </Compile>
     <Compile Include="categoryForm\BaoCaoForm.cs">
@@ -147,6 +156,9 @@
     <Compile Include="chitietphieu.cs">
       <DependentUpon>KeToan.tt</DependentUpon>
     </Compile>
+    <Compile Include="chitietphieuketoan.cs">
+      <DependentUpon>KeToan.tt</DependentUpon>
+    </Compile>
     <Compile Include="chitietsocai.cs">
       <DependentUpon>KeToan.tt</DependentUpon>
     </Compile>
@@ -186,6 +198,12 @@
     <Compile Include="danhmucform\DanhMucTaiKhoanForm.Designer.cs">
       <DependentUpon>DanhMucTaiKhoanForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="danhmucform\NganHangForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="danhmucform\NganHangForm.Designer.cs">
+      <DependentUpon>NganHangForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="danhmucform\NhanVienForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -196,6 +214,9 @@
       <DependentUpon>KeToan.tt</DependentUpon>
     </Compile>
     <Compile Include="dmcv.cs">
+      <DependentUpon>KeToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dmnh.cs">
       <DependentUpon>KeToan.tt</DependentUpon>
     </Compile>
     <Compile Include="dmnv.cs">
@@ -215,6 +236,9 @@
     </Compile>
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="giaybaono.cs">
+      <DependentUpon>KeToan.tt</DependentUpon>
     </Compile>
     <Compile Include="hethongform\NguoiDungForm.cs">
       <SubType>UserControl</SubType>
@@ -255,6 +279,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ketoantienluongDataSet2.xsd</DependentUpon>
     </Compile>
+    <Compile Include="laydsbangluong_Result.cs">
+      <DependentUpon>KeToan.tt</DependentUpon>
+    </Compile>
     <Compile Include="LopDungChung.cs" />
     <Compile Include="nguoidung.cs">
       <DependentUpon>KeToan.tt</DependentUpon>
@@ -262,8 +289,41 @@
     <Compile Include="phieuchi.cs">
       <DependentUpon>KeToan.tt</DependentUpon>
     </Compile>
+    <Compile Include="phieuketoan.cs">
+      <DependentUpon>KeToan.tt</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="report\rptBaocaoluong.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptBaocaoluong.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="report\rptBaoHiem.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptBaoHiem.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="report\rptPhieuLuong.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptPhieuLuong.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="report\rptSoCai.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptSoCai.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="report\rptThueTNCN.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptThueTNCN.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="thamsoluong.cs">
       <DependentUpon>KeToan.tt</DependentUpon>
     </Compile>
@@ -281,6 +341,12 @@
     </Compile>
     <Compile Include="thamsothuetncn.cs">
       <DependentUpon>KeToan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tinhluongfrm\BangLuongForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="tinhluongfrm\BangLuongForm.Designer.cs">
+      <DependentUpon>BangLuongForm.cs</DependentUpon>
     </Compile>
     <Compile Include="tinhluongfrm\ChamCongForm.cs">
       <SubType>UserControl</SubType>
@@ -328,6 +394,9 @@
     <EmbeddedResource Include="danhmucform\DanhMucTaiKhoanForm.resx">
       <DependentUpon>DanhMucTaiKhoanForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="danhmucform\NganHangForm.resx">
+      <DependentUpon>NganHangForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="danhmucform\NhanVienForm.resx">
       <DependentUpon>NhanVienForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -351,11 +420,34 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="report\rptBaocaoluong.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptBaocaoluong.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="report\rptBaoHiem.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptBaoHiem.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="report\rptPhieuLuong.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptPhieuLuong.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="report\rptSoCai.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptSoCai.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="report\rptThueTNCN.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptThueTNCN.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="thamsoluongform\ThamSoBaoHiem.resx">
       <DependentUpon>ThamSoBaoHiem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="thamsoluongform\ThamSoThueForm.resx">
       <DependentUpon>ThamSoThueForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="tinhluongfrm\BangLuongForm.resx">
+      <DependentUpon>BangLuongForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="tinhluongfrm\ChamCongForm.resx">
       <DependentUpon>ChamCongForm.cs</DependentUpon>
@@ -478,6 +570,7 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="KeToan.Context.tt">
@@ -494,6 +587,9 @@
     <None Include="resource\download2.png" />
     <None Include="resource\upload-file.png" />
     <None Include="resource\eye.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="baocaoform\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

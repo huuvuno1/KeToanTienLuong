@@ -12,15 +12,16 @@ namespace KeToanTienLuong
     using System;
     using System.Collections.Generic;
     
-    public partial class chitietphieu
+    public partial class giaybaono
     {
-        public int id { get; set; }
         public string so { get; set; }
-        public string tkno { get; set; }
-        public string tkco { get; set; }
+        public Nullable<System.DateTime> ngay { get; set; }
+        public string manv { get; set; }
         public string noidung { get; set; }
-        public Nullable<double> tien { get; set; }
+        public string ctlq { get; set; }
+        public string manh { get; set; }
     
-        public virtual phieuchi phieuchi { get; set; }
+        public virtual dmnh dmnh { get; set; }
+        public virtual dmnv dmnv { get; set; }
     }
 }

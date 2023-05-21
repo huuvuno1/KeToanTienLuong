@@ -12,19 +12,22 @@ namespace KeToanTienLuong
     using System;
     using System.Collections.Generic;
     
-    public partial class bacluong
+    public partial class phieuketoan
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public bacluong()
+        public phieuketoan()
         {
-            this.dmnvs = new HashSet<dmnv>();
+            this.chitietphieuketoans = new HashSet<chitietphieuketoan>();
         }
     
-        public string mabl { get; set; }
+        public string so { get; set; }
+        public Nullable<System.DateTime> ngay { get; set; }
+        public string manv { get; set; }
         public string noidung { get; set; }
-        public Nullable<double> tien { get; set; }
+        public string ctlq { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<dmnv> dmnvs { get; set; }
+        public virtual ICollection<chitietphieuketoan> chitietphieuketoans { get; set; }
+        public virtual dmnv dmnv { get; set; }
     }
 }

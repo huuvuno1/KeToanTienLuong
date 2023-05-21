@@ -32,16 +32,16 @@ namespace KeToanTienLuong.categoryForm
             this.components = new System.ComponentModel.Container();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.imageList2 = new System.Windows.Forms.ImageList(this.components);
             this.button2 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.panelContent = new System.Windows.Forms.Panel();
+            this.crystalReportViewer = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.panelContent = new System.Windows.Forms.Panel();
+            this.panelContent.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,20 +58,6 @@ namespace KeToanTienLuong.categoryForm
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(8, 8);
             this.flowLayoutPanel1.TabIndex = 13;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.SystemColors.Control;
-            this.panel1.Controls.Add(this.button6);
-            this.panel1.Controls.Add(this.button5);
-            this.panel1.Controls.Add(this.button4);
-            this.panel1.Controls.Add(this.button3);
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(281, 710);
-            this.panel1.TabIndex = 12;
             // 
             // imageList1
             // 
@@ -94,38 +80,41 @@ namespace KeToanTienLuong.categoryForm
             this.button2.Text = "button2";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // button6
+            // panelContent
             // 
-            this.button6.BackColor = System.Drawing.SystemColors.Control;
-            this.button6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.ForeColor = System.Drawing.Color.Black;
-            this.button6.Image = global::KeToanTienLuong.Properties.Resources.market_positioning;
-            this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button6.Location = new System.Drawing.Point(0, 268);
-            this.button6.Name = "button6";
-            this.button6.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.button6.Size = new System.Drawing.Size(281, 67);
-            this.button6.TabIndex = 4;
-            this.button6.Text = "     Bảng lương tổng hợp";
-            this.button6.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button6.UseVisualStyleBackColor = false;
+            this.panelContent.BackColor = System.Drawing.Color.DimGray;
+            this.panelContent.Controls.Add(this.panel1);
+            this.panelContent.Controls.Add(this.crystalReportViewer);
+            this.panelContent.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelContent.ForeColor = System.Drawing.Color.Black;
+            this.panelContent.Location = new System.Drawing.Point(0, 0);
+            this.panelContent.Name = "panelContent";
+            this.panelContent.Size = new System.Drawing.Size(1174, 710);
+            this.panelContent.TabIndex = 16;
             // 
-            // button5
+            // crystalReportViewer
             // 
-            this.button5.BackColor = System.Drawing.SystemColors.Control;
-            this.button5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ForeColor = System.Drawing.Color.Black;
-            this.button5.Image = global::KeToanTienLuong.Properties.Resources.market_positioning;
-            this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button5.Location = new System.Drawing.Point(0, 201);
-            this.button5.Name = "button5";
-            this.button5.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.button5.Size = new System.Drawing.Size(281, 67);
-            this.button5.TabIndex = 3;
-            this.button5.Text = "Phiếu lương";
-            this.button5.UseVisualStyleBackColor = false;
+            this.crystalReportViewer.ActiveViewIndex = -1;
+            this.crystalReportViewer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.crystalReportViewer.Cursor = System.Windows.Forms.Cursors.Default;
+            this.crystalReportViewer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.crystalReportViewer.Location = new System.Drawing.Point(0, 0);
+            this.crystalReportViewer.Name = "crystalReportViewer";
+            this.crystalReportViewer.Size = new System.Drawing.Size(1174, 710);
+            this.crystalReportViewer.TabIndex = 0;
+            // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.panel1.Controls.Add(this.button4);
+            this.panel1.Controls.Add(this.button3);
+            this.panel1.Controls.Add(this.button1);
+            this.panel1.Location = new System.Drawing.Point(3, 37);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(194, 642);
+            this.panel1.TabIndex = 13;
             // 
             // button4
             // 
@@ -138,7 +127,7 @@ namespace KeToanTienLuong.categoryForm
             this.button4.Location = new System.Drawing.Point(0, 134);
             this.button4.Name = "button4";
             this.button4.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.button4.Size = new System.Drawing.Size(281, 67);
+            this.button4.Size = new System.Drawing.Size(194, 67);
             this.button4.TabIndex = 2;
             this.button4.Text = "Thuế TNCN";
             this.button4.UseVisualStyleBackColor = false;
@@ -154,7 +143,7 @@ namespace KeToanTienLuong.categoryForm
             this.button3.Location = new System.Drawing.Point(0, 67);
             this.button3.Name = "button3";
             this.button3.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.button3.Size = new System.Drawing.Size(281, 67);
+            this.button3.Size = new System.Drawing.Size(194, 67);
             this.button3.TabIndex = 1;
             this.button3.Text = "Bảo hiểm";
             this.button3.UseVisualStyleBackColor = false;
@@ -170,22 +159,11 @@ namespace KeToanTienLuong.categoryForm
             this.button1.Location = new System.Drawing.Point(0, 0);
             this.button1.Name = "button1";
             this.button1.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.button1.Size = new System.Drawing.Size(281, 67);
+            this.button1.Size = new System.Drawing.Size(194, 67);
             this.button1.TabIndex = 0;
             this.button1.Text = "Sổ cái";
             this.button1.UseVisualStyleBackColor = false;
-            // 
-            // panelContent
-            // 
-            this.panelContent.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelContent.BackColor = System.Drawing.Color.DimGray;
-            this.panelContent.ForeColor = System.Drawing.Color.Black;
-            this.panelContent.Location = new System.Drawing.Point(287, 3);
-            this.panelContent.Name = "panelContent";
-            this.panelContent.Size = new System.Drawing.Size(1012, 884);
-            this.panelContent.TabIndex = 16;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // BaoCaoForm
             // 
@@ -194,10 +172,10 @@ namespace KeToanTienLuong.categoryForm
             this.Controls.Add(this.panelContent);
             this.Controls.Add(this.flowLayoutPanel2);
             this.Controls.Add(this.flowLayoutPanel1);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.button2);
             this.Name = "BaoCaoForm";
             this.Size = new System.Drawing.Size(1174, 710);
+            this.panelContent.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -207,15 +185,14 @@ namespace KeToanTienLuong.categoryForm
 
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.ImageList imageList1;
+        private System.Windows.Forms.ImageList imageList2;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Panel panelContent;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ImageList imageList1;
-        private System.Windows.Forms.ImageList imageList2;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Panel panelContent;
+        public CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReportViewer;
     }
 }

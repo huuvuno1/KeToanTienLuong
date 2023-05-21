@@ -33,6 +33,12 @@ namespace KeToanTienLuong.thamsoluongform
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.matsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tentsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.noidungDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tyleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.thamsoluongBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.ketoantienluongDataSet = new KeToanTienLuong.ketoantienluongDataSet();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -43,16 +49,10 @@ namespace KeToanTienLuong.thamsoluongform
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.buttonThem = new System.Windows.Forms.Button();
-            this.ketoantienluongDataSet = new KeToanTienLuong.ketoantienluongDataSet();
-            this.thamsoluongBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.thamsoluongTableAdapter = new KeToanTienLuong.ketoantienluongDataSetTableAdapters.thamsoluongTableAdapter();
-            this.matsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tentsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.noidungDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tyleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ketoantienluongDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.thamsoluongBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ketoantienluongDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // textBox4
@@ -92,6 +92,44 @@ namespace KeToanTienLuong.thamsoluongform
             this.dataGridView.RowTemplate.Height = 24;
             this.dataGridView.Size = new System.Drawing.Size(1215, 436);
             this.dataGridView.TabIndex = 70;
+            // 
+            // matsDataGridViewTextBoxColumn
+            // 
+            this.matsDataGridViewTextBoxColumn.DataPropertyName = "mats";
+            this.matsDataGridViewTextBoxColumn.HeaderText = "Mã tham số";
+            this.matsDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.matsDataGridViewTextBoxColumn.Name = "matsDataGridViewTextBoxColumn";
+            // 
+            // tentsDataGridViewTextBoxColumn
+            // 
+            this.tentsDataGridViewTextBoxColumn.DataPropertyName = "tents";
+            this.tentsDataGridViewTextBoxColumn.HeaderText = "Tên tham số";
+            this.tentsDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.tentsDataGridViewTextBoxColumn.Name = "tentsDataGridViewTextBoxColumn";
+            // 
+            // noidungDataGridViewTextBoxColumn
+            // 
+            this.noidungDataGridViewTextBoxColumn.DataPropertyName = "noidung";
+            this.noidungDataGridViewTextBoxColumn.HeaderText = "Nội dung";
+            this.noidungDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.noidungDataGridViewTextBoxColumn.Name = "noidungDataGridViewTextBoxColumn";
+            // 
+            // tyleDataGridViewTextBoxColumn
+            // 
+            this.tyleDataGridViewTextBoxColumn.DataPropertyName = "tyle";
+            this.tyleDataGridViewTextBoxColumn.HeaderText = "Tỷ lệ";
+            this.tyleDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.tyleDataGridViewTextBoxColumn.Name = "tyleDataGridViewTextBoxColumn";
+            // 
+            // thamsoluongBindingSource
+            // 
+            this.thamsoluongBindingSource.DataMember = "thamsoluong";
+            this.thamsoluongBindingSource.DataSource = this.ketoantienluongDataSet;
+            // 
+            // ketoantienluongDataSet
+            // 
+            this.ketoantienluongDataSet.DataSetName = "ketoantienluongDataSet";
+            this.ketoantienluongDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // textBox3
             // 
@@ -159,6 +197,7 @@ namespace KeToanTienLuong.thamsoluongform
             this.buttonLuu.Text = "   Lưu";
             this.buttonLuu.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonLuu.UseVisualStyleBackColor = true;
+            this.buttonLuu.Click += new System.EventHandler(this.buttonLuu_Click);
             // 
             // button3
             // 
@@ -199,47 +238,9 @@ namespace KeToanTienLuong.thamsoluongform
             this.buttonThem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonThem.UseVisualStyleBackColor = true;
             // 
-            // ketoantienluongDataSet
-            // 
-            this.ketoantienluongDataSet.DataSetName = "ketoantienluongDataSet";
-            this.ketoantienluongDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // thamsoluongBindingSource
-            // 
-            this.thamsoluongBindingSource.DataMember = "thamsoluong";
-            this.thamsoluongBindingSource.DataSource = this.ketoantienluongDataSet;
-            // 
             // thamsoluongTableAdapter
             // 
             this.thamsoluongTableAdapter.ClearBeforeFill = true;
-            // 
-            // matsDataGridViewTextBoxColumn
-            // 
-            this.matsDataGridViewTextBoxColumn.DataPropertyName = "mats";
-            this.matsDataGridViewTextBoxColumn.HeaderText = "Mã tham số";
-            this.matsDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.matsDataGridViewTextBoxColumn.Name = "matsDataGridViewTextBoxColumn";
-            // 
-            // tentsDataGridViewTextBoxColumn
-            // 
-            this.tentsDataGridViewTextBoxColumn.DataPropertyName = "tents";
-            this.tentsDataGridViewTextBoxColumn.HeaderText = "Tên tham số";
-            this.tentsDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.tentsDataGridViewTextBoxColumn.Name = "tentsDataGridViewTextBoxColumn";
-            // 
-            // noidungDataGridViewTextBoxColumn
-            // 
-            this.noidungDataGridViewTextBoxColumn.DataPropertyName = "noidung";
-            this.noidungDataGridViewTextBoxColumn.HeaderText = "Nội dung";
-            this.noidungDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.noidungDataGridViewTextBoxColumn.Name = "noidungDataGridViewTextBoxColumn";
-            // 
-            // tyleDataGridViewTextBoxColumn
-            // 
-            this.tyleDataGridViewTextBoxColumn.DataPropertyName = "tyle";
-            this.tyleDataGridViewTextBoxColumn.HeaderText = "Tỷ lệ";
-            this.tyleDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.tyleDataGridViewTextBoxColumn.Name = "tyleDataGridViewTextBoxColumn";
             // 
             // ThamSoBaoHiem
             // 
@@ -262,8 +263,8 @@ namespace KeToanTienLuong.thamsoluongform
             this.Size = new System.Drawing.Size(1295, 793);
             this.Load += new System.EventHandler(this.ThamSoBaoHiem_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ketoantienluongDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.thamsoluongBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ketoantienluongDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

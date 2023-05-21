@@ -48,7 +48,7 @@ namespace KeToanTienLuong.danhmucform
             this.label3 = new System.Windows.Forms.Label();
             this.inpTrinhDo = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.inpHsl = new System.Windows.Forms.TextBox();
+            this.inpLuongCoban = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.inpBangCap = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -61,6 +61,7 @@ namespace KeToanTienLuong.danhmucform
             this.dmnvTableAdapter = new KeToanTienLuong.ketoantienluongDataSetTableAdapters.dmnvTableAdapter();
             this.inpPhuThuoc = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
+            this.dmnvBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.manvDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tenvDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ngaysinhDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -69,16 +70,16 @@ namespace KeToanTienLuong.danhmucform
             this.gioitinhDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.macvDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mabpDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mablDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.hesoluongDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bangcapDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.trinhdoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.songuoiphuthuocDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.trangthaiDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.luongcobanDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dmnvBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ketoantienluongDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ketoantienluongDataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dmnvBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView
@@ -95,13 +96,12 @@ namespace KeToanTienLuong.danhmucform
             this.gioitinhDataGridViewTextBoxColumn,
             this.macvDataGridViewTextBoxColumn,
             this.mabpDataGridViewTextBoxColumn,
-            this.mablDataGridViewTextBoxColumn,
-            this.hesoluongDataGridViewTextBoxColumn,
             this.bangcapDataGridViewTextBoxColumn,
             this.trinhdoDataGridViewTextBoxColumn,
             this.songuoiphuthuocDataGridViewTextBoxColumn,
-            this.trangthaiDataGridViewTextBoxColumn});
-            this.dataGridView.DataSource = this.dmnvBindingSource;
+            this.trangthaiDataGridViewTextBoxColumn,
+            this.luongcobanDataGridViewTextBoxColumn});
+            this.dataGridView.DataSource = this.dmnvBindingSource1;
             this.dataGridView.Location = new System.Drawing.Point(0, 366);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.RowHeadersWidth = 51;
@@ -275,14 +275,14 @@ namespace KeToanTienLuong.danhmucform
             this.label5.TabIndex = 48;
             this.label5.Text = "Trình độ";
             // 
-            // inpHsl
+            // inpLuongCoban
             // 
-            this.inpHsl.Enabled = false;
-            this.inpHsl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.inpHsl.Location = new System.Drawing.Point(916, 266);
-            this.inpHsl.Name = "inpHsl";
-            this.inpHsl.Size = new System.Drawing.Size(336, 27);
-            this.inpHsl.TabIndex = 59;
+            this.inpLuongCoban.Enabled = false;
+            this.inpLuongCoban.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inpLuongCoban.Location = new System.Drawing.Point(916, 266);
+            this.inpLuongCoban.Name = "inpLuongCoban";
+            this.inpLuongCoban.Size = new System.Drawing.Size(336, 27);
+            this.inpLuongCoban.TabIndex = 59;
             // 
             // label6
             // 
@@ -290,9 +290,9 @@ namespace KeToanTienLuong.danhmucform
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(727, 269);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(110, 20);
+            this.label6.Size = new System.Drawing.Size(122, 20);
             this.label6.TabIndex = 58;
-            this.label6.Text = "Hệ số lương";
+            this.label6.Text = "Lương cơ bản";
             // 
             // inpBangCap
             // 
@@ -402,6 +402,11 @@ namespace KeToanTienLuong.danhmucform
             this.label11.TabIndex = 62;
             this.label11.Text = "Số người phục thuộc";
             // 
+            // dmnvBindingSource1
+            // 
+            this.dmnvBindingSource1.DataMember = "dmnv";
+            this.dmnvBindingSource1.DataSource = this.ketoantienluongDataSet;
+            // 
             // manvDataGridViewTextBoxColumn
             // 
             this.manvDataGridViewTextBoxColumn.DataPropertyName = "manv";
@@ -453,7 +458,7 @@ namespace KeToanTienLuong.danhmucform
             // macvDataGridViewTextBoxColumn
             // 
             this.macvDataGridViewTextBoxColumn.DataPropertyName = "macv";
-            this.macvDataGridViewTextBoxColumn.HeaderText = "Mã công việc";
+            this.macvDataGridViewTextBoxColumn.HeaderText = "Mã chức vụ";
             this.macvDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.macvDataGridViewTextBoxColumn.Name = "macvDataGridViewTextBoxColumn";
             this.macvDataGridViewTextBoxColumn.Width = 125;
@@ -465,22 +470,6 @@ namespace KeToanTienLuong.danhmucform
             this.mabpDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.mabpDataGridViewTextBoxColumn.Name = "mabpDataGridViewTextBoxColumn";
             this.mabpDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // mablDataGridViewTextBoxColumn
-            // 
-            this.mablDataGridViewTextBoxColumn.DataPropertyName = "mabl";
-            this.mablDataGridViewTextBoxColumn.HeaderText = "Mã bậc lương";
-            this.mablDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.mablDataGridViewTextBoxColumn.Name = "mablDataGridViewTextBoxColumn";
-            this.mablDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // hesoluongDataGridViewTextBoxColumn
-            // 
-            this.hesoluongDataGridViewTextBoxColumn.DataPropertyName = "hesoluong";
-            this.hesoluongDataGridViewTextBoxColumn.HeaderText = "Hệ số lương";
-            this.hesoluongDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.hesoluongDataGridViewTextBoxColumn.Name = "hesoluongDataGridViewTextBoxColumn";
-            this.hesoluongDataGridViewTextBoxColumn.Width = 125;
             // 
             // bangcapDataGridViewTextBoxColumn
             // 
@@ -514,6 +503,14 @@ namespace KeToanTienLuong.danhmucform
             this.trangthaiDataGridViewTextBoxColumn.Name = "trangthaiDataGridViewTextBoxColumn";
             this.trangthaiDataGridViewTextBoxColumn.Width = 125;
             // 
+            // luongcobanDataGridViewTextBoxColumn
+            // 
+            this.luongcobanDataGridViewTextBoxColumn.DataPropertyName = "luongcoban";
+            this.luongcobanDataGridViewTextBoxColumn.HeaderText = "Lương cơ bản";
+            this.luongcobanDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.luongcobanDataGridViewTextBoxColumn.Name = "luongcobanDataGridViewTextBoxColumn";
+            this.luongcobanDataGridViewTextBoxColumn.Width = 125;
+            // 
             // NhanVienForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -522,7 +519,7 @@ namespace KeToanTienLuong.danhmucform
             this.Controls.Add(this.label11);
             this.Controls.Add(this.comboBoxChucVu);
             this.Controls.Add(this.comboBoxDMBP);
-            this.Controls.Add(this.inpHsl);
+            this.Controls.Add(this.inpLuongCoban);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.inpBangCap);
             this.Controls.Add(this.label7);
@@ -552,6 +549,7 @@ namespace KeToanTienLuong.danhmucform
             ((System.ComponentModel.ISupportInitialize)(this.dmnvBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ketoantienluongDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ketoantienluongDataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dmnvBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -574,7 +572,7 @@ namespace KeToanTienLuong.danhmucform
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox inpTrinhDo;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox inpHsl;
+        private System.Windows.Forms.TextBox inpLuongCoban;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox inpBangCap;
         private System.Windows.Forms.Label label7;
@@ -590,6 +588,8 @@ namespace KeToanTienLuong.danhmucform
         private ketoantienluongDataSetTableAdapters.dmnvTableAdapter dmnvTableAdapter;
         private System.Windows.Forms.TextBox inpPhuThuoc;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn mablDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn hesoluongDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn manvDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn tenvDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn ngaysinhDataGridViewTextBoxColumn;
@@ -598,11 +598,11 @@ namespace KeToanTienLuong.danhmucform
         private System.Windows.Forms.DataGridViewTextBoxColumn gioitinhDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn macvDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn mabpDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn mablDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn hesoluongDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn bangcapDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn trinhdoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn songuoiphuthuocDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn trangthaiDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn luongcobanDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource dmnvBindingSource1;
     }
 }

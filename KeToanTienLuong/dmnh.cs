@@ -12,24 +12,20 @@ namespace KeToanTienLuong
     using System;
     using System.Collections.Generic;
     
-    public partial class phieuchi
+    public partial class dmnh
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public phieuchi()
+        public dmnh()
         {
-            this.chitietphieux = new HashSet<chitietphieu>();
+            this.giaybaonoes = new HashSet<giaybaono>();
         }
     
         public string so { get; set; }
-        public Nullable<System.DateTime> ngay { get; set; }
-        public string manv { get; set; }
-        public string noidung { get; set; }
-        public string ctlq { get; set; }
-        public string type { get; set; }
-        public string manh { get; set; }
+        public string stk { get; set; }
+        public string tennh { get; set; }
+        public string chinhanh { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<chitietphieu> chitietphieux { get; set; }
-        public virtual dmnv dmnv { get; set; }
+        public virtual ICollection<giaybaono> giaybaonoes { get; set; }
     }
 }

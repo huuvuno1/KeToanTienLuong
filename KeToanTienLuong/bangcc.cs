@@ -14,6 +14,13 @@ namespace KeToanTienLuong
     
     public partial class bangcc
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public bangcc()
+        {
+            this.chitietbangccs = new HashSet<chitietbangcc>();
+            this.bangluongnhanviens = new HashSet<bangluongnhanvien>();
+        }
+    
         public string so { get; set; }
         public Nullable<int> thang { get; set; }
         public Nullable<int> nam { get; set; }
@@ -22,5 +29,9 @@ namespace KeToanTienLuong
         public string noidung { get; set; }
     
         public virtual dmbp dmbp { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<chitietbangcc> chitietbangccs { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<bangluongnhanvien> bangluongnhanviens { get; set; }
     }
 }

@@ -12,7 +12,7 @@ namespace KeToanTienLuong
     using System;
     using System.Collections.Generic;
     
-    public partial class chitietphieu
+    public partial class chitietphieuketoan
     {
         public int id { get; set; }
         public string so { get; set; }
@@ -21,6 +21,6 @@ namespace KeToanTienLuong
         public string noidung { get; set; }
         public Nullable<double> tien { get; set; }
     
-        public virtual phieuchi phieuchi { get; set; }
+        public virtual phieuketoan phieuketoan { get; set; }
     }
 }

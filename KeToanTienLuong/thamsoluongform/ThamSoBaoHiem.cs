@@ -24,5 +24,10 @@ namespace KeToanTienLuong.thamsoluongform
             dataGridView.DataSource = db.thamsoluongs.Select(p => p).ToList();
             dataGridView.Refresh();
         }
+
+        private void buttonLuu_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

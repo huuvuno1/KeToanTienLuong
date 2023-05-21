@@ -12,22 +12,14 @@ namespace KeToanTienLuong
     using System;
     using System.Collections.Generic;
     
-    public partial class bangluong
+    public partial class bangluongnhanvien
     {
         public Nullable<int> thang { get; set; }
         public Nullable<int> nam { get; set; }
         public Nullable<int> Ngaycong { get; set; }
         public string noidung { get; set; }
-        public string manv { get; set; }
-        public string tenv { get; set; }
-        public string masothue { get; set; }
-        public Nullable<int> songuoiphuthuoc { get; set; }
-        public string Mabp { get; set; }
-        public Nullable<int> ngaycongthucte { get; set; }
-        public Nullable<int> ngayphep { get; set; }
         public Nullable<decimal> tienphucap { get; set; }
         public Nullable<decimal> tienthuong { get; set; }
-        public string mabl { get; set; }
         public Nullable<decimal> tienluongcoban { get; set; }
         public Nullable<decimal> bhxh { get; set; }
         public Nullable<decimal> bhyt { get; set; }
@@ -42,11 +34,21 @@ namespace KeToanTienLuong
         public Nullable<decimal> giamtruphuthuoc { get; set; }
         public Nullable<decimal> giamtrucanhan { get; set; }
         public Nullable<decimal> tonggiamtru { get; set; }
-        public Nullable<double> ngaykhongphep { get; set; }
-        public Nullable<double> tienbhyt { get; set; }
-        public Nullable<double> tienbhtn { get; set; }
-        public int so { get; set; }
+        public Nullable<decimal> tienbhyt { get; set; }
+        public Nullable<decimal> tienbhtn { get; set; }
+        public int id { get; set; }
+        public int machitietbcc { get; set; }
+        public string mabcc { get; set; }
+        public Nullable<decimal> congdoan { get; set; }
+        public Nullable<decimal> tiencongdoan { get; set; }
+        public Nullable<decimal> tienbhxhctytra { get; set; }
+        public Nullable<decimal> tienbhytctytra { get; set; }
+        public Nullable<decimal> tienbtntnctytra { get; set; }
+        public Nullable<decimal> tiencongdoanctytra { get; set; }
+        public Nullable<decimal> luongngoaigio { get; set; }
+        public Nullable<decimal> phucapantrue { get; set; }
+        public Nullable<decimal> phucapkhac { get; set; }
     
-        public virtual dmnv dmnv { get; set; }
+        public virtual bangcc bangcc { get; set; }
     }
 }
