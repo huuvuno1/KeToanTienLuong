@@ -227,12 +227,22 @@ namespace KeToanTienLuong.tinhluongfrm
                 var nv = db.dmnvs.Find(ctbcc.manv);
                 var lcb = nv.luongcoban;
                 data.bangluongnhanviens.Add(new bangluongnhanvien() {
-                    bhtn =  0.01m,
+                    bhtn = 0.01m,
                     bhxh = 0.08m,
-                    bhyt =  0.015m,
+                    bhyt = 0.015m,
                     tienbhtn = lcb * 0.08m,
                     tienbhyt = lcb * 0.01m,
-                    tienbhxh = lcb * 0.015m
+                    tienbhxh = lcb * 0.015m,
+                    tiencongdoan = lcb * 0.01m,
+                    tienluongcoban = lcb,
+                    tienbhxhctytra = lcb * 1.75m,
+                    tienbhytctytra = lcb * 0.03m,
+                    tienbtntnctytra = lcb * 0.01m,
+                    phucapantrue = 750000,
+                    phucapkhac = 300000,
+                    tienluong = lcb / data.ngaycong * decimal.Parse(ctbcc.ngaycong.ToString()),
+                    giamtrucanhan = 11000000,
+                    giamtruphuthuoc = 4400000 * nv.songuoiphuthuoc
                 });
             });
 

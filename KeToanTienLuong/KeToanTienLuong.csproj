@@ -153,9 +153,6 @@
     <Compile Include="chitietbangcc.cs">
       <DependentUpon>KeToan.tt</DependentUpon>
     </Compile>
-    <Compile Include="chitietphieu.cs">
-      <DependentUpon>KeToan.tt</DependentUpon>
-    </Compile>
     <Compile Include="chitietphieuketoan.cs">
       <DependentUpon>KeToan.tt</DependentUpon>
     </Compile>

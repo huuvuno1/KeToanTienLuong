@@ -20,8 +20,13 @@ namespace KeToanTienLuong
         public string noidung { get; set; }
         public string ctlq { get; set; }
         public string manh { get; set; }
+        public Nullable<decimal> tien { get; set; }
+        public string tkco { get; set; }
+        public string tkno { get; set; }
     
         public virtual dmnh dmnh { get; set; }
         public virtual dmnv dmnv { get; set; }
+        public virtual dmtk dmtk { get; set; }
+        public virtual dmtk dmtk1 { get; set; }
     }
 }

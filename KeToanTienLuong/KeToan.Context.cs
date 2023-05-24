@@ -33,18 +33,17 @@ namespace KeToanTienLuong
         public virtual DbSet<thamsoluong> thamsoluongs { get; set; }
         public virtual DbSet<thamsothuetncn> thamsothuetncns { get; set; }
         public virtual DbSet<dmtk> dmtks { get; set; }
-        public virtual DbSet<phieuchi> phieuchis { get; set; }
         public virtual DbSet<chitietsocai> chitietsocais { get; set; }
         public virtual DbSet<vsocai> vsocais { get; set; }
         public virtual DbSet<chitietbangcc> chitietbangccs { get; set; }
         public virtual DbSet<nguoidung> nguoidungs { get; set; }
-        public virtual DbSet<chitietphieu> chitietphieux { get; set; }
         public virtual DbSet<dmnh> dmnhs { get; set; }
-        public virtual DbSet<giaybaono> giaybaonoes { get; set; }
         public virtual DbSet<chitietphieuketoan> chitietphieuketoans { get; set; }
         public virtual DbSet<phieuketoan> phieuketoans { get; set; }
         public virtual DbSet<dmnv> dmnvs { get; set; }
         public virtual DbSet<bangluongnhanvien> bangluongnhanviens { get; set; }
+        public virtual DbSet<giaybaono> giaybaonoes { get; set; }
+        public virtual DbSet<phieuchi> phieuchis { get; set; }
     
         public virtual ObjectResult<laydsbangluong_Result> laydsbangluong(Nullable<int> thang, Nullable<int> nam)
         {

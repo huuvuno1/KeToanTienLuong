@@ -20,5 +20,7 @@ namespace KeToanTienLuong
         public string tkdu { get; set; }
         public Nullable<double> tienno { get; set; }
         public Nullable<double> tienco { get; set; }
+    
+        public virtual vsocai vsocai { get; set; }
     }
 }

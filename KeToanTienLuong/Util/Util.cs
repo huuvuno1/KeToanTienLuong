@@ -29,5 +29,40 @@ namespace KeToanTienLuong.Util
             items[0].BackColor = SystemColors.ControlLightLight;
         }
 
+        public static decimal CalculatePersonalIncomeTax(decimal monthlyIncome)
+        {
+            decimal taxAmount = 0;
+            decimal taxableIncome = monthlyIncome;
+
+            // Bảng thuế thu nhập cá nhân theo luật hiện hành
+            // Các mức thuế và ngưỡng được định nghĩa trong các dòng dưới đây
+            decimal[] taxThresholds = { 5000000, 10000000, 18000000, 32000000, 52000000, 80000000 };
+            decimal[] taxRates = { 0.05m, 0.1m, 0.15m, 0.2m, 0.25m, 0.3m };
+
+            // Tính thuế dựa trên các ngưỡng và mức thuế
+            for (int i = 0; i < taxThresholds.Length; i++)
+            {
+                if (taxableIncome <= 0)
+                {
+                    break;
+                }
+
+                decimal threshold = taxThresholds[i];
+                decimal rate = taxRates[i];
+
+                if (taxableIncome <= threshold)
+                {
+                    taxAmount += taxableIncome * rate;
+                    break;
+                }
+                else
+                {
+                    taxAmount += threshold * rate;
+                    taxableIncome -= threshold;
+                }
+            }
+
+            return taxAmount;
+        }
     }
 }

@@ -18,9 +18,9 @@ namespace KeToanTienLuong
         public dmnv()
         {
             this.chitietbangccs = new HashSet<chitietbangcc>();
+            this.phieuketoans = new HashSet<phieuketoan>();
             this.giaybaonoes = new HashSet<giaybaono>();
             this.phieuchis = new HashSet<phieuchi>();
-            this.phieuketoans = new HashSet<phieuketoan>();
         }
     
         public string manv { get; set; }
@@ -42,10 +42,10 @@ namespace KeToanTienLuong
         public virtual dmbp dmbp { get; set; }
         public virtual dmcv dmcv { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<phieuketoan> phieuketoans { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<giaybaono> giaybaonoes { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<phieuchi> phieuchis { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<phieuketoan> phieuketoans { get; set; }
     }
 }

@@ -14,9 +14,27 @@ namespace KeToanTienLuong
     
     public partial class dmtk
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public dmtk()
+        {
+            this.giaybaonoes = new HashSet<giaybaono>();
+            this.giaybaonoes1 = new HashSet<giaybaono>();
+            this.phieuchis = new HashSet<phieuchi>();
+            this.phieuchis1 = new HashSet<phieuchi>();
+        }
+    
         public string matk { get; set; }
         public string tentk { get; set; }
         public string tkme { get; set; }
         public Nullable<int> captk { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<giaybaono> giaybaonoes { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<giaybaono> giaybaonoes1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<phieuchi> phieuchis { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<phieuchi> phieuchis1 { get; set; }
     }
 }

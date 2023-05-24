@@ -47,38 +47,18 @@ namespace KeToanTienLuong.chungtu
 
         private void buttonLuu_Click(object sender, EventArgs e)
         {
-            List<chitietphieu> list = new List<chitietphieu>();
-
-            foreach (DataGridViewRow clickedRow in dgvchitietchungtu.Rows)
-            {
-                if (clickedRow.IsNewRow)
-                    break;
-                // Lấy dữ liệu của cả hàng
-                string[] rowData = clickedRow.Cells.Cast<DataGridViewCell>()
-                                                  .Select(cell => cell.Value?.ToString())
-                                                  .ToArray();
-
-                string tien = string.IsNullOrEmpty(rowData[3]) ? "0" : rowData[3];
-                list.Add(new chitietphieu() {
-                    so = txtso.Text,
-                    tkno = rowData[0],
-                    tkco = rowData[1],
-                    noidung = rowData[2],
-                    tien = double.Parse(tien)
-                });
-            }
-
 
             var db = new ketoantienluongEntities();
-            db.phieuchis.Add(new phieuchi() {
+            db.giaybaonoes.Add(new giaybaono() {
                 so = txtso.Text,
                 ctlq = txtctlq.Text,
                 manv = cbomanv.SelectedValue.ToString(),
                 ngay = dtngay.Value,
-                chitietphieux = list,
-                type= "giay-bao-no",
                 manh = cbomanh.SelectedValue.ToString(),
-            });
+                tien = decimal.Parse(inpTien.Text),
+                tkno = comboBoxTkNo.SelectedValue.ToString(),
+                tkco = inpTkCo.Text,
+            }); ; ;
 
             try
             {
@@ -86,7 +66,7 @@ namespace KeToanTienLuong.chungtu
             }
             catch (Exception ee)
             {
-                labelMessage.Text = $"* Lỗi: mã phiếu đã tồn tại";
+                MessageBox.Show($"* Đã có lỗi xảy ra, có thể bị trùng mã phiếu!");
                 return;
             };
             MessageBox.Show($"* Lưu phiếu {txtso.Text} thành công!");
@@ -96,8 +76,6 @@ namespace KeToanTienLuong.chungtu
             cbomanh.SelectedIndex = 0;
             cbomanv.SelectedIndex = 0;
             dgvchitietchungtu.Rows.Clear();
-
-            
         }
 
         private void GiayBaoNoForm_Load(object sender, EventArgs e)
@@ -114,6 +92,10 @@ namespace KeToanTienLuong.chungtu
 
             DataGridViewComboBoxColumn a = dgvchitietchungtu.Columns["tkno"] as DataGridViewComboBoxColumn;
             a.DataSource = db.dmtks.Select(p => p).ToList();
+
+            comboBoxTkNo.DataSource = db.dmtks.Select(p => p).ToList();
+            comboBoxTkNo.DisplayMember = "matk";
+            comboBoxTkNo.ValueMember = "matk";
 
             foreach (DataGridViewRow row in dgvchitietchungtu.Rows)
             {
@@ -133,6 +115,16 @@ namespace KeToanTienLuong.chungtu
         }
 
         private void addComboboxCell(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void inpTkCo_TextChanged(object sender, EventArgs e)
         {
 
         }

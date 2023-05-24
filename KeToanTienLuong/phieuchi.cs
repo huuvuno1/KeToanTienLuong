@@ -14,22 +14,17 @@ namespace KeToanTienLuong
     
     public partial class phieuchi
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public phieuchi()
-        {
-            this.chitietphieux = new HashSet<chitietphieu>();
-        }
-    
         public string so { get; set; }
         public Nullable<System.DateTime> ngay { get; set; }
         public string manv { get; set; }
         public string noidung { get; set; }
         public string ctlq { get; set; }
-        public string type { get; set; }
-        public string manh { get; set; }
+        public string tkno { get; set; }
+        public string tkco { get; set; }
+        public Nullable<decimal> tien { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<chitietphieu> chitietphieux { get; set; }
         public virtual dmnv dmnv { get; set; }
+        public virtual dmtk dmtk { get; set; }
+        public virtual dmtk dmtk1 { get; set; }
     }
 }

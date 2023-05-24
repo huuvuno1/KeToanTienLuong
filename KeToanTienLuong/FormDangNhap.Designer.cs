@@ -36,8 +36,7 @@ namespace KeToanTienLuong
             this.label1 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.checkboxSavePass = new DevExpress.XtraEditors.CheckEdit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkboxSavePass.Properties)).BeginInit();
+            this.checkboxSavePass = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // label2
@@ -120,11 +119,13 @@ namespace KeToanTienLuong
             // 
             // checkboxSavePass
             // 
-            this.checkboxSavePass.Location = new System.Drawing.Point(232, 208);
+            this.checkboxSavePass.AutoSize = true;
+            this.checkboxSavePass.Location = new System.Drawing.Point(232, 205);
             this.checkboxSavePass.Name = "checkboxSavePass";
-            this.checkboxSavePass.Properties.Caption = "Lưu mật khẩu";
-            this.checkboxSavePass.Size = new System.Drawing.Size(145, 24);
-            this.checkboxSavePass.TabIndex = 9;
+            this.checkboxSavePass.Size = new System.Drawing.Size(116, 21);
+            this.checkboxSavePass.TabIndex = 10;
+            this.checkboxSavePass.Text = "Lưu mật khẩu";
+            this.checkboxSavePass.UseVisualStyleBackColor = true;
             // 
             // FormDangNhap
             // 
@@ -146,7 +147,6 @@ namespace KeToanTienLuong
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.FormDangNhap_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.checkboxSavePass.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -161,6 +161,6 @@ namespace KeToanTienLuong
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private DevExpress.XtraEditors.CheckEdit checkboxSavePass;
+        private System.Windows.Forms.CheckBox checkboxSavePass;
     }
 }

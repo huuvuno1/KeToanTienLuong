@@ -12,16 +12,11 @@
         <EntityTypeShape EntityType="ketoantienluongModel.thamsothuetncn" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
         <AssociationConnector Association="ketoantienluongModel.FK__bangcc__mabp__3D5E1FD2" ManuallyRouted="false" />
         <EntityTypeShape EntityType="ketoantienluongModel.dmtk" Width="1.5" PointX="0.75" PointY="10.75" />
-        <EntityTypeShape EntityType="ketoantienluongModel.phieuchi" Width="1.5" PointX="9.625" PointY="1.25" />
         <EntityTypeShape EntityType="ketoantienluongModel.chitietsocai" Width="1.5" PointX="3.375" PointY="10.75" />
         <EntityTypeShape EntityType="ketoantienluongModel.vsocai" Width="1.5" PointX="5.375" PointY="10.75" />
         <EntityTypeShape EntityType="ketoantienluongModel.chitietbangcc" Width="1.5" PointX="9.25" PointY="12.75" />
         <EntityTypeShape EntityType="ketoantienluongModel.nguoidung" Width="1.5" PointX="12.375" PointY="0.75" />
-        <EntityTypeShape EntityType="ketoantienluongModel.chitietphieu" Width="1.5" PointX="11.875" PointY="4.25" />
-        <AssociationConnector Association="ketoantienluongModel.FK__chitietphieu__so__7D439ABD" />
         <EntityTypeShape EntityType="ketoantienluongModel.dmnh" Width="1.5" PointX="10" PointY="16.25" />
-        <EntityTypeShape EntityType="ketoantienluongModel.giaybaono" Width="1.5" PointX="12.25" PointY="8" />
-        <AssociationConnector Association="ketoantienluongModel.FK__giaybaono__manh__06CD04F7" />
         <EntityTypeShape EntityType="ketoantienluongModel.chitietphieuketoan" Width="1.5" PointX="11.5" PointY="19.25" />
         <EntityTypeShape EntityType="ketoantienluongModel.phieuketoan" Width="1.5" PointX="9.25" PointY="19.25" />
         <AssociationConnector Association="ketoantienluongModel.FK__chitietphieu__so__0F624AF8" />
@@ -30,11 +25,19 @@
         <AssociationConnector Association="ketoantienluongModel.FK__chitietban__manv__6D0D32F4" />
         <AssociationConnector Association="ketoantienluongModel.FK__dmnv__mabp__48CFD27E" />
         <AssociationConnector Association="ketoantienluongModel.FK__dmnv__macv__47DBAE45" />
-        <AssociationConnector Association="ketoantienluongModel.FK__giaybaono__manv__05D8E0BE" />
-        <AssociationConnector Association="ketoantienluongModel.FK__phieuchi__manv__66603565" />
         <AssociationConnector Association="ketoantienluongModel.FK__phieuketoa__manv__0C85DE4D" />
         <EntityTypeShape EntityType="ketoantienluongModel.bangluongnhanvien" Width="1.5" PointX="5.25" PointY="14.125" />
         <AssociationConnector Association="ketoantienluongModel.bangluongnhanvien_FK" />
+        <EntityTypeShape EntityType="ketoantienluongModel.giaybaono" Width="1.5" PointX="12.25" PointY="9.5" />
+        <EntityTypeShape EntityType="ketoantienluongModel.phieuchi" Width="1.5" PointX="9.25" PointY="7.25" />
+        <AssociationConnector Association="ketoantienluongModel.chitietsocai_FK" />
+        <AssociationConnector Association="ketoantienluongModel.FK__giaybaono__manh__06CD04F7" />
+        <AssociationConnector Association="ketoantienluongModel.FK__giaybaono__manv__05D8E0BE" />
+        <AssociationConnector Association="ketoantienluongModel.FK__phieuchi__manv__66603565" />
+        <AssociationConnector Association="ketoantienluongModel.giaybaono_FK" />
+        <AssociationConnector Association="ketoantienluongModel.giaybaono_FK_1" />
+        <AssociationConnector Association="ketoantienluongModel.phieuchi_FK" />
+        <AssociationConnector Association="ketoantienluongModel.phieuchi_FK_1" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

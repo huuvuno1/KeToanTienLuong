@@ -20,5 +20,7 @@ namespace KeToanTienLuong
         public Nullable<System.DateTime> thoigian { get; set; }
         public string tentk { get; set; }
         public string tkno { get; set; }
+    
+        public virtual chitietsocai chitietsocai { get; set; }
     }
 }

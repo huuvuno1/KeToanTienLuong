@@ -170,6 +170,7 @@ namespace KeToanTienLuong.hethongform
             this.button3.Text = "   Xóa";
             this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
@@ -183,6 +184,7 @@ namespace KeToanTienLuong.hethongform
             this.button2.Text = "   Sửa";
             this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // buttonThem
             // 
@@ -219,6 +221,7 @@ namespace KeToanTienLuong.hethongform
             this.dataGridViewNguoiDung.RowTemplate.Height = 24;
             this.dataGridViewNguoiDung.Size = new System.Drawing.Size(1189, 276);
             this.dataGridViewNguoiDung.TabIndex = 18;
+            this.dataGridViewNguoiDung.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvdmtk_CellContentClick);
             this.dataGridViewNguoiDung.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewNguoiDung_CellContentClick_1);
             // 
             // idDataGridViewTextBoxColumn
