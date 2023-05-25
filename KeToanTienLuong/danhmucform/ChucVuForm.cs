@@ -37,6 +37,7 @@ namespace KeToanTienLuong.danhmucform
         private void ChucVuForm_Load(object sender, EventArgs e)
         {
             getDataSource();
+            dataGridView.ReadOnly = true;
         }
 
 

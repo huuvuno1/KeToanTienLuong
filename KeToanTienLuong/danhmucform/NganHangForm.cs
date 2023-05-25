@@ -66,6 +66,7 @@ namespace KeToanTienLuong.danhmucform
 
         private void NganHangForm_Load(object sender, EventArgs e)
         {
+            dataGridView.ReadOnly = true;
             getDataSource();
         }
 

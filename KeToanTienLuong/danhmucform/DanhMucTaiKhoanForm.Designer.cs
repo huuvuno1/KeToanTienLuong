@@ -40,21 +40,21 @@ namespace KeToanTienLuong.danhmucform
             this.inpCapTk = new System.Windows.Forms.TextBox();
             this.lblma = new System.Windows.Forms.Label();
             this.pnCacNut = new System.Windows.Forms.Panel();
-            this.buttonHuy = new System.Windows.Forms.Button();
-            this.buttonLuu = new System.Windows.Forms.Button();
             this.buttonXoa = new System.Windows.Forms.Button();
+            this.buttonHuy = new System.Windows.Forms.Button();
             this.buttonSua = new System.Windows.Forms.Button();
+            this.buttonLuu = new System.Windows.Forms.Button();
             this.buttonThem = new System.Windows.Forms.Button();
             this.captk = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tkme = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.matk = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pndgv = new System.Windows.Forms.Panel();
-            this.dgvdmtk = new System.Windows.Forms.DataGridView();
+            this.dataGridView = new System.Windows.Forms.DataGridView();
             this.tentk = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnDoiTuong.SuspendLayout();
             this.pnCacNut.SuspendLayout();
             this.pndgv.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvdmtk)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // lalcap
@@ -260,82 +260,83 @@ namespace KeToanTienLuong.danhmucform
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnCacNut.BackColor = System.Drawing.Color.DarkGray;
             this.pnCacNut.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pnCacNut.Controls.Add(this.buttonHuy);
-            this.pnCacNut.Controls.Add(this.buttonLuu);
             this.pnCacNut.Controls.Add(this.buttonXoa);
+            this.pnCacNut.Controls.Add(this.buttonHuy);
             this.pnCacNut.Controls.Add(this.buttonSua);
+            this.pnCacNut.Controls.Add(this.buttonLuu);
             this.pnCacNut.Controls.Add(this.buttonThem);
             this.pnCacNut.Location = new System.Drawing.Point(15, 516);
             this.pnCacNut.Margin = new System.Windows.Forms.Padding(4);
             this.pnCacNut.Name = "pnCacNut";
             this.pnCacNut.Size = new System.Drawing.Size(1244, 91);
             this.pnCacNut.TabIndex = 3;
-            // 
-            // buttonHuy
-            // 
-            this.buttonHuy.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonHuy.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonHuy.Image = global::KeToanTienLuong.Properties.Resources.cancelled;
-            this.buttonHuy.Location = new System.Drawing.Point(536, 27);
-            this.buttonHuy.Name = "buttonHuy";
-            this.buttonHuy.Size = new System.Drawing.Size(170, 42);
-            this.buttonHuy.TabIndex = 50;
-            this.buttonHuy.Text = "   Hủy";
-            this.buttonHuy.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonHuy.UseVisualStyleBackColor = true;
-            this.buttonHuy.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // buttonLuu
-            // 
-            this.buttonLuu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonLuu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonLuu.Image = global::KeToanTienLuong.Properties.Resources.checkmark;
-            this.buttonLuu.Location = new System.Drawing.Point(282, 27);
-            this.buttonLuu.Name = "buttonLuu";
-            this.buttonLuu.Size = new System.Drawing.Size(193, 42);
-            this.buttonLuu.TabIndex = 49;
-            this.buttonLuu.Text = "   Lưu";
-            this.buttonLuu.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonLuu.UseVisualStyleBackColor = true;
-            this.buttonLuu.Click += new System.EventHandler(this.buttonLuu_Click);
+            this.pnCacNut.Paint += new System.Windows.Forms.PaintEventHandler(this.pnCacNut_Paint);
             // 
             // buttonXoa
             // 
             this.buttonXoa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.buttonXoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonXoa.Image = global::KeToanTienLuong.Properties.Resources.delete;
-            this.buttonXoa.Location = new System.Drawing.Point(981, 27);
+            this.buttonXoa.Location = new System.Drawing.Point(978, 24);
             this.buttonXoa.Name = "buttonXoa";
             this.buttonXoa.Size = new System.Drawing.Size(170, 42);
-            this.buttonXoa.TabIndex = 48;
+            this.buttonXoa.TabIndex = 76;
             this.buttonXoa.Text = "   Xóa";
             this.buttonXoa.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonXoa.UseVisualStyleBackColor = true;
-            this.buttonXoa.Click += new System.EventHandler(this.button3_Click);
+            this.buttonXoa.Click += new System.EventHandler(this.buttonXoa_Click);
+            // 
+            // buttonHuy
+            // 
+            this.buttonHuy.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonHuy.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonHuy.Image = global::KeToanTienLuong.Properties.Resources.cancelled;
+            this.buttonHuy.Location = new System.Drawing.Point(537, 24);
+            this.buttonHuy.Name = "buttonHuy";
+            this.buttonHuy.Size = new System.Drawing.Size(170, 42);
+            this.buttonHuy.TabIndex = 78;
+            this.buttonHuy.Text = "   Hủy";
+            this.buttonHuy.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonHuy.UseVisualStyleBackColor = true;
+            this.buttonHuy.Click += new System.EventHandler(this.buttonHuy_Click);
             // 
             // buttonSua
             // 
             this.buttonSua.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.buttonSua.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonSua.Image = global::KeToanTienLuong.Properties.Resources.pencil;
-            this.buttonSua.Location = new System.Drawing.Point(754, 27);
+            this.buttonSua.Location = new System.Drawing.Point(748, 24);
             this.buttonSua.Name = "buttonSua";
             this.buttonSua.Size = new System.Drawing.Size(174, 42);
-            this.buttonSua.TabIndex = 47;
+            this.buttonSua.TabIndex = 75;
             this.buttonSua.Text = "   Sửa";
             this.buttonSua.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonSua.UseVisualStyleBackColor = true;
             this.buttonSua.Click += new System.EventHandler(this.buttonSua_Click);
+            // 
+            // buttonLuu
+            // 
+            this.buttonLuu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonLuu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonLuu.Image = global::KeToanTienLuong.Properties.Resources.checkmark;
+            this.buttonLuu.Location = new System.Drawing.Point(299, 24);
+            this.buttonLuu.Name = "buttonLuu";
+            this.buttonLuu.Size = new System.Drawing.Size(193, 42);
+            this.buttonLuu.TabIndex = 77;
+            this.buttonLuu.Text = "   Lưu";
+            this.buttonLuu.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonLuu.UseVisualStyleBackColor = true;
+            this.buttonLuu.Click += new System.EventHandler(this.buttonLuu_Click);
             // 
             // buttonThem
             // 
             this.buttonThem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.buttonThem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonThem.Image = global::KeToanTienLuong.Properties.Resources.plus;
-            this.buttonThem.Location = new System.Drawing.Point(59, 27);
+            this.buttonThem.Location = new System.Drawing.Point(97, 24);
             this.buttonThem.Name = "buttonThem";
-            this.buttonThem.Size = new System.Drawing.Size(148, 42);
-            this.buttonThem.TabIndex = 46;
+            this.buttonThem.Size = new System.Drawing.Size(170, 42);
+            this.buttonThem.TabIndex = 74;
             this.buttonThem.Text = "  Thêm";
             this.buttonThem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonThem.UseVisualStyleBackColor = true;
@@ -370,34 +371,35 @@ namespace KeToanTienLuong.danhmucform
             this.pndgv.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pndgv.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.pndgv.Controls.Add(this.dgvdmtk);
+            this.pndgv.Controls.Add(this.dataGridView);
             this.pndgv.Location = new System.Drawing.Point(15, 226);
             this.pndgv.Margin = new System.Windows.Forms.Padding(4);
             this.pndgv.Name = "pndgv";
             this.pndgv.Size = new System.Drawing.Size(1245, 235);
             this.pndgv.TabIndex = 5;
             // 
-            // dgvdmtk
+            // dataGridView
             // 
-            this.dgvdmtk.AllowUserToAddRows = false;
-            this.dgvdmtk.AllowUserToDeleteRows = false;
-            this.dgvdmtk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvdmtk.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvdmtk.BackgroundColor = System.Drawing.Color.LightGray;
-            this.dgvdmtk.ColumnHeadersHeight = 29;
-            this.dgvdmtk.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridView.AllowUserToAddRows = false;
+            this.dataGridView.AllowUserToDeleteRows = false;
+            this.dataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView.BackgroundColor = System.Drawing.Color.LightGray;
+            this.dataGridView.ColumnHeadersHeight = 29;
+            this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.matk,
             this.tkme,
             this.captk,
             this.tentk});
-            this.dgvdmtk.Location = new System.Drawing.Point(0, 0);
-            this.dgvdmtk.Margin = new System.Windows.Forms.Padding(4);
-            this.dgvdmtk.Name = "dgvdmtk";
-            this.dgvdmtk.ReadOnly = true;
-            this.dgvdmtk.RowHeadersWidth = 51;
-            this.dgvdmtk.Size = new System.Drawing.Size(1245, 235);
-            this.dgvdmtk.TabIndex = 0;
-            this.dgvdmtk.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvdmtk_CellContentClick);
+            this.dataGridView.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridView.Name = "dataGridView";
+            this.dataGridView.ReadOnly = true;
+            this.dataGridView.RowHeadersWidth = 51;
+            this.dataGridView.Size = new System.Drawing.Size(1245, 235);
+            this.dataGridView.TabIndex = 0;
+            this.dataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvdmtk_CellContentClick);
+            this.dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
             // 
             // tentk
             // 
@@ -421,7 +423,7 @@ namespace KeToanTienLuong.danhmucform
             this.pnDoiTuong.PerformLayout();
             this.pnCacNut.ResumeLayout(false);
             this.pndgv.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvdmtk)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -443,12 +445,12 @@ namespace KeToanTienLuong.danhmucform
         private System.Windows.Forms.DataGridViewTextBoxColumn tkme;
         private System.Windows.Forms.DataGridViewTextBoxColumn matk;
         private System.Windows.Forms.Panel pndgv;
-        private System.Windows.Forms.DataGridView dgvdmtk;
+        private System.Windows.Forms.DataGridView dataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn tentk;
-        private System.Windows.Forms.Button buttonLuu;
         private System.Windows.Forms.Button buttonXoa;
-        private System.Windows.Forms.Button buttonSua;
-        private System.Windows.Forms.Button buttonThem;
         private System.Windows.Forms.Button buttonHuy;
+        private System.Windows.Forms.Button buttonSua;
+        private System.Windows.Forms.Button buttonLuu;
+        private System.Windows.Forms.Button buttonThem;
     }
 }

@@ -19,6 +19,7 @@ namespace KeToanTienLuong.danhmucform
 
         private void BoPhanForm_Load(object sender, EventArgs e)
         {
+            dataGridViewBoPhan.ReadOnly = true;
             getDataSource();
         }
 
@@ -188,8 +189,8 @@ namespace KeToanTienLuong.danhmucform
                 if (current_action == "none") 
                     inpMa.Text = rowData[0];
                 inpTenBoPhan.Text = rowData[1];
-                inpDiaChi.Text = rowData[2];
-                inpHotline.Text = rowData[3];
+                inpDiaChi.Text = rowData[3];
+                inpHotline.Text = rowData[2];
 
             }
         }

@@ -46,6 +46,7 @@ namespace KeToanTienLuong.danhmucform
 
         private void NhanVienForm_Load(object sender, EventArgs e)
         {
+            dataGridView.ReadOnly = true;
             var db = new ketoantienluongEntities();
 
             dataGridView.DataSource = getDataSource();
