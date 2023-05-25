@@ -25,6 +25,7 @@ namespace KeToanTienLuong
         public string Tenbp { get; set; }
         public string sdt { get; set; }
         public string diachi { get; set; }
+        public Nullable<int> trangthai { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<bangcc> bangccs { get; set; }

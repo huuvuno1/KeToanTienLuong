@@ -30,10 +30,6 @@ namespace KeToanTienLuong.danhmucform
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.buttonLuu = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.buttonThem = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.inpHotline = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -50,64 +46,15 @@ namespace KeToanTienLuong.danhmucform
             this.dmbpBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ketoantienluongDataSet2 = new KeToanTienLuong.ketoantienluongDataSet2();
             this.dmbpTableAdapter = new KeToanTienLuong.ketoantienluongDataSet2TableAdapters.dmbpTableAdapter();
+            this.buttonHuy = new System.Windows.Forms.Button();
+            this.buttonLuu = new System.Windows.Forms.Button();
+            this.buttonXoa = new System.Windows.Forms.Button();
+            this.buttonSua = new System.Windows.Forms.Button();
+            this.buttonThem = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBoPhan)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dmbpBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ketoantienluongDataSet2)).BeginInit();
             this.SuspendLayout();
-            // 
-            // buttonLuu
-            // 
-            this.buttonLuu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonLuu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonLuu.Image = global::KeToanTienLuong.Properties.Resources.checkmark;
-            this.buttonLuu.Location = new System.Drawing.Point(767, 203);
-            this.buttonLuu.Name = "buttonLuu";
-            this.buttonLuu.Size = new System.Drawing.Size(137, 42);
-            this.buttonLuu.TabIndex = 32;
-            this.buttonLuu.Text = "   Lưu";
-            this.buttonLuu.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonLuu.UseVisualStyleBackColor = true;
-            this.buttonLuu.Click += new System.EventHandler(this.buttonLuu_Click);
-            // 
-            // button3
-            // 
-            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Image = global::KeToanTienLuong.Properties.Resources.delete;
-            this.button3.Location = new System.Drawing.Point(949, 203);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(137, 42);
-            this.button3.TabIndex = 31;
-            this.button3.Text = "   Xóa";
-            this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Image = global::KeToanTienLuong.Properties.Resources.pencil;
-            this.button2.Location = new System.Drawing.Point(949, 140);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(137, 42);
-            this.button2.TabIndex = 30;
-            this.button2.Text = "   Sửa";
-            this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // buttonThem
-            // 
-            this.buttonThem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonThem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonThem.Image = global::KeToanTienLuong.Properties.Resources.plus;
-            this.buttonThem.Location = new System.Drawing.Point(767, 140);
-            this.buttonThem.Name = "buttonThem";
-            this.buttonThem.Size = new System.Drawing.Size(137, 42);
-            this.buttonThem.TabIndex = 29;
-            this.buttonThem.Text = "  Thêm";
-            this.buttonThem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonThem.UseVisualStyleBackColor = true;
-            this.buttonThem.Click += new System.EventHandler(this.buttonThem_Click);
             // 
             // label4
             // 
@@ -121,6 +68,7 @@ namespace KeToanTienLuong.danhmucform
             // 
             // inpHotline
             // 
+            this.inpHotline.Enabled = false;
             this.inpHotline.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.inpHotline.Location = new System.Drawing.Point(226, 200);
             this.inpHotline.Name = "inpHotline";
@@ -139,6 +87,7 @@ namespace KeToanTienLuong.danhmucform
             // 
             // inpTenBoPhan
             // 
+            this.inpTenBoPhan.Enabled = false;
             this.inpTenBoPhan.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.inpTenBoPhan.Location = new System.Drawing.Point(226, 140);
             this.inpTenBoPhan.Name = "inpTenBoPhan";
@@ -157,6 +106,7 @@ namespace KeToanTienLuong.danhmucform
             // 
             // inpMa
             // 
+            this.inpMa.Enabled = false;
             this.inpMa.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.inpMa.Location = new System.Drawing.Point(226, 87);
             this.inpMa.Name = "inpMa";
@@ -175,6 +125,7 @@ namespace KeToanTienLuong.danhmucform
             // 
             // inpDiaChi
             // 
+            this.inpDiaChi.Enabled = false;
             this.inpDiaChi.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.inpDiaChi.Location = new System.Drawing.Point(226, 254);
             this.inpDiaChi.Name = "inpDiaChi";
@@ -201,6 +152,7 @@ namespace KeToanTienLuong.danhmucform
             this.dataGridViewBoPhan.RowTemplate.Height = 24;
             this.dataGridViewBoPhan.Size = new System.Drawing.Size(1196, 264);
             this.dataGridViewBoPhan.TabIndex = 34;
+            this.dataGridViewBoPhan.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.cellclick);
             // 
             // mabpDataGridViewTextBoxColumn
             // 
@@ -244,16 +196,87 @@ namespace KeToanTienLuong.danhmucform
             // 
             this.dmbpTableAdapter.ClearBeforeFill = true;
             // 
+            // buttonHuy
+            // 
+            this.buttonHuy.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonHuy.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonHuy.Image = global::KeToanTienLuong.Properties.Resources.cancelled;
+            this.buttonHuy.Location = new System.Drawing.Point(954, 72);
+            this.buttonHuy.Name = "buttonHuy";
+            this.buttonHuy.Size = new System.Drawing.Size(170, 42);
+            this.buttonHuy.TabIndex = 73;
+            this.buttonHuy.Text = "   Hủy";
+            this.buttonHuy.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonHuy.UseVisualStyleBackColor = true;
+            this.buttonHuy.Click += new System.EventHandler(this.buttonHuy_Click);
+            // 
+            // buttonLuu
+            // 
+            this.buttonLuu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonLuu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonLuu.Image = global::KeToanTienLuong.Properties.Resources.checkmark;
+            this.buttonLuu.Location = new System.Drawing.Point(739, 72);
+            this.buttonLuu.Name = "buttonLuu";
+            this.buttonLuu.Size = new System.Drawing.Size(193, 42);
+            this.buttonLuu.TabIndex = 72;
+            this.buttonLuu.Text = "   Lưu";
+            this.buttonLuu.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonLuu.UseVisualStyleBackColor = true;
+            this.buttonLuu.Click += new System.EventHandler(this.buttonLuu_Click_1);
+            // 
+            // buttonXoa
+            // 
+            this.buttonXoa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonXoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonXoa.Image = global::KeToanTienLuong.Properties.Resources.delete;
+            this.buttonXoa.Location = new System.Drawing.Point(739, 203);
+            this.buttonXoa.Name = "buttonXoa";
+            this.buttonXoa.Size = new System.Drawing.Size(170, 42);
+            this.buttonXoa.TabIndex = 71;
+            this.buttonXoa.Text = "   Xóa";
+            this.buttonXoa.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonXoa.UseVisualStyleBackColor = true;
+            this.buttonXoa.Click += new System.EventHandler(this.buttonXoa_Click);
+            // 
+            // buttonSua
+            // 
+            this.buttonSua.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonSua.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSua.Image = global::KeToanTienLuong.Properties.Resources.pencil;
+            this.buttonSua.Location = new System.Drawing.Point(954, 140);
+            this.buttonSua.Name = "buttonSua";
+            this.buttonSua.Size = new System.Drawing.Size(174, 42);
+            this.buttonSua.TabIndex = 70;
+            this.buttonSua.Text = "   Sửa";
+            this.buttonSua.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonSua.UseVisualStyleBackColor = true;
+            this.buttonSua.Click += new System.EventHandler(this.buttonSua_Click);
+            // 
+            // buttonThem
+            // 
+            this.buttonThem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonThem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonThem.Image = global::KeToanTienLuong.Properties.Resources.plus;
+            this.buttonThem.Location = new System.Drawing.Point(739, 140);
+            this.buttonThem.Name = "buttonThem";
+            this.buttonThem.Size = new System.Drawing.Size(170, 42);
+            this.buttonThem.TabIndex = 69;
+            this.buttonThem.Text = "  Thêm";
+            this.buttonThem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonThem.UseVisualStyleBackColor = true;
+            this.buttonThem.Click += new System.EventHandler(this.button4_Click);
+            // 
             // BoPhanForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.buttonHuy);
+            this.Controls.Add(this.buttonLuu);
+            this.Controls.Add(this.buttonXoa);
+            this.Controls.Add(this.buttonSua);
+            this.Controls.Add(this.buttonThem);
             this.Controls.Add(this.dataGridViewBoPhan);
             this.Controls.Add(this.inpDiaChi);
-            this.Controls.Add(this.buttonLuu);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.buttonThem);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.inpHotline);
             this.Controls.Add(this.label2);
@@ -273,11 +296,6 @@ namespace KeToanTienLuong.danhmucform
         }
 
         #endregion
-
-        private System.Windows.Forms.Button buttonLuu;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button buttonThem;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox inpHotline;
         private System.Windows.Forms.Label label2;
@@ -294,5 +312,10 @@ namespace KeToanTienLuong.danhmucform
         private System.Windows.Forms.DataGridViewTextBoxColumn tenbpDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn sdtDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn diachiDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button buttonHuy;
+        private System.Windows.Forms.Button buttonLuu;
+        private System.Windows.Forms.Button buttonXoa;
+        private System.Windows.Forms.Button buttonSua;
+        private System.Windows.Forms.Button buttonThem;
     }
 }

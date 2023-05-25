@@ -98,6 +98,7 @@
           <Property Name="Tenbp" Type="nvarchar" MaxLength="250" />
           <Property Name="sdt" Type="nvarchar" MaxLength="15" />
           <Property Name="diachi" Type="nvarchar" MaxLength="250" />
+          <Property Name="trangthai" Type="int" />
         </EntityType>
         <EntityType Name="dmcv">
           <Key>
@@ -531,6 +532,7 @@
           <Property Name="diachi" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="bangccs" Relationship="Self.FK__bangcc__mabp__3D5E1FD2" FromRole="dmbp" ToRole="bangcc" />
           <NavigationProperty Name="dmnvs" Relationship="ketoantienluongModel.FK__dmnv__mabp__48CFD27E" FromRole="dmbp" ToRole="dmnv" />
+          <Property Name="trangthai" Type="Int32" />
         </EntityType>
         <EntityType Name="dmcv">
           <Key>
@@ -1071,6 +1073,7 @@
           <EntitySetMapping Name="dmbps">
             <EntityTypeMapping TypeName="ketoantienluongModel.dmbp">
               <MappingFragment StoreEntitySet="dmbp">
+                <ScalarProperty Name="trangthai" ColumnName="trangthai" />
                 <ScalarProperty Name="Mabp" ColumnName="Mabp" />
                 <ScalarProperty Name="Tenbp" ColumnName="Tenbp" />
                 <ScalarProperty Name="sdt" ColumnName="sdt" />

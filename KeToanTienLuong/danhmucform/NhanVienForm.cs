@@ -30,15 +30,17 @@ namespace KeToanTienLuong.danhmucform
         {
             inpBangCap.Text = inpDiaChi.Text = inpLuongCoban.Text = inpMa.Text = inpMaSoThue.Text
                 = inpNgaySinh.Text = inpTen.Text = inpTrinhDo.Text = inpPhuThuoc.Text = "";
-            comboBoxChucVu.SelectedIndex = comboBoxDMBP.SelectedIndex = 0;
+            comboBoxChucVu.SelectedIndex = comboBoxDMBP.SelectedIndex = comboBoxGioiTinh.SelectedIndex = 0;
 
-            inpBangCap.Enabled = inpPhuThuoc.Enabled = inpDiaChi.Enabled = inpLuongCoban.Enabled = inpMa.Enabled = inpMaSoThue.Enabled = inpNgaySinh.Enabled = inpTen.Enabled = inpTrinhDo.Enabled = comboBoxChucVu.Enabled = comboBoxDMBP.Enabled = false;
+            inpBangCap.Enabled = inpPhuThuoc.Enabled = inpDiaChi.Enabled = inpLuongCoban.Enabled = 
+                inpMa.Enabled = inpMaSoThue.Enabled = inpNgaySinh.Enabled = inpTen.Enabled = 
+                inpTrinhDo.Enabled = comboBoxChucVu.Enabled = comboBoxDMBP.Enabled = comboBoxGioiTinh.Enabled = false;
 
         }
 
         private void enableInput()
         {
-            inpBangCap.Enabled = inpDiaChi.Enabled = inpLuongCoban.Enabled = inpMaSoThue.Enabled = inpNgaySinh.Enabled = inpTen.Enabled = inpTrinhDo.Enabled = comboBoxChucVu.Enabled = comboBoxDMBP.Enabled = inpPhuThuoc.Enabled = true;
+            inpBangCap.Enabled = inpDiaChi.Enabled = inpLuongCoban.Enabled = comboBoxGioiTinh.Enabled = inpMaSoThue.Enabled = inpNgaySinh.Enabled = inpTen.Enabled = inpTrinhDo.Enabled = comboBoxChucVu.Enabled = comboBoxDMBP.Enabled = inpPhuThuoc.Enabled = true;
 
         }
 
@@ -96,23 +98,40 @@ namespace KeToanTienLuong.danhmucform
             inpMa.Text = "Mã nhân viên sẽ được tạo tự động";
         }
 
-        private void buttonLuu_Click_1(object sender, EventArgs e)
+        private bool validate()
         {
-            var db = new ketoantienluongEntities();
-
             var check = Util.Util.validateInput(inpBangCap, inpDiaChi, inpLuongCoban, inpMa, inpMaSoThue,
                 inpNgaySinh, inpTen, inpTrinhDo, inpPhuThuoc);
 
             if (!check)
             {
                 MessageBox.Show("Vui lòng nhập đủ thông tin!");
-                return;
+                return false;
             }
 
             try
             {
+                DateTime.ParseExact(inpNgaySinh.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                int.Parse(inpPhuThuoc.Text);
+                decimal.Parse(inpLuongCoban.Text);
+            }
+            catch
+            {
+                MessageBox.Show("Ngày cần nhập theo định dạng dd/mm/yyyy\n Số người phụ thuộc và lương cơ bản phải là số");
+                return false;
+            }
+
+            return true;
+        }
+
+        private void buttonLuu_Click_1(object sender, EventArgs e)
+        {
+            var db = new ketoantienluongEntities();
+            try
+            {
                 if (current_action == "add")
                 {
+                    if (!validate()) return;
                     db.dmnvs.Add(new dmnv() {
                         bangcap = inpBangCap.Text,
                         diachi = inpDiaChi.Text,
@@ -125,13 +144,15 @@ namespace KeToanTienLuong.danhmucform
                         mabp = comboBoxDMBP.SelectedValue.ToString(),
                         songuoiphuthuoc = int.Parse(inpPhuThuoc.Text),
                         luongcoban = decimal.Parse(inpLuongCoban.Text),
-                        gioitinh = comboBoxGioiTinh.SelectedItem.ToString()
+                        gioitinh = comboBoxGioiTinh.SelectedItem.ToString(),
+                        trangthai = 1
                     }); ;
 
                     MessageBox.Show("Lưu thành công!");
                 }
                 if (current_action == "edit")
                 {
+                    if (!validate()) return;
                     var nv = db.dmnvs.FirstOrDefault(p => p.manv == inpMa.Text);
                     if (nv != null)
                     {
@@ -150,8 +171,8 @@ namespace KeToanTienLuong.danhmucform
                 MessageBox.Show("Đã có lỗi xảy ra", ee.Message);
             }
 
-            Util.Util.activeButton("save", buttonThem, buttonLuu, buttonHuy, buttonXoa, buttonSua);
-
+            current_action = Util.Util.activeButton("save", buttonThem, buttonLuu, buttonHuy, buttonXoa, buttonSua);
+            
         }
 
         private void buttonHuy_Click(object sender, EventArgs e)
