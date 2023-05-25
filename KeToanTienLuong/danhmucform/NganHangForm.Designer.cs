@@ -31,10 +31,12 @@ namespace KeToanTienLuong.danhmucform
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView = new System.Windows.Forms.DataGridView();
-            this.buttonLuu = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.buttonThem = new System.Windows.Forms.Button();
+            this.soDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stkDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tennhDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chinhanhDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dmnhBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.ketoantienluongDataSet = new KeToanTienLuong.ketoantienluongDataSet();
             this.label2 = new System.Windows.Forms.Label();
             this.inpTen = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -42,20 +44,19 @@ namespace KeToanTienLuong.danhmucform
             this.label3 = new System.Windows.Forms.Label();
             this.inpStk = new System.Windows.Forms.TextBox();
             this.dmcvBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.ketoantienluongDataSet = new KeToanTienLuong.ketoantienluongDataSet();
             this.dmcvTableAdapter = new KeToanTienLuong.ketoantienluongDataSetTableAdapters.dmcvTableAdapter();
-            this.dmnhBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dmnhTableAdapter = new KeToanTienLuong.ketoantienluongDataSetTableAdapters.dmnhTableAdapter();
-            this.soDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stkDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tennhDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chinhanhDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label4 = new System.Windows.Forms.Label();
             this.inpChiNhanh = new System.Windows.Forms.TextBox();
+            this.buttonHuy = new System.Windows.Forms.Button();
+            this.buttonLuu = new System.Windows.Forms.Button();
+            this.buttonXoa = new System.Windows.Forms.Button();
+            this.buttonSua = new System.Windows.Forms.Button();
+            this.buttonThem = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dmcvBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ketoantienluongDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dmnhBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ketoantienluongDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dmcvBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView
@@ -77,60 +78,45 @@ namespace KeToanTienLuong.danhmucform
             this.dataGridView.RowTemplate.Height = 24;
             this.dataGridView.Size = new System.Drawing.Size(1164, 499);
             this.dataGridView.TabIndex = 57;
+            this.dataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellClick);
             // 
-            // buttonLuu
+            // soDataGridViewTextBoxColumn
             // 
-            this.buttonLuu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonLuu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonLuu.Image = global::KeToanTienLuong.Properties.Resources.checkmark;
-            this.buttonLuu.Location = new System.Drawing.Point(742, 119);
-            this.buttonLuu.Name = "buttonLuu";
-            this.buttonLuu.Size = new System.Drawing.Size(137, 42);
-            this.buttonLuu.TabIndex = 56;
-            this.buttonLuu.Text = "   Lưu";
-            this.buttonLuu.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonLuu.UseVisualStyleBackColor = true;
-            this.buttonLuu.Click += new System.EventHandler(this.buttonLuu_Click);
+            this.soDataGridViewTextBoxColumn.DataPropertyName = "so";
+            this.soDataGridViewTextBoxColumn.HeaderText = "Mã ngân hàng";
+            this.soDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.soDataGridViewTextBoxColumn.Name = "soDataGridViewTextBoxColumn";
             // 
-            // button3
+            // stkDataGridViewTextBoxColumn
             // 
-            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Image = global::KeToanTienLuong.Properties.Resources.delete;
-            this.button3.Location = new System.Drawing.Point(924, 119);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(137, 42);
-            this.button3.TabIndex = 55;
-            this.button3.Text = "   Xóa";
-            this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button3.UseVisualStyleBackColor = true;
+            this.stkDataGridViewTextBoxColumn.DataPropertyName = "stk";
+            this.stkDataGridViewTextBoxColumn.HeaderText = "Số tài khoản";
+            this.stkDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.stkDataGridViewTextBoxColumn.Name = "stkDataGridViewTextBoxColumn";
             // 
-            // button2
+            // tennhDataGridViewTextBoxColumn
             // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Image = global::KeToanTienLuong.Properties.Resources.pencil;
-            this.button2.Location = new System.Drawing.Point(924, 56);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(137, 42);
-            this.button2.TabIndex = 54;
-            this.button2.Text = "   Sửa";
-            this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button2.UseVisualStyleBackColor = true;
+            this.tennhDataGridViewTextBoxColumn.DataPropertyName = "tennh";
+            this.tennhDataGridViewTextBoxColumn.HeaderText = "Tên ngân hàng";
+            this.tennhDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.tennhDataGridViewTextBoxColumn.Name = "tennhDataGridViewTextBoxColumn";
             // 
-            // buttonThem
+            // chinhanhDataGridViewTextBoxColumn
             // 
-            this.buttonThem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonThem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonThem.Image = global::KeToanTienLuong.Properties.Resources.plus;
-            this.buttonThem.Location = new System.Drawing.Point(742, 56);
-            this.buttonThem.Name = "buttonThem";
-            this.buttonThem.Size = new System.Drawing.Size(137, 42);
-            this.buttonThem.TabIndex = 53;
-            this.buttonThem.Text = "  Thêm";
-            this.buttonThem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonThem.UseVisualStyleBackColor = true;
-            this.buttonThem.Click += new System.EventHandler(this.buttonThem_Click);
+            this.chinhanhDataGridViewTextBoxColumn.DataPropertyName = "chinhanh";
+            this.chinhanhDataGridViewTextBoxColumn.HeaderText = "Chi nhánh";
+            this.chinhanhDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.chinhanhDataGridViewTextBoxColumn.Name = "chinhanhDataGridViewTextBoxColumn";
+            // 
+            // dmnhBindingSource
+            // 
+            this.dmnhBindingSource.DataMember = "dmnh";
+            this.dmnhBindingSource.DataSource = this.ketoantienluongDataSet;
+            // 
+            // ketoantienluongDataSet
+            // 
+            this.ketoantienluongDataSet.DataSetName = "ketoantienluongDataSet";
+            this.ketoantienluongDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label2
             // 
@@ -194,51 +180,13 @@ namespace KeToanTienLuong.danhmucform
             this.dmcvBindingSource.DataMember = "dmcv";
             this.dmcvBindingSource.DataSource = this.ketoantienluongDataSet;
             // 
-            // ketoantienluongDataSet
-            // 
-            this.ketoantienluongDataSet.DataSetName = "ketoantienluongDataSet";
-            this.ketoantienluongDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // dmcvTableAdapter
             // 
             this.dmcvTableAdapter.ClearBeforeFill = true;
             // 
-            // dmnhBindingSource
-            // 
-            this.dmnhBindingSource.DataMember = "dmnh";
-            this.dmnhBindingSource.DataSource = this.ketoantienluongDataSet;
-            // 
             // dmnhTableAdapter
             // 
             this.dmnhTableAdapter.ClearBeforeFill = true;
-            // 
-            // soDataGridViewTextBoxColumn
-            // 
-            this.soDataGridViewTextBoxColumn.DataPropertyName = "so";
-            this.soDataGridViewTextBoxColumn.HeaderText = "Mã ngân hàng";
-            this.soDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.soDataGridViewTextBoxColumn.Name = "soDataGridViewTextBoxColumn";
-            // 
-            // stkDataGridViewTextBoxColumn
-            // 
-            this.stkDataGridViewTextBoxColumn.DataPropertyName = "stk";
-            this.stkDataGridViewTextBoxColumn.HeaderText = "Số tài khoản";
-            this.stkDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.stkDataGridViewTextBoxColumn.Name = "stkDataGridViewTextBoxColumn";
-            // 
-            // tennhDataGridViewTextBoxColumn
-            // 
-            this.tennhDataGridViewTextBoxColumn.DataPropertyName = "tennh";
-            this.tennhDataGridViewTextBoxColumn.HeaderText = "Tên ngân hàng";
-            this.tennhDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.tennhDataGridViewTextBoxColumn.Name = "tennhDataGridViewTextBoxColumn";
-            // 
-            // chinhanhDataGridViewTextBoxColumn
-            // 
-            this.chinhanhDataGridViewTextBoxColumn.DataPropertyName = "chinhanh";
-            this.chinhanhDataGridViewTextBoxColumn.HeaderText = "Chi nhánh";
-            this.chinhanhDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.chinhanhDataGridViewTextBoxColumn.Name = "chinhanhDataGridViewTextBoxColumn";
             // 
             // label4
             // 
@@ -259,17 +207,88 @@ namespace KeToanTienLuong.danhmucform
             this.inpChiNhanh.Size = new System.Drawing.Size(336, 27);
             this.inpChiNhanh.TabIndex = 59;
             // 
+            // buttonHuy
+            // 
+            this.buttonHuy.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonHuy.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonHuy.Image = global::KeToanTienLuong.Properties.Resources.cancelled;
+            this.buttonHuy.Location = new System.Drawing.Point(913, 29);
+            this.buttonHuy.Name = "buttonHuy";
+            this.buttonHuy.Size = new System.Drawing.Size(170, 42);
+            this.buttonHuy.TabIndex = 78;
+            this.buttonHuy.Text = "   Hủy";
+            this.buttonHuy.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonHuy.UseVisualStyleBackColor = true;
+            this.buttonHuy.Click += new System.EventHandler(this.buttonHuy_Click);
+            // 
+            // buttonLuu
+            // 
+            this.buttonLuu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonLuu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonLuu.Image = global::KeToanTienLuong.Properties.Resources.checkmark;
+            this.buttonLuu.Location = new System.Drawing.Point(698, 29);
+            this.buttonLuu.Name = "buttonLuu";
+            this.buttonLuu.Size = new System.Drawing.Size(193, 42);
+            this.buttonLuu.TabIndex = 77;
+            this.buttonLuu.Text = "   Lưu";
+            this.buttonLuu.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonLuu.UseVisualStyleBackColor = true;
+            this.buttonLuu.Click += new System.EventHandler(this.buttonLuu_Click_1);
+            // 
+            // buttonXoa
+            // 
+            this.buttonXoa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonXoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonXoa.Image = global::KeToanTienLuong.Properties.Resources.delete;
+            this.buttonXoa.Location = new System.Drawing.Point(698, 160);
+            this.buttonXoa.Name = "buttonXoa";
+            this.buttonXoa.Size = new System.Drawing.Size(170, 42);
+            this.buttonXoa.TabIndex = 76;
+            this.buttonXoa.Text = "   Xóa";
+            this.buttonXoa.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonXoa.UseVisualStyleBackColor = true;
+            this.buttonXoa.Click += new System.EventHandler(this.buttonXoa_Click);
+            // 
+            // buttonSua
+            // 
+            this.buttonSua.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonSua.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSua.Image = global::KeToanTienLuong.Properties.Resources.pencil;
+            this.buttonSua.Location = new System.Drawing.Point(913, 97);
+            this.buttonSua.Name = "buttonSua";
+            this.buttonSua.Size = new System.Drawing.Size(174, 42);
+            this.buttonSua.TabIndex = 75;
+            this.buttonSua.Text = "   Sửa";
+            this.buttonSua.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonSua.UseVisualStyleBackColor = true;
+            this.buttonSua.Click += new System.EventHandler(this.buttonSua_Click);
+            // 
+            // buttonThem
+            // 
+            this.buttonThem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonThem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonThem.Image = global::KeToanTienLuong.Properties.Resources.plus;
+            this.buttonThem.Location = new System.Drawing.Point(698, 97);
+            this.buttonThem.Name = "buttonThem";
+            this.buttonThem.Size = new System.Drawing.Size(170, 42);
+            this.buttonThem.TabIndex = 74;
+            this.buttonThem.Text = "  Thêm";
+            this.buttonThem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonThem.UseVisualStyleBackColor = true;
+            this.buttonThem.Click += new System.EventHandler(this.buttonThem_Click_1);
+            // 
             // NganHangForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.buttonHuy);
+            this.Controls.Add(this.buttonLuu);
+            this.Controls.Add(this.buttonXoa);
+            this.Controls.Add(this.buttonSua);
+            this.Controls.Add(this.buttonThem);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.inpChiNhanh);
             this.Controls.Add(this.dataGridView);
-            this.Controls.Add(this.buttonLuu);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.buttonThem);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.inpTen);
             this.Controls.Add(this.label1);
@@ -280,9 +299,9 @@ namespace KeToanTienLuong.danhmucform
             this.Size = new System.Drawing.Size(1170, 799);
             this.Load += new System.EventHandler(this.NganHangForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dmcvBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ketoantienluongDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dmnhBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ketoantienluongDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dmcvBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -294,10 +313,6 @@ namespace KeToanTienLuong.danhmucform
         private System.Windows.Forms.BindingSource dmcvBindingSource;
         private ketoantienluongDataSet ketoantienluongDataSet;
         private System.Windows.Forms.DataGridView dataGridView;
-        private System.Windows.Forms.Button buttonLuu;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button buttonThem;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox inpTen;
         private System.Windows.Forms.Label label1;
@@ -312,5 +327,10 @@ namespace KeToanTienLuong.danhmucform
         private System.Windows.Forms.DataGridViewTextBoxColumn chinhanhDataGridViewTextBoxColumn;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox inpChiNhanh;
+        private System.Windows.Forms.Button buttonHuy;
+        private System.Windows.Forms.Button buttonLuu;
+        private System.Windows.Forms.Button buttonXoa;
+        private System.Windows.Forms.Button buttonSua;
+        private System.Windows.Forms.Button buttonThem;
     }
 }

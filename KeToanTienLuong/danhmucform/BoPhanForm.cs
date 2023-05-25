@@ -19,8 +19,6 @@ namespace KeToanTienLuong.danhmucform
 
         private void BoPhanForm_Load(object sender, EventArgs e)
         {
-            var db = new ketoantienluongEntities();
-
             getDataSource();
         }
 

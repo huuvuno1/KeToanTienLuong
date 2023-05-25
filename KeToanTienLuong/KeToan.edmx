@@ -117,6 +117,7 @@
           <Property Name="stk" Type="nchar" MaxLength="20" />
           <Property Name="tennh" Type="nvarchar" MaxLength="200" />
           <Property Name="chinhanh" Type="nvarchar" MaxLength="200" />
+          <Property Name="trangthai" Type="int" />
         </EntityType>
         <EntityType Name="dmnv">
           <Key>
@@ -144,6 +145,7 @@
           <Property Name="tentk" Type="nvarchar" MaxLength="250" />
           <Property Name="tkme" Type="nchar" MaxLength="10" />
           <Property Name="captk" Type="int" />
+          <Property Name="trangthai" Type="int" />
         </EntityType>
         <EntityType Name="giaybaono">
           <Key>
@@ -675,6 +677,7 @@
           <NavigationProperty Name="giaybaonoes1" Relationship="ketoantienluongModel.giaybaono_FK_1" FromRole="dmtk" ToRole="giaybaono" />
           <NavigationProperty Name="phieuchis" Relationship="ketoantienluongModel.phieuchi_FK" FromRole="dmtk" ToRole="phieuchi" />
           <NavigationProperty Name="phieuchis1" Relationship="ketoantienluongModel.phieuchi_FK_1" FromRole="dmtk" ToRole="phieuchi" />
+          <Property Name="trangthai" Type="Int32" />
         </EntityType>
         <EntityType Name="chitietsocai">
           <Key>
@@ -734,6 +737,7 @@
           <Property Name="tennh" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="chinhanh" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="giaybaonoes" Relationship="ketoantienluongModel.FK__giaybaono__manh__06CD04F7" FromRole="dmnh" ToRole="giaybaono" />
+          <Property Name="trangthai" Type="Int32" />
         </EntityType>
         <EntityType Name="chitietphieuketoan">
           <Key>
@@ -1117,6 +1121,7 @@
           <EntitySetMapping Name="dmtks">
             <EntityTypeMapping TypeName="ketoantienluongModel.dmtk">
               <MappingFragment StoreEntitySet="dmtk">
+                <ScalarProperty Name="trangthai" ColumnName="trangthai" />
                 <ScalarProperty Name="captk" ColumnName="captk" />
                 <ScalarProperty Name="tkme" ColumnName="tkme" />
                 <ScalarProperty Name="tentk" ColumnName="tentk" />
@@ -1176,6 +1181,7 @@
           <EntitySetMapping Name="dmnhs">
             <EntityTypeMapping TypeName="ketoantienluongModel.dmnh">
               <MappingFragment StoreEntitySet="dmnh">
+                <ScalarProperty Name="trangthai" ColumnName="trangthai" />
                 <ScalarProperty Name="chinhanh" ColumnName="chinhanh" />
                 <ScalarProperty Name="tennh" ColumnName="tennh" />
                 <ScalarProperty Name="stk" ColumnName="stk" />
