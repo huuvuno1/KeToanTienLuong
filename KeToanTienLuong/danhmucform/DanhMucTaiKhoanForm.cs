@@ -41,10 +41,12 @@ namespace KeToanTienLuong.danhmucform
         private void buttonThem_Click(object sender, EventArgs e)
         {
             inpTenTk.Enabled = inpMaTk.Enabled = inpCapTk.Enabled = cbotkme.Enabled = true;
+            Util.Util.activeButton("add", buttonThem, buttonLuu, buttonHuy, buttonXoa, buttonSua);
         }
 
         private void buttonLuu_Click(object sender, EventArgs e)
         {
+
             var db = new ketoantienluongEntities();
             db.dmtks.Add(new dmtk() {
                 tkme = cbotkme.SelectedValue.ToString(),
@@ -57,6 +59,7 @@ namespace KeToanTienLuong.danhmucform
             dgvdmtk.Refresh();
             inpTenTk.Enabled = inpMaTk.Enabled = inpCapTk.Enabled = cbotkme.Enabled = false;
             inpTenTk.Text = inpMaTk.Text = inpCapTk.Text = cbotkme.Text = "";
+            Util.Util.activeButton("add", buttonThem, buttonLuu, buttonHuy, buttonXoa, buttonSua);
 
         }
 
@@ -91,7 +94,25 @@ namespace KeToanTienLuong.danhmucform
                 db.dmtks.Remove(del);
                 db.SaveChanges();
                 dgvdmtk.DataSource = db.dmtks.Select(p => p).ToList();
+                Util.Util.activeButton("delete", buttonThem, buttonLuu, buttonHuy, buttonXoa, buttonSua);
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Util.Util.activeButton("cancel", buttonThem, buttonLuu, buttonHuy, buttonXoa, buttonSua);
+
+        }
+
+        private void buttonSua_Click(object sender, EventArgs e)
+        {
+            Util.Util.activeButton("edit", buttonThem, buttonLuu, buttonHuy, buttonXoa, buttonSua);
+
+        }
+
+        private void pnDoiTuong_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

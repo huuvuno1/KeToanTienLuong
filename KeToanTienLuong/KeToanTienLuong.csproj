@@ -580,6 +580,7 @@
       <DependentUpon>KeToan.edmx</DependentUpon>
       <LastGenOutput>KeToan.cs</LastGenOutput>
     </Content>
+    <None Include="resource\cancelled.png" />
     <None Include="Resources\cham_cong_form.xlsx.bmp" />
     <None Include="resource\download2.png" />
     <None Include="resource\upload-file.png" />

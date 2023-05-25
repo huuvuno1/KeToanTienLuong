@@ -29,6 +29,25 @@ namespace KeToanTienLuong.Util
             items[0].BackColor = SystemColors.ControlLightLight;
         }
 
+        public static string activeButton(string type, Button add, Button save, Button cancel, Button edit, Button delete)
+        {
+            switch (type)
+            {
+                case "add":
+                case "edit":
+                    add.Enabled = edit.Enabled = delete.Enabled = false;
+                    save.Enabled = cancel.Enabled = true;
+                    return type;
+                case "save":
+                case "cancel":
+                case "delete":
+                    add.Enabled = edit.Enabled = delete.Enabled =save.Enabled = cancel.Enabled = true;
+                    break;
+
+            }
+            return "none";
+        }
+
         public static decimal CalculatePersonalIncomeTax(decimal monthlyIncome)
         {
             decimal taxAmount = 0;
@@ -63,6 +82,19 @@ namespace KeToanTienLuong.Util
             }
 
             return taxAmount;
+        }
+
+        public static bool validateInput(params TextBox[] inputs)
+        {
+            foreach (var input in inputs)
+            {
+                if (input.Text == "")
+                {
+                    return false;
+                }
+            }
+
+            return true;
         }
     }
 }
