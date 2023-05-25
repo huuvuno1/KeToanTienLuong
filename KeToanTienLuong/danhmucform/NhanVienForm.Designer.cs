@@ -105,7 +105,7 @@ namespace KeToanTienLuong.danhmucform
             this.trangthaiDataGridViewTextBoxColumn,
             this.luongcobanDataGridViewTextBoxColumn});
             this.dataGridView.DataSource = this.dmnvBindingSource1;
-            this.dataGridView.Location = new System.Drawing.Point(0, 366);
+            this.dataGridView.Location = new System.Drawing.Point(0, 350);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.RowHeadersWidth = 51;
             this.dataGridView.RowTemplate.Height = 24;
@@ -241,7 +241,7 @@ namespace KeToanTienLuong.danhmucform
             // 
             this.inpDiaChi.Enabled = false;
             this.inpDiaChi.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.inpDiaChi.Location = new System.Drawing.Point(253, 210);
+            this.inpDiaChi.Location = new System.Drawing.Point(253, 191);
             this.inpDiaChi.Name = "inpDiaChi";
             this.inpDiaChi.Size = new System.Drawing.Size(336, 27);
             this.inpDiaChi.TabIndex = 46;
@@ -250,7 +250,7 @@ namespace KeToanTienLuong.danhmucform
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(37, 213);
+            this.label4.Location = new System.Drawing.Point(37, 194);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(68, 20);
             this.label4.TabIndex = 41;
@@ -260,7 +260,7 @@ namespace KeToanTienLuong.danhmucform
             // 
             this.inpNgaySinh.Enabled = false;
             this.inpNgaySinh.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.inpNgaySinh.Location = new System.Drawing.Point(253, 156);
+            this.inpNgaySinh.Location = new System.Drawing.Point(253, 137);
             this.inpNgaySinh.Name = "inpNgaySinh";
             this.inpNgaySinh.Size = new System.Drawing.Size(336, 27);
             this.inpNgaySinh.TabIndex = 40;
@@ -269,7 +269,7 @@ namespace KeToanTienLuong.danhmucform
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(37, 159);
+            this.label2.Location = new System.Drawing.Point(37, 140);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(92, 20);
             this.label2.TabIndex = 39;
@@ -279,7 +279,7 @@ namespace KeToanTienLuong.danhmucform
             // 
             this.inpTen.Enabled = false;
             this.inpTen.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.inpTen.Location = new System.Drawing.Point(253, 96);
+            this.inpTen.Location = new System.Drawing.Point(253, 77);
             this.inpTen.Name = "inpTen";
             this.inpTen.Size = new System.Drawing.Size(336, 27);
             this.inpTen.TabIndex = 38;
@@ -288,7 +288,7 @@ namespace KeToanTienLuong.danhmucform
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(37, 99);
+            this.label1.Location = new System.Drawing.Point(37, 80);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(126, 20);
             this.label1.TabIndex = 37;
@@ -298,7 +298,7 @@ namespace KeToanTienLuong.danhmucform
             // 
             this.inpMa.Enabled = false;
             this.inpMa.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.inpMa.Location = new System.Drawing.Point(253, 43);
+            this.inpMa.Location = new System.Drawing.Point(253, 24);
             this.inpMa.Name = "inpMa";
             this.inpMa.Size = new System.Drawing.Size(336, 27);
             this.inpMa.TabIndex = 36;
@@ -307,7 +307,7 @@ namespace KeToanTienLuong.danhmucform
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(37, 46);
+            this.label3.Location = new System.Drawing.Point(37, 27);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(120, 20);
             this.label3.TabIndex = 35;
@@ -317,7 +317,7 @@ namespace KeToanTienLuong.danhmucform
             // 
             this.inpTrinhDo.Enabled = false;
             this.inpTrinhDo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.inpTrinhDo.Location = new System.Drawing.Point(253, 266);
+            this.inpTrinhDo.Location = new System.Drawing.Point(253, 247);
             this.inpTrinhDo.Name = "inpTrinhDo";
             this.inpTrinhDo.Size = new System.Drawing.Size(336, 27);
             this.inpTrinhDo.TabIndex = 49;
@@ -326,7 +326,7 @@ namespace KeToanTienLuong.danhmucform
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(37, 269);
+            this.label5.Location = new System.Drawing.Point(37, 250);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(78, 20);
             this.label5.TabIndex = 48;
@@ -336,7 +336,7 @@ namespace KeToanTienLuong.danhmucform
             // 
             this.inpLuongCoban.Enabled = false;
             this.inpLuongCoban.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.inpLuongCoban.Location = new System.Drawing.Point(916, 266);
+            this.inpLuongCoban.Location = new System.Drawing.Point(916, 247);
             this.inpLuongCoban.Name = "inpLuongCoban";
             this.inpLuongCoban.Size = new System.Drawing.Size(336, 27);
             this.inpLuongCoban.TabIndex = 59;
@@ -345,7 +345,7 @@ namespace KeToanTienLuong.danhmucform
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(727, 269);
+            this.label6.Location = new System.Drawing.Point(727, 250);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(122, 20);
             this.label6.TabIndex = 58;
@@ -355,7 +355,7 @@ namespace KeToanTienLuong.danhmucform
             // 
             this.inpBangCap.Enabled = false;
             this.inpBangCap.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.inpBangCap.Location = new System.Drawing.Point(916, 210);
+            this.inpBangCap.Location = new System.Drawing.Point(916, 191);
             this.inpBangCap.Name = "inpBangCap";
             this.inpBangCap.Size = new System.Drawing.Size(336, 27);
             this.inpBangCap.TabIndex = 57;
@@ -364,7 +364,7 @@ namespace KeToanTienLuong.danhmucform
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(727, 213);
+            this.label7.Location = new System.Drawing.Point(727, 194);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(88, 20);
             this.label7.TabIndex = 56;
@@ -374,7 +374,7 @@ namespace KeToanTienLuong.danhmucform
             // 
             this.inpMaSoThue.Enabled = false;
             this.inpMaSoThue.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.inpMaSoThue.Location = new System.Drawing.Point(916, 156);
+            this.inpMaSoThue.Location = new System.Drawing.Point(916, 137);
             this.inpMaSoThue.Name = "inpMaSoThue";
             this.inpMaSoThue.Size = new System.Drawing.Size(336, 27);
             this.inpMaSoThue.TabIndex = 55;
@@ -383,7 +383,7 @@ namespace KeToanTienLuong.danhmucform
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(727, 159);
+            this.label8.Location = new System.Drawing.Point(727, 140);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(102, 20);
             this.label8.TabIndex = 54;
@@ -393,7 +393,7 @@ namespace KeToanTienLuong.danhmucform
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(727, 99);
+            this.label9.Location = new System.Drawing.Point(727, 80);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(77, 20);
             this.label9.TabIndex = 52;
@@ -403,7 +403,7 @@ namespace KeToanTienLuong.danhmucform
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(727, 46);
+            this.label10.Location = new System.Drawing.Point(727, 27);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(78, 20);
             this.label10.TabIndex = 50;
@@ -417,7 +417,7 @@ namespace KeToanTienLuong.danhmucform
             this.comboBoxDMBP.Items.AddRange(new object[] {
             "Admin",
             "Kế toán"});
-            this.comboBoxDMBP.Location = new System.Drawing.Point(916, 43);
+            this.comboBoxDMBP.Location = new System.Drawing.Point(916, 24);
             this.comboBoxDMBP.Name = "comboBoxDMBP";
             this.comboBoxDMBP.Size = new System.Drawing.Size(336, 28);
             this.comboBoxDMBP.TabIndex = 60;
@@ -431,7 +431,7 @@ namespace KeToanTienLuong.danhmucform
             this.comboBoxChucVu.Items.AddRange(new object[] {
             "Admin",
             "Kế toán"});
-            this.comboBoxChucVu.Location = new System.Drawing.Point(916, 96);
+            this.comboBoxChucVu.Location = new System.Drawing.Point(916, 77);
             this.comboBoxChucVu.Name = "comboBoxChucVu";
             this.comboBoxChucVu.Size = new System.Drawing.Size(336, 28);
             this.comboBoxChucVu.TabIndex = 61;
@@ -444,7 +444,7 @@ namespace KeToanTienLuong.danhmucform
             // 
             this.inpPhuThuoc.Enabled = false;
             this.inpPhuThuoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.inpPhuThuoc.Location = new System.Drawing.Point(253, 316);
+            this.inpPhuThuoc.Location = new System.Drawing.Point(253, 297);
             this.inpPhuThuoc.Name = "inpPhuThuoc";
             this.inpPhuThuoc.Size = new System.Drawing.Size(336, 27);
             this.inpPhuThuoc.TabIndex = 63;
@@ -454,7 +454,7 @@ namespace KeToanTienLuong.danhmucform
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(37, 319);
+            this.label11.Location = new System.Drawing.Point(37, 300);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(180, 20);
             this.label11.TabIndex = 62;
@@ -465,7 +465,7 @@ namespace KeToanTienLuong.danhmucform
             this.buttonHuy.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.buttonHuy.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonHuy.Image = global::KeToanTienLuong.Properties.Resources.cancelled;
-            this.buttonHuy.Location = new System.Drawing.Point(547, 721);
+            this.buttonHuy.Location = new System.Drawing.Point(553, 685);
             this.buttonHuy.Name = "buttonHuy";
             this.buttonHuy.Size = new System.Drawing.Size(170, 42);
             this.buttonHuy.TabIndex = 68;
@@ -479,7 +479,7 @@ namespace KeToanTienLuong.danhmucform
             this.buttonLuu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.buttonLuu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonLuu.Image = global::KeToanTienLuong.Properties.Resources.checkmark;
-            this.buttonLuu.Location = new System.Drawing.Point(293, 721);
+            this.buttonLuu.Location = new System.Drawing.Point(299, 685);
             this.buttonLuu.Name = "buttonLuu";
             this.buttonLuu.Size = new System.Drawing.Size(193, 42);
             this.buttonLuu.TabIndex = 67;
@@ -493,7 +493,7 @@ namespace KeToanTienLuong.danhmucform
             this.buttonXoa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.buttonXoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonXoa.Image = global::KeToanTienLuong.Properties.Resources.delete;
-            this.buttonXoa.Location = new System.Drawing.Point(992, 721);
+            this.buttonXoa.Location = new System.Drawing.Point(998, 685);
             this.buttonXoa.Name = "buttonXoa";
             this.buttonXoa.Size = new System.Drawing.Size(170, 42);
             this.buttonXoa.TabIndex = 66;
@@ -507,7 +507,7 @@ namespace KeToanTienLuong.danhmucform
             this.buttonSua.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.buttonSua.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonSua.Image = global::KeToanTienLuong.Properties.Resources.pencil;
-            this.buttonSua.Location = new System.Drawing.Point(765, 721);
+            this.buttonSua.Location = new System.Drawing.Point(771, 685);
             this.buttonSua.Name = "buttonSua";
             this.buttonSua.Size = new System.Drawing.Size(174, 42);
             this.buttonSua.TabIndex = 65;
@@ -521,7 +521,7 @@ namespace KeToanTienLuong.danhmucform
             this.buttonThem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.buttonThem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonThem.Image = global::KeToanTienLuong.Properties.Resources.plus;
-            this.buttonThem.Location = new System.Drawing.Point(70, 721);
+            this.buttonThem.Location = new System.Drawing.Point(76, 685);
             this.buttonThem.Name = "buttonThem";
             this.buttonThem.Size = new System.Drawing.Size(148, 42);
             this.buttonThem.TabIndex = 64;
@@ -538,7 +538,7 @@ namespace KeToanTienLuong.danhmucform
             this.comboBoxGioiTinh.Items.AddRange(new object[] {
             "Nam",
             "Nữ"});
-            this.comboBoxGioiTinh.Location = new System.Drawing.Point(916, 316);
+            this.comboBoxGioiTinh.Location = new System.Drawing.Point(916, 297);
             this.comboBoxGioiTinh.Name = "comboBoxGioiTinh";
             this.comboBoxGioiTinh.Size = new System.Drawing.Size(336, 28);
             this.comboBoxGioiTinh.TabIndex = 70;
@@ -547,7 +547,7 @@ namespace KeToanTienLuong.danhmucform
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(727, 319);
+            this.label12.Location = new System.Drawing.Point(727, 300);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(80, 20);
             this.label12.TabIndex = 69;

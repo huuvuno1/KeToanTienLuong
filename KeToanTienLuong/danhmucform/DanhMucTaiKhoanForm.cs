@@ -130,8 +130,16 @@ namespace KeToanTienLuong.danhmucform
                     var b = db.dmtks.FirstOrDefault(p => p.matk == inpMaTk.Text);
                     if (b != null)
                     {
-                        MessageBox.Show("Mã tài khoản đã tồn tại!");
-                        return;
+                        if (b.trangthai == 1)
+                        {
+                            MessageBox.Show("Mã tài khoản đã tồn tại!");
+                            return;
+                        }
+                        else
+                        {
+                            db.dmtks.Remove(b);
+                            db.SaveChanges();
+                        }
                     }
 
                     db.dmtks.Add(new dmtk() {
