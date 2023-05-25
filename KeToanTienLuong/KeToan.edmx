@@ -107,6 +107,7 @@
           <Property Name="macv" Type="nchar" MaxLength="10" Nullable="false" />
           <Property Name="tencv" Type="nvarchar" MaxLength="30" />
           <Property Name="mota" Type="nvarchar" MaxLength="250" />
+          <Property Name="trangthai" Type="int" />
         </EntityType>
         <EntityType Name="dmnh">
           <Key>
@@ -542,6 +543,7 @@
           <Property Name="tencv" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="mota" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="dmnvs" Relationship="ketoantienluongModel.FK__dmnv__macv__47DBAE45" FromRole="dmcv" ToRole="dmnv" />
+          <Property Name="trangthai" Type="Int32" />
         </EntityType>
         <EntityType Name="thamsoluong">
           <Key>
@@ -1084,6 +1086,7 @@
           <EntitySetMapping Name="dmcvs">
             <EntityTypeMapping TypeName="ketoantienluongModel.dmcv">
               <MappingFragment StoreEntitySet="dmcv">
+                <ScalarProperty Name="trangthai" ColumnName="trangthai" />
                 <ScalarProperty Name="macv" ColumnName="macv" />
                 <ScalarProperty Name="tencv" ColumnName="tencv" />
                 <ScalarProperty Name="mota" ColumnName="mota" />

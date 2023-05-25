@@ -23,6 +23,7 @@ namespace KeToanTienLuong
         public string macv { get; set; }
         public string tencv { get; set; }
         public string mota { get; set; }
+        public Nullable<int> trangthai { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<dmnv> dmnvs { get; set; }

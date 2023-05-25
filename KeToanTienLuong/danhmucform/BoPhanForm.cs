@@ -20,9 +20,8 @@ namespace KeToanTienLuong.danhmucform
         private void BoPhanForm_Load(object sender, EventArgs e)
         {
             var db = new ketoantienluongEntities();
-           
-            dataGridViewBoPhan.DataSource = db.dmbps.Select(p => p).ToList();
-            dataGridViewBoPhan.Refresh();
+
+            getDataSource();
         }
 
         private void getDataSource()
@@ -101,10 +100,10 @@ namespace KeToanTienLuong.danhmucform
 
 
             var db = new ketoantienluongEntities();
-            var nv = db.dmbps.FirstOrDefault(p => p.Mabp == inpMa.Text);
-            if (nv != null)
+            var bp = db.dmbps.FirstOrDefault(p => p.Mabp == inpMa.Text);
+            if (bp != null)
             {
-                nv.trangthai = 0;
+                bp.trangthai = 0;
                 db.SaveChanges();
                 MessageBox.Show("Xóa thành công!");
                 getDataSource();
@@ -188,7 +187,8 @@ namespace KeToanTienLuong.danhmucform
                                                   .Select(cell => cell.Value?.ToString()?.Trim())
                                                   .ToArray();
 
-                inpMa.Text = rowData[0];
+                if (current_action == "none") 
+                    inpMa.Text = rowData[0];
                 inpTenBoPhan.Text = rowData[1];
                 inpDiaChi.Text = rowData[2];
                 inpHotline.Text = rowData[3];
