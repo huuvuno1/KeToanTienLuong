@@ -24,6 +24,12 @@ namespace KeToanTienLuong.categoryForm
             button3.BackColor = Color.White;
             button4.BackColor = SystemColors.Control;
             panelContent.Focus();
+
+            SaoLuuForm f = new SaoLuuForm();
+            f.Dock = DockStyle.Top;
+            this.panelContent.Controls.Clear();
+            this.panelContent.Controls.Add(f);
+            f.Show();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -46,6 +52,12 @@ namespace KeToanTienLuong.categoryForm
             button3.BackColor = SystemColors.Control;
             button4.BackColor = Color.White;
             panelContent.Focus();
+
+            SaoLuuForm f = new SaoLuuForm();
+            f.Dock = DockStyle.Top;
+            this.panelContent.Controls.Clear();
+            this.panelContent.Controls.Add(f);
+            f.Show();
         }
 
         private void panelContent_Paint(object sender, PaintEventArgs e)

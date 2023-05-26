@@ -28,6 +28,7 @@ namespace KeToanTienLuong.categoryForm
 
         private void button1_Click_1(object sender, EventArgs e)
         {
+            Util.Util.changeBackground(button1, button3, button4, button5);
             //rptBaocaoluong rpt = new rptBaocaoluong();
             //var db = new ketoantienluongEntities();
             //var data = db.laydsbangluong(DateTime.Now.Month, DateTime.Now.Year).ToList();
@@ -55,6 +56,8 @@ namespace KeToanTienLuong.categoryForm
 
         private void button4_Click(object sender, EventArgs e)
         {
+            Util.Util.changeBackground(button4, button1, button3, button5);
+
             rptThueTNCN rpt = new rptThueTNCN();
             SqlConnection sqlConnection = new SqlConnection(Util.Util.getConnectionString());
             sqlConnection.Open();
@@ -70,6 +73,8 @@ namespace KeToanTienLuong.categoryForm
 
         private void button3_Click(object sender, EventArgs e)
         {
+            Util.Util.changeBackground(button3,button1, button4, button5);
+
             rptBaoHiem rpt = new rptBaoHiem();
             SqlConnection sqlConnection = new SqlConnection(Util.Util.getConnectionString());
             sqlConnection.Open();
@@ -85,6 +90,8 @@ namespace KeToanTienLuong.categoryForm
 
         private void button5_Click(object sender, EventArgs e)
         {
+            Util.Util.changeBackground(button5, button1, button3, button4);
+
             rptBaocaoluong rpt = new rptBaocaoluong();
             SqlConnection sqlConnection = new SqlConnection(Util.Util.getConnectionString());
             sqlConnection.Open();
