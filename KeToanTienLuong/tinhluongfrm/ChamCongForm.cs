@@ -291,9 +291,9 @@ $@"
                 tamung += giaybaono.Aggregate(0m, (prev, curr) => (decimal)(prev + curr.tien));
 
                 data.bangluongnhanviens.Add(new bangluongnhanvien() {
-                    bhtn = 0.01m,
-                    bhxh = 0.08m,
-                    bhyt = 0.015m,
+                    bhtn = 1,
+                    bhxh = 8,
+                    bhyt = 1.5m,
                     tienbhxh = lcb * 0.08m,
                     tienbhyt = lcb * 0.01m,
                     tienbhtn = lcb * 0.015m,
