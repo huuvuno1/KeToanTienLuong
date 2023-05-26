@@ -33,13 +33,12 @@ namespace KeToanTienLuong.categoryForm
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnTinhLuong = new System.Windows.Forms.Button();
+            this.btnChamCong = new System.Windows.Forms.Button();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.imageList2 = new System.Windows.Forms.ImageList(this.components);
             this.button2 = new System.Windows.Forms.Button();
             this.panelContent = new System.Windows.Forms.Panel();
-            this.btnThueTNCN = new System.Windows.Forms.Button();
-            this.btnTinhLuong = new System.Windows.Forms.Button();
-            this.btnChamCong = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,7 +59,6 @@ namespace KeToanTienLuong.categoryForm
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
-            this.panel1.Controls.Add(this.btnThueTNCN);
             this.panel1.Controls.Add(this.btnTinhLuong);
             this.panel1.Controls.Add(this.btnChamCong);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
@@ -68,6 +66,42 @@ namespace KeToanTienLuong.categoryForm
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(318, 919);
             this.panel1.TabIndex = 12;
+            // 
+            // btnTinhLuong
+            // 
+            this.btnTinhLuong.BackColor = System.Drawing.SystemColors.Control;
+            this.btnTinhLuong.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnTinhLuong.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTinhLuong.ForeColor = System.Drawing.Color.Black;
+            this.btnTinhLuong.Image = global::KeToanTienLuong.Properties.Resources.department;
+            this.btnTinhLuong.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnTinhLuong.Location = new System.Drawing.Point(0, 67);
+            this.btnTinhLuong.Name = "btnTinhLuong";
+            this.btnTinhLuong.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btnTinhLuong.Size = new System.Drawing.Size(318, 67);
+            this.btnTinhLuong.TabIndex = 1;
+            this.btnTinhLuong.Text = "Xem bảng lương";
+            this.btnTinhLuong.UseVisualStyleBackColor = false;
+            this.btnTinhLuong.Click += new System.EventHandler(this.btnTinhLuong_Click);
+            // 
+            // btnChamCong
+            // 
+            this.btnChamCong.BackColor = System.Drawing.SystemColors.Control;
+            this.btnChamCong.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnChamCong.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChamCong.ForeColor = System.Drawing.Color.Black;
+            this.btnChamCong.Image = global::KeToanTienLuong.Properties.Resources.structure;
+            this.btnChamCong.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnChamCong.Location = new System.Drawing.Point(0, 0);
+            this.btnChamCong.Name = "btnChamCong";
+            this.btnChamCong.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btnChamCong.Size = new System.Drawing.Size(318, 67);
+            this.btnChamCong.TabIndex = 0;
+            this.btnChamCong.Text = "Bảng chấm công/ thưởng";
+            this.btnChamCong.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnChamCong.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnChamCong.UseVisualStyleBackColor = false;
+            this.btnChamCong.Click += new System.EventHandler(this.button1_Click);
             // 
             // imageList1
             // 
@@ -101,58 +135,6 @@ namespace KeToanTienLuong.categoryForm
             this.panelContent.TabIndex = 16;
             this.panelContent.Paint += new System.Windows.Forms.PaintEventHandler(this.panelContent_Paint);
             // 
-            // btnThueTNCN
-            // 
-            this.btnThueTNCN.BackColor = System.Drawing.SystemColors.Control;
-            this.btnThueTNCN.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnThueTNCN.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThueTNCN.ForeColor = System.Drawing.Color.Black;
-            this.btnThueTNCN.Image = global::KeToanTienLuong.Properties.Resources.market_positioning;
-            this.btnThueTNCN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnThueTNCN.Location = new System.Drawing.Point(0, 134);
-            this.btnThueTNCN.Name = "btnThueTNCN";
-            this.btnThueTNCN.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.btnThueTNCN.Size = new System.Drawing.Size(318, 67);
-            this.btnThueTNCN.TabIndex = 2;
-            this.btnThueTNCN.Text = "Thuế TNCN";
-            this.btnThueTNCN.UseVisualStyleBackColor = false;
-            // 
-            // btnTinhLuong
-            // 
-            this.btnTinhLuong.BackColor = System.Drawing.SystemColors.Control;
-            this.btnTinhLuong.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnTinhLuong.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTinhLuong.ForeColor = System.Drawing.Color.Black;
-            this.btnTinhLuong.Image = global::KeToanTienLuong.Properties.Resources.department;
-            this.btnTinhLuong.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTinhLuong.Location = new System.Drawing.Point(0, 67);
-            this.btnTinhLuong.Name = "btnTinhLuong";
-            this.btnTinhLuong.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.btnTinhLuong.Size = new System.Drawing.Size(318, 67);
-            this.btnTinhLuong.TabIndex = 1;
-            this.btnTinhLuong.Text = "Tính lương";
-            this.btnTinhLuong.UseVisualStyleBackColor = false;
-            this.btnTinhLuong.Click += new System.EventHandler(this.btnTinhLuong_Click);
-            // 
-            // btnChamCong
-            // 
-            this.btnChamCong.BackColor = System.Drawing.SystemColors.Control;
-            this.btnChamCong.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnChamCong.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnChamCong.ForeColor = System.Drawing.Color.Black;
-            this.btnChamCong.Image = global::KeToanTienLuong.Properties.Resources.structure;
-            this.btnChamCong.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnChamCong.Location = new System.Drawing.Point(0, 0);
-            this.btnChamCong.Name = "btnChamCong";
-            this.btnChamCong.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.btnChamCong.Size = new System.Drawing.Size(318, 67);
-            this.btnChamCong.TabIndex = 0;
-            this.btnChamCong.Text = "Bảng chấm công/ thưởng";
-            this.btnChamCong.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnChamCong.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnChamCong.UseVisualStyleBackColor = false;
-            this.btnChamCong.Click += new System.EventHandler(this.button1_Click);
-            // 
             // TinhLuongForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -174,7 +156,6 @@ namespace KeToanTienLuong.categoryForm
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btnThueTNCN;
         private System.Windows.Forms.Button btnTinhLuong;
         private System.Windows.Forms.Button btnChamCong;
         private System.Windows.Forms.ImageList imageList1;

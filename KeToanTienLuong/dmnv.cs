@@ -17,10 +17,10 @@ namespace KeToanTienLuong
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public dmnv()
         {
-            this.chitietbangccs = new HashSet<chitietbangcc>();
             this.phieuketoans = new HashSet<phieuketoan>();
             this.giaybaonoes = new HashSet<giaybaono>();
             this.phieuchis = new HashSet<phieuchi>();
+            this.chitietbangccs = new HashSet<chitietbangcc>();
         }
     
         public string manv { get; set; }
@@ -37,8 +37,6 @@ namespace KeToanTienLuong
         public Nullable<int> trangthai { get; set; }
         public Nullable<decimal> luongcoban { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<chitietbangcc> chitietbangccs { get; set; }
         public virtual dmbp dmbp { get; set; }
         public virtual dmcv dmcv { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -47,5 +45,7 @@ namespace KeToanTienLuong
         public virtual ICollection<giaybaono> giaybaonoes { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<phieuchi> phieuchis { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<chitietbangcc> chitietbangccs { get; set; }
     }
 }

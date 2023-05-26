@@ -16,7 +16,6 @@ namespace KeToanTienLuong
     {
         public Nullable<int> thang { get; set; }
         public Nullable<int> nam { get; set; }
-        public Nullable<int> Ngaycong { get; set; }
         public string noidung { get; set; }
         public Nullable<decimal> tienphucap { get; set; }
         public Nullable<decimal> tienthuong { get; set; }
@@ -48,6 +47,10 @@ namespace KeToanTienLuong
         public Nullable<decimal> luongngoaigio { get; set; }
         public Nullable<decimal> phucapantrue { get; set; }
         public Nullable<decimal> phucapkhac { get; set; }
+        public Nullable<decimal> tienphat { get; set; }
+        public Nullable<double> ngaycong { get; set; }
+        public string manv { get; set; }
+        public Nullable<decimal> ngaycongcuathang { get; set; }
     
         public virtual bangcc bangcc { get; set; }
     }

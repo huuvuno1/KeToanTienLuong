@@ -26,60 +26,74 @@ namespace KeToanTienLuong.tinhluongfrm
             inpThang.Text = DateTime.Now.ToString("MM");
             inpNam.Text = DateTime.Now.ToString("yyyy");
 
+            var db = new ketoantienluongEntities();
+            cbomabp.DisplayMember = "Tenbp";
+            cbomabp.ValueMember = "Mabp";
+
+            cbomabp.DataSource = db.dmbps.Where(b => b.trangthai == 1).Select(item => item).ToList();
+            cbomabp.Refresh();
+
             //UpdateBangLuong(null);
         }
 
         private void buttonUpload_Click(object sender, EventArgs e)
         {
-            // Tạo OpenFileDialog
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "Excel Files|*.xlsx";
-            DataTable dataTable = new DataTable();
-
-            // Kiểm tra xem người dùng đã chọn tệp hay chưa
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            try
             {
-                string filePath = openFileDialog.FileName;
+                // Tạo OpenFileDialog
+                OpenFileDialog openFileDialog = new OpenFileDialog();
+                openFileDialog.Filter = "Excel Files|*.xlsx";
+                DataTable dataTable = new DataTable();
 
-                var o = new OpenSettings();
-                // Mở tệp Excel
-                using (SpreadsheetDocument document = SpreadsheetDocument.Open(filePath, false))
+                // Kiểm tra xem người dùng đã chọn tệp hay chưa
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    WorkbookPart workbookPart = document.WorkbookPart;
-                    WorksheetPart worksheetPart = workbookPart.WorksheetParts.First();
-                    SheetData sheetData = worksheetPart.Worksheet.Elements<SheetData>().First();
+                    string filePath = openFileDialog.FileName;
 
-                    // Lấy danh sách tất cả các cột từ hàng đầu tiên
-                    Row headerRow = sheetData.Elements<Row>().FirstOrDefault();
-                    if (headerRow != null)
+                    var o = new OpenSettings();
+                    // Mở tệp Excel
+                    using (SpreadsheetDocument document = SpreadsheetDocument.Open(filePath, false))
                     {
-                        foreach (Cell headerCell in headerRow.Elements<Cell>())
-                        {
-                            string columnName = GetCellValue(headerCell, workbookPart);
-                            dataTable.Columns.Add(columnName);
-                        }
-                    }
+                        WorkbookPart workbookPart = document.WorkbookPart;
+                        WorksheetPart worksheetPart = workbookPart.WorksheetParts.First();
+                        SheetData sheetData = worksheetPart.Worksheet.Elements<SheetData>().First();
 
-                    // Lặp qua các hàng trong tệp Excel, bắt đầu từ hàng thứ 2
-                    foreach (Row row in sheetData.Elements<Row>().Skip(1))
-                    {
-                        DataRow dataRow = dataTable.NewRow();
-                        int columnIndex = 0;
-
-                        // Lặp qua các ô trong mỗi hàng
-                        foreach (Cell cell in row.Elements<Cell>())
+                        // Lấy danh sách tất cả các cột từ hàng đầu tiên
+                        Row headerRow = sheetData.Elements<Row>().FirstOrDefault();
+                        if (headerRow != null)
                         {
-                            string cellValue = GetCellValue(cell, workbookPart);
-                            dataRow[columnIndex] = cellValue;
-                            columnIndex++;
+                            foreach (Cell headerCell in headerRow.Elements<Cell>())
+                            {
+                                string columnName = GetCellValue(headerCell, workbookPart);
+                                dataTable.Columns.Add(columnName);
+                            }
                         }
 
-                        dataTable.Rows.Add(dataRow);
+                        // Lặp qua các hàng trong tệp Excel, bắt đầu từ hàng thứ 2
+                        foreach (Row row in sheetData.Elements<Row>().Skip(1))
+                        {
+                            DataRow dataRow = dataTable.NewRow();
+                            int columnIndex = 0;
+
+                            // Lặp qua các ô trong mỗi hàng
+                            foreach (Cell cell in row.Elements<Cell>())
+                            {
+                                string cellValue = GetCellValue(cell, workbookPart);
+                                dataRow[columnIndex] = cellValue;
+                                columnIndex++;
+                            }
+
+                            dataTable.Rows.Add(dataRow);
+                        }
                     }
                 }
-            }
 
-            dataGridViewChamCong.DataSource = dataTable;
+                dataGridViewChamCong.DataSource = dataTable;
+            }
+            catch
+            {
+                MessageBox.Show("File đang được mở bởi một chương trình khác, vui lòng đóng file và thử lại!");
+            }
         }
 
         private static string GetCellValue(Cell cell, WorkbookPart workbookPart)
@@ -156,25 +170,25 @@ namespace KeToanTienLuong.tinhluongfrm
             var listNvKoTonTai = new List<string>();
             var listNvKoThuocBP = new List<string>();
 
+                string so = "BCC_" + DateTime.Now.ToString("HH") + DateTime.Now.ToString("mm") + DateTime.Now.ToString("ss");
 
             DataTable dataTable = (DataTable)dataGridViewChamCong.DataSource;
             foreach (DataRow row in dataTable.Rows)
             {
-                string so = txtso.Text;
                 string manv = row[1].ToString();
 
-                var nv = db.dmnvs.FirstOrDefault(p => p.manv == manv);
+                var nv = db.dmnvs.FirstOrDefault(p => p.manv == manv && p.trangthai == 1);
 
                 if (nv == null)
                 {
                     listNvKoTonTai.Add(manv);
                     continue;
                 }
-                else if (nv.mabp != cbomabp.SelectedValue?.ToString()?.Trim())
+                else if (nv.mabp.Trim() != cbomabp.SelectedValue?.ToString()?.Trim())
                 {
                     listNvKoThuocBP.Add(manv + " - " + nv.tenv);
                     continue;
-                } 
+                }
 
                 string ngaycong = row[2].ToString();
                 string ngayphep = row[3].ToString();
@@ -182,6 +196,7 @@ namespace KeToanTienLuong.tinhluongfrm
                 string tienphucap = row[5].ToString();
                 string tienthuong = row[6].ToString();
                 string tienphat = row[6].ToString();
+                string sogiotangca = row[7].ToString();
 
                 list.Add(new chitietbangcc() {
                     so = so,
@@ -189,9 +204,10 @@ namespace KeToanTienLuong.tinhluongfrm
                     ngaycong = double.Parse(ngaycong),
                     ngayphep = double.Parse(ngayphep),
                     ngaykhongphep = double.Parse(ngaykhongphep),
-                    tienphucap = double.Parse(tienphucap),
-                    tienthuong = double.Parse(tienthuong),
-                    
+                    tienphucap = decimal.Parse(tienphucap),
+                    tienthuong = decimal.Parse(tienthuong),
+                    tienphat = decimal.Parse(tienphat),
+                    sogiotangca = double.Parse(sogiotangca)
                 });
             }
 
@@ -221,7 +237,7 @@ $@"
             db.SaveChanges();
 
             var data = new bangcc() {
-                so = txtso.Text,
+                so = so,
                 mabp = cbomabp.SelectedValue.ToString(),
                 ngaycong = int.Parse(txtngaycong.Text),
                 nam = int.Parse(txtnam.Text),
@@ -232,7 +248,7 @@ $@"
             db.bangccs.Add(data);
             db.SaveChanges();
 
-            UpdateBangLuong(db, txtso.Text);
+            UpdateBangLuong(db, so);
             dataGridViewChamCong.DataSource = null;
             txtso.Text
                 = txtngaycong.Text
@@ -257,29 +273,61 @@ $@"
             //var bangcc = db.bangccs.Where(p => p.nam == nam && p.thang == thang);
             var data = db.bangccs.Find(so);
             data.chitietbangccs.ToList().ForEach((ctbcc) => {
+                var ngaycongthangcuabophan = double.Parse(txtngaycong.Text);
                 var nv = db.dmnvs.Find(ctbcc.manv);
                 var lcb = nv.luongcoban;
+                var tientheongaycong = floor(lcb / data.ngaycong * decimal.Parse(ctbcc.ngaycong.ToString()));
+                var congthucte = ngaycongthangcuabophan - ctbcc.ngaykhongphep + ctbcc.ngayphep;
+                var luongngoaigio = floor(Convert.ToDecimal(ctbcc.sogiotangca) * (nv.luongcoban / Convert.ToDecimal((ngaycongthangcuabophan * 8).ToString())) * 1.5m);
+                decimal tientruocthue = (decimal)(tientheongaycong + 750000m + ctbcc.tienphucap + ctbcc.tienthuong - ctbcc.tienphat + luongngoaigio);
+                decimal tienthue = Util.Util.CalculatePersonalIncomeTax((decimal)(tientruocthue - 11000000 - nv.songuoiphuthuoc * 4400000));
+
+                var phieuchi = db.phieuchis.ToList().Where(p => p.tkno == "141" && p.ngay.Value.Month == thang && p.ngay.Value.Year == nam).ToList();
+                decimal tamung = phieuchi.Aggregate(0m, (prev, curr) => (decimal)(prev + curr.tien));
+
                 data.bangluongnhanviens.Add(new bangluongnhanvien() {
                     bhtn = 0.01m,
                     bhxh = 0.08m,
                     bhyt = 0.015m,
-                    tienbhtn = lcb * 0.08m,
+                    tienbhxh = lcb * 0.08m,
                     tienbhyt = lcb * 0.01m,
-                    tienbhxh = lcb * 0.015m,
-                    tiencongdoan = lcb * 0.01m,
+                    tienbhtn = lcb * 0.015m,
+                    tiencongdoan = 0,
                     tienluongcoban = lcb,
                     tienbhxhctytra = lcb * 1.75m,
                     tienbhytctytra = lcb * 0.03m,
                     tienbtntnctytra = lcb * 0.01m,
                     phucapantrue = 750000,
-                    phucapkhac = 300000,
-                    tienluong = lcb / data.ngaycong * decimal.Parse(ctbcc.ngaycong.ToString()),
+                    phucapkhac = ctbcc.tienphucap,
+                    tienthuong = ctbcc.tienthuong,
+                    tienphat = ctbcc.tienphat,
+                    tienluong = tientheongaycong,
                     giamtrucanhan = 11000000,
-                    giamtruphuthuoc = 4400000 * nv.songuoiphuthuoc
-                });
+                    giamtruphuthuoc = 4400000 * nv.songuoiphuthuoc,
+                    luongngoaigio = luongngoaigio,
+                    tientruocthue = tientruocthue,
+                    tiencongdoanctytra = lcb * 0.01m,
+                    tienthue = tienthue,
+                    tientamung = tamung,
+                    tienthuclinh = tientruocthue - tamung - tienthue - (lcb * 0.105m),
+                    thang = thang,
+                    nam = nam,
+                    ngaycong = congthucte,
+                    tienphucap = ctbcc.tienphucap,
+                    manv = nv.manv,
+                    tonggiamtru = 11000000 + nv.songuoiphuthuoc * 4400000,
+                    tongbaohiem = lcb * 0.105m,
+                    noidung = data.noidung,
+                    ngaycongcuathang = data.ngaycong
+                }); ;
             });
 
             db.SaveChanges();
+        }
+
+        private decimal floor(decimal? a)
+        {
+            return Math.Round((decimal)a);
         }
 
         private void cbomabp_SelectedIndexChanged(object sender, EventArgs e)
@@ -289,12 +337,7 @@ $@"
 
         private void panelContentBox_Paint(object sender, PaintEventArgs e)
         {
-            var db = new ketoantienluongEntities();
-            cbomabp.DisplayMember = "Tenbp";
-            cbomabp.ValueMember = "Mabp";
-
-            cbomabp.DataSource = db.dmbps.Select(item => item).ToList();
-            cbomabp.Refresh();
+            
         }
 
         private void buttonXem_Click(object sender, EventArgs e)

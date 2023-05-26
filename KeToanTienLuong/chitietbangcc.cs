@@ -19,10 +19,11 @@ namespace KeToanTienLuong
         public Nullable<double> ngaycong { get; set; }
         public Nullable<double> ngayphep { get; set; }
         public Nullable<double> ngaykhongphep { get; set; }
-        public Nullable<double> tienphucap { get; set; }
-        public Nullable<double> tienthuong { get; set; }
         public int id { get; set; }
         public Nullable<decimal> tienphat { get; set; }
+        public Nullable<decimal> tienphucap { get; set; }
+        public Nullable<decimal> tienthuong { get; set; }
+        public Nullable<double> sogiotangca { get; set; }
     
         public virtual bangcc bangcc { get; set; }
         public virtual dmnv dmnv { get; set; }

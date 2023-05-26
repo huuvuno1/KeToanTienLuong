@@ -31,6 +31,8 @@ namespace KeToanTienLuong.tinhluongfrm
         {
             this.components = new System.ComponentModel.Container();
             this.panelContentBox = new System.Windows.Forms.Panel();
+            this.log = new System.Windows.Forms.RichTextBox();
+            this.buttonLookup = new System.Windows.Forms.Button();
             this.inpNam = new System.Windows.Forms.TextBox();
             this.labelNam = new System.Windows.Forms.Label();
             this.inpThang = new System.Windows.Forms.TextBox();
@@ -48,6 +50,10 @@ namespace KeToanTienLuong.tinhluongfrm
             this.txtso = new System.Windows.Forms.TextBox();
             this.labelSo = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
+            this.buttonDownload = new System.Windows.Forms.Button();
+            this.buttonUpload = new System.Windows.Forms.Button();
+            this.buttonLuu = new System.Windows.Forms.Button();
+            this.buttonReset = new System.Windows.Forms.Button();
             this.dataGridViewChamCong = new System.Windows.Forms.DataGridView();
             this.dataGridViewBangCong = new System.Windows.Forms.DataGridView();
             this.soDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -61,12 +67,6 @@ namespace KeToanTienLuong.tinhluongfrm
             this.ketoantienluongDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ketoantienluongDataSet = new KeToanTienLuong.ketoantienluongDataSet();
             this.chitietbangccTableAdapter = new KeToanTienLuong.ketoantienluongDataSetTableAdapters.chitietbangccTableAdapter();
-            this.log = new System.Windows.Forms.RichTextBox();
-            this.buttonLookup = new System.Windows.Forms.Button();
-            this.buttonDownload = new System.Windows.Forms.Button();
-            this.buttonUpload = new System.Windows.Forms.Button();
-            this.buttonLuu = new System.Windows.Forms.Button();
-            this.buttonReset = new System.Windows.Forms.Button();
             this.buttonXem = new System.Windows.Forms.Button();
             this.buttonThem = new System.Windows.Forms.Button();
             this.panelContentBox.SuspendLayout();
@@ -114,6 +114,30 @@ namespace KeToanTienLuong.tinhluongfrm
             this.panelContentBox.Size = new System.Drawing.Size(1406, 962);
             this.panelContentBox.TabIndex = 33;
             this.panelContentBox.Paint += new System.Windows.Forms.PaintEventHandler(this.panelContentBox_Paint);
+            // 
+            // log
+            // 
+            this.log.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.log.Location = new System.Drawing.Point(41, 666);
+            this.log.Name = "log";
+            this.log.ReadOnly = true;
+            this.log.Size = new System.Drawing.Size(964, 108);
+            this.log.TabIndex = 65;
+            this.log.Text = "LOG";
+            // 
+            // buttonLookup
+            // 
+            this.buttonLookup.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonLookup.Image = global::KeToanTienLuong.Properties.Resources.eye;
+            this.buttonLookup.Location = new System.Drawing.Point(494, 115);
+            this.buttonLookup.Name = "buttonLookup";
+            this.buttonLookup.Size = new System.Drawing.Size(117, 39);
+            this.buttonLookup.TabIndex = 34;
+            this.buttonLookup.Text = "   Xem";
+            this.buttonLookup.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonLookup.UseVisualStyleBackColor = true;
+            this.buttonLookup.Visible = false;
+            this.buttonLookup.Click += new System.EventHandler(this.buttonLookup_Click);
             // 
             // inpNam
             // 
@@ -183,7 +207,7 @@ namespace KeToanTienLuong.tinhluongfrm
             this.txtngaycong.Name = "txtngaycong";
             this.txtngaycong.Size = new System.Drawing.Size(233, 22);
             this.txtngaycong.TabIndex = 57;
-            this.txtngaycong.Text = "0";
+            this.txtngaycong.Text = "22";
             this.txtngaycong.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // labelNgayCong
@@ -261,11 +285,13 @@ namespace KeToanTienLuong.tinhluongfrm
             // 
             // txtso
             // 
+            this.txtso.Enabled = false;
             this.txtso.Location = new System.Drawing.Point(168, 28);
             this.txtso.Margin = new System.Windows.Forms.Padding(4);
             this.txtso.Name = "txtso";
             this.txtso.Size = new System.Drawing.Size(160, 22);
             this.txtso.TabIndex = 43;
+            this.txtso.Text = "Tạo tự động";
             // 
             // labelSo
             // 
@@ -286,6 +312,64 @@ namespace KeToanTienLuong.tinhluongfrm
             this.button4.TabIndex = 40;
             this.button4.Text = "button4";
             this.button4.UseVisualStyleBackColor = true;
+            // 
+            // buttonDownload
+            // 
+            this.buttonDownload.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.buttonDownload.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonDownload.Image = global::KeToanTienLuong.Properties.Resources.download2;
+            this.buttonDownload.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.buttonDownload.Location = new System.Drawing.Point(768, 193);
+            this.buttonDownload.Name = "buttonDownload";
+            this.buttonDownload.Size = new System.Drawing.Size(203, 91);
+            this.buttonDownload.TabIndex = 38;
+            this.buttonDownload.Text = " Tải file mẫu";
+            this.buttonDownload.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.buttonDownload.UseVisualStyleBackColor = true;
+            this.buttonDownload.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // buttonUpload
+            // 
+            this.buttonUpload.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.buttonUpload.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonUpload.Image = global::KeToanTienLuong.Properties.Resources.upload_file;
+            this.buttonUpload.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.buttonUpload.Location = new System.Drawing.Point(494, 193);
+            this.buttonUpload.Name = "buttonUpload";
+            this.buttonUpload.Size = new System.Drawing.Size(236, 91);
+            this.buttonUpload.TabIndex = 35;
+            this.buttonUpload.Text = "  Tải lên file chấm công/thưởng";
+            this.buttonUpload.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.buttonUpload.UseVisualStyleBackColor = true;
+            this.buttonUpload.Click += new System.EventHandler(this.buttonUpload_Click);
+            // 
+            // buttonLuu
+            // 
+            this.buttonLuu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonLuu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonLuu.Image = global::KeToanTienLuong.Properties.Resources.checkmark;
+            this.buttonLuu.Location = new System.Drawing.Point(1048, 718);
+            this.buttonLuu.Name = "buttonLuu";
+            this.buttonLuu.Size = new System.Drawing.Size(137, 42);
+            this.buttonLuu.TabIndex = 34;
+            this.buttonLuu.Text = "   Lưu";
+            this.buttonLuu.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonLuu.UseVisualStyleBackColor = true;
+            this.buttonLuu.Click += new System.EventHandler(this.buttonLuu_Click);
+            // 
+            // buttonReset
+            // 
+            this.buttonReset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonReset.Image = global::KeToanTienLuong.Properties.Resources.delete;
+            this.buttonReset.Location = new System.Drawing.Point(1232, 718);
+            this.buttonReset.Name = "buttonReset";
+            this.buttonReset.Size = new System.Drawing.Size(137, 42);
+            this.buttonReset.TabIndex = 33;
+            this.buttonReset.Text = "   Reset";
+            this.buttonReset.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonReset.UseVisualStyleBackColor = true;
+            this.buttonReset.Click += new System.EventHandler(this.button3_Click);
             // 
             // dataGridViewChamCong
             // 
@@ -389,88 +473,6 @@ namespace KeToanTienLuong.tinhluongfrm
             // chitietbangccTableAdapter
             // 
             this.chitietbangccTableAdapter.ClearBeforeFill = true;
-            // 
-            // log
-            // 
-            this.log.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.log.Location = new System.Drawing.Point(41, 666);
-            this.log.Name = "log";
-            this.log.ReadOnly = true;
-            this.log.Size = new System.Drawing.Size(964, 108);
-            this.log.TabIndex = 65;
-            this.log.Text = "LOG";
-            // 
-            // buttonLookup
-            // 
-            this.buttonLookup.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonLookup.Image = global::KeToanTienLuong.Properties.Resources.eye;
-            this.buttonLookup.Location = new System.Drawing.Point(494, 115);
-            this.buttonLookup.Name = "buttonLookup";
-            this.buttonLookup.Size = new System.Drawing.Size(117, 39);
-            this.buttonLookup.TabIndex = 34;
-            this.buttonLookup.Text = "   Xem";
-            this.buttonLookup.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonLookup.UseVisualStyleBackColor = true;
-            this.buttonLookup.Visible = false;
-            this.buttonLookup.Click += new System.EventHandler(this.buttonLookup_Click);
-            // 
-            // buttonDownload
-            // 
-            this.buttonDownload.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.buttonDownload.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonDownload.Image = global::KeToanTienLuong.Properties.Resources.download2;
-            this.buttonDownload.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.buttonDownload.Location = new System.Drawing.Point(768, 193);
-            this.buttonDownload.Name = "buttonDownload";
-            this.buttonDownload.Size = new System.Drawing.Size(203, 91);
-            this.buttonDownload.TabIndex = 38;
-            this.buttonDownload.Text = " Tải file mẫu";
-            this.buttonDownload.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.buttonDownload.UseVisualStyleBackColor = true;
-            this.buttonDownload.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // buttonUpload
-            // 
-            this.buttonUpload.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.buttonUpload.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonUpload.Image = global::KeToanTienLuong.Properties.Resources.upload_file;
-            this.buttonUpload.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.buttonUpload.Location = new System.Drawing.Point(494, 193);
-            this.buttonUpload.Name = "buttonUpload";
-            this.buttonUpload.Size = new System.Drawing.Size(236, 91);
-            this.buttonUpload.TabIndex = 35;
-            this.buttonUpload.Text = "  Tải lên file chấm công/thưởng";
-            this.buttonUpload.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.buttonUpload.UseVisualStyleBackColor = true;
-            this.buttonUpload.Click += new System.EventHandler(this.buttonUpload_Click);
-            // 
-            // buttonLuu
-            // 
-            this.buttonLuu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonLuu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonLuu.Image = global::KeToanTienLuong.Properties.Resources.checkmark;
-            this.buttonLuu.Location = new System.Drawing.Point(1048, 718);
-            this.buttonLuu.Name = "buttonLuu";
-            this.buttonLuu.Size = new System.Drawing.Size(137, 42);
-            this.buttonLuu.TabIndex = 34;
-            this.buttonLuu.Text = "   Lưu";
-            this.buttonLuu.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonLuu.UseVisualStyleBackColor = true;
-            this.buttonLuu.Click += new System.EventHandler(this.buttonLuu_Click);
-            // 
-            // buttonReset
-            // 
-            this.buttonReset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonReset.Image = global::KeToanTienLuong.Properties.Resources.delete;
-            this.buttonReset.Location = new System.Drawing.Point(1232, 718);
-            this.buttonReset.Name = "buttonReset";
-            this.buttonReset.Size = new System.Drawing.Size(137, 42);
-            this.buttonReset.TabIndex = 33;
-            this.buttonReset.Text = "   Reset";
-            this.buttonReset.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonReset.UseVisualStyleBackColor = true;
-            this.buttonReset.Click += new System.EventHandler(this.button3_Click);
             // 
             // buttonXem
             // 
