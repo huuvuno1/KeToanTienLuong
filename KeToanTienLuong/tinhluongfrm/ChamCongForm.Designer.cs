@@ -118,7 +118,7 @@ namespace KeToanTienLuong.tinhluongfrm
             // log
             // 
             this.log.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.log.Location = new System.Drawing.Point(41, 666);
+            this.log.Location = new System.Drawing.Point(41, 544);
             this.log.Name = "log";
             this.log.ReadOnly = true;
             this.log.Size = new System.Drawing.Size(964, 108);
@@ -348,7 +348,7 @@ namespace KeToanTienLuong.tinhluongfrm
             this.buttonLuu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonLuu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonLuu.Image = global::KeToanTienLuong.Properties.Resources.checkmark;
-            this.buttonLuu.Location = new System.Drawing.Point(1048, 718);
+            this.buttonLuu.Location = new System.Drawing.Point(1064, 544);
             this.buttonLuu.Name = "buttonLuu";
             this.buttonLuu.Size = new System.Drawing.Size(137, 42);
             this.buttonLuu.TabIndex = 34;
@@ -362,7 +362,7 @@ namespace KeToanTienLuong.tinhluongfrm
             this.buttonReset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonReset.Image = global::KeToanTienLuong.Properties.Resources.delete;
-            this.buttonReset.Location = new System.Drawing.Point(1232, 718);
+            this.buttonReset.Location = new System.Drawing.Point(1235, 544);
             this.buttonReset.Name = "buttonReset";
             this.buttonReset.Size = new System.Drawing.Size(137, 42);
             this.buttonReset.TabIndex = 33;
@@ -380,7 +380,7 @@ namespace KeToanTienLuong.tinhluongfrm
             this.dataGridViewChamCong.Name = "dataGridViewChamCong";
             this.dataGridViewChamCong.RowHeadersWidth = 51;
             this.dataGridViewChamCong.RowTemplate.Height = 24;
-            this.dataGridViewChamCong.Size = new System.Drawing.Size(1402, 323);
+            this.dataGridViewChamCong.Size = new System.Drawing.Size(1402, 204);
             this.dataGridViewChamCong.TabIndex = 27;
             // 
             // dataGridViewBangCong
@@ -402,7 +402,7 @@ namespace KeToanTienLuong.tinhluongfrm
             this.dataGridViewBangCong.Name = "dataGridViewBangCong";
             this.dataGridViewBangCong.RowHeadersWidth = 51;
             this.dataGridViewBangCong.RowTemplate.Height = 24;
-            this.dataGridViewBangCong.Size = new System.Drawing.Size(1402, 456);
+            this.dataGridViewBangCong.Size = new System.Drawing.Size(1402, 240);
             this.dataGridViewBangCong.TabIndex = 60;
             this.dataGridViewBangCong.Visible = false;
             // 
