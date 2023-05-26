@@ -103,7 +103,7 @@ namespace KeToanTienLuong.chungtu
         {
             checkBoxShowAll.Checked = checkBoxShow;
             var db = new ketoantienluongEntities();
-            cbomanh.DataSource = db.dmnhs.ToList().Select(p => new dmnh(){ 
+            cbomanh.DataSource = db.dmnhs.ToList().Where(p => p.trangthai == 1).Select(p => new dmnh(){ 
                 so = p.so.Trim(),
                 stk = p.stk,
                 tennh = p.tennh
@@ -120,7 +120,7 @@ namespace KeToanTienLuong.chungtu
             cbomanv.DisplayMember = "tenv";
             cbomanv.ValueMember = "manv";
 
-            comboBoxTkNo.DataSource = new ketoantienluongEntities().dmtks.ToList().Select(p => new dmtk() {
+            comboBoxTkNo.DataSource = new ketoantienluongEntities().dmtks.ToList().Where(p => p.trangthai == 1).Select(p => new dmtk() {
                 matk = p.matk.Trim()
             }).ToList();
 

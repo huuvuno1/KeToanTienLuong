@@ -9,6 +9,7 @@ CREATE TABLE dmbp (
 	Tenbp nvarchar(250) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
 	sdt nvarchar(15) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
 	diachi nvarchar(250) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	trangthai int NULL,
 	CONSTRAINT PK__dmbp__27236993F72F500B PRIMARY KEY (Mabp)
 );
 
@@ -23,6 +24,7 @@ CREATE TABLE dmcv (
 	macv nchar(10) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
 	tencv nvarchar(30) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
 	mota nvarchar(250) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	trangthai int NULL,
 	CONSTRAINT PK__dmcv__7A21F84882D21C20 PRIMARY KEY (macv)
 );
 
@@ -38,6 +40,7 @@ CREATE TABLE dmnh (
 	stk nchar(20) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
 	tennh nvarchar(200) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
 	chinhanh nvarchar(200) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	trangthai int NULL,
 	CONSTRAINT PK__dmnh__3214186DA518E567 PRIMARY KEY (so)
 );
 
@@ -53,6 +56,7 @@ CREATE TABLE dmtk (
 	tentk nvarchar(250) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
 	tkme nchar(10) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
 	captk int NULL,
+	trangthai int NULL,
 	CONSTRAINT PK__dmtk__7A217E16FDED4E98 PRIMARY KEY (matk)
 );
 

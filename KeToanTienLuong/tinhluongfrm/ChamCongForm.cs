@@ -152,17 +152,37 @@ namespace KeToanTienLuong.tinhluongfrm
         private void buttonLuu_Click(object sender, EventArgs e)
         {
             var list = new List<chitietbangcc>();
+            var db = new ketoantienluongEntities();
+            var listNvKoTonTai = new List<string>();
+            var listNvKoThuocBP = new List<string>();
+
 
             DataTable dataTable = (DataTable)dataGridViewChamCong.DataSource;
             foreach (DataRow row in dataTable.Rows)
             {
                 string so = txtso.Text;
                 string manv = row[1].ToString();
+
+                var nv = db.dmnvs.FirstOrDefault(p => p.manv == manv);
+
+                if (nv == null)
+                {
+                    listNvKoTonTai.Add(manv);
+                    continue;
+                }
+                else if (nv.mabp != cbomabp.SelectedValue?.ToString()?.Trim())
+                {
+                    listNvKoThuocBP.Add(manv + " - " + nv.tenv);
+                    continue;
+                } 
+
                 string ngaycong = row[2].ToString();
                 string ngayphep = row[3].ToString();
                 string ngaykhongphep = row[4].ToString();
                 string tienphucap = row[5].ToString();
                 string tienthuong = row[6].ToString();
+                string tienphat = row[6].ToString();
+
                 list.Add(new chitietbangcc() {
                     so = so,
                     manv = manv,
@@ -171,14 +191,27 @@ namespace KeToanTienLuong.tinhluongfrm
                     ngaykhongphep = double.Parse(ngaykhongphep),
                     tienphucap = double.Parse(tienphucap),
                     tienthuong = double.Parse(tienthuong),
+                    
                 });
             }
 
-            var db = new ketoantienluongEntities();
+            log.Text =
+$@"
+{string.Join("\n", listNvKoTonTai.Select(item => $"Không tìm thấy nhân viên nào có mã {item} !"))}
+----------------------------------------
+{string.Join("\n", listNvKoThuocBP.Select(item => $"Nhân viên nào có mã {item} không thuộc bộ phận {((dmbp)cbomabp.SelectedItem).Tenbp}!"))}
+
+";
+
+            if (list.Count == 0)
+            {
+                MessageBox.Show("Không có nhân viên nào hợp lệ, vui lòng cập nhật lại!");
+                return;
+            }
 
             int thang = int.Parse(inpThang.Text);
             int nam = int.Parse(inpNam.Text);
-            string mabp = cbomabp.SelectedValue.ToString();
+            string mabp = cbomabp.SelectedValue?.ToString();
 
             // delete old value in same month
             var oldValue = db.bangccs.Where(x => x.thang == thang
@@ -266,6 +299,8 @@ namespace KeToanTienLuong.tinhluongfrm
 
         private void buttonXem_Click(object sender, EventArgs e)
         {
+            buttonLookup.Visible = true;
+            log.Visible = false;
             inpThang.Text = DateTime.Now.ToString("MM");
             inpNam.Text = DateTime.Now.ToString("yyyy");
             buttonXem.BackColor = SystemColors.ControlDark;
@@ -277,6 +312,8 @@ namespace KeToanTienLuong.tinhluongfrm
                 txtngaycong.Visible = cbomabp.Visible = txtnoidung.Visible = false;
 
             labelNam.Visible = labelThang.Visible = inpThang.Visible = inpNam.Visible = buttonLookup.Visible = buttonLookup.Visible = true;
+
+            buttonUpload.Visible = buttonDownload.Visible = buttonLuu.Visible = buttonReset.Visible = false;
 
             dataGridViewChamCong.Visible = false;
             dataGridViewBangCong.Visible = true;
@@ -296,7 +333,9 @@ namespace KeToanTienLuong.tinhluongfrm
         private void buttonThem_Click(object sender, EventArgs e)
         {
             buttonXem.BackColor = System.Drawing.Color.White;
+            log.Visible = true;
             buttonThem.BackColor =  SystemColors.ControlDark;
+            buttonUpload.Visible = buttonDownload.Visible = buttonLuu.Visible = buttonReset.Visible = true;
 
             dataGridViewChamCong.Visible = true;
             dataGridViewBangCong.Visible = false;
@@ -307,6 +346,7 @@ namespace KeToanTienLuong.tinhluongfrm
                 txtngaycong.Visible = cbomabp.Visible = txtnoidung.Visible = true;
 
             labelNam.Visible = labelThang.Visible = inpThang.Visible = inpNam.Visible = false;
+            buttonLookup.Visible = false;
         }
 
         private void buttonLookup_Click(object sender, EventArgs e)
@@ -321,6 +361,11 @@ namespace KeToanTienLuong.tinhluongfrm
                             ctbcc
                         };
             dataGridViewBangCong.DataSource = query.Select(p => p.ctbcc).ToList();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

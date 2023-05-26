@@ -52,14 +52,14 @@ namespace KeToanTienLuong.danhmucform
             dataGridView.DataSource = getDataSource();
 
 
-            comboBoxDMBP.DataSource = db.dmbps.ToList().Select(p => new dmbp() {
+            comboBoxDMBP.DataSource = db.dmbps.ToList().Where(p => p.trangthai == 1).Select(p => new dmbp() {
                 Tenbp = p.Tenbp,
                 Mabp = p.Mabp.Trim()
             }).ToList();
             comboBoxDMBP.DisplayMember = "Tenbp";
             comboBoxDMBP.ValueMember = "Mabp";
 
-            comboBoxChucVu.DataSource = db.dmcvs.ToList().Select(p => new dmcv() {
+            comboBoxChucVu.DataSource = db.dmcvs.ToList().Where(p => p.trangthai == 1).Select(p => new dmcv() {
                 tencv = p.tencv,
                 macv = p.macv.Trim()
             }).ToList();

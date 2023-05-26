@@ -22,6 +22,7 @@ namespace KeToanTienLuong
         public Nullable<double> tienphucap { get; set; }
         public Nullable<double> tienthuong { get; set; }
         public int id { get; set; }
+        public Nullable<decimal> tienphat { get; set; }
     
         public virtual bangcc bangcc { get; set; }
         public virtual dmnv dmnv { get; set; }

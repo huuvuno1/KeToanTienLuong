@@ -67,6 +67,7 @@
           <Property Name="tienphucap" Type="float" />
           <Property Name="tienthuong" Type="float" />
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tienphat" Type="numeric" Precision="38" Scale="0" />
         </EntityType>
         <EntityType Name="chitietphieuketoan">
           <Key>
@@ -717,6 +718,7 @@
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <NavigationProperty Name="bangcc" Relationship="ketoantienluongModel.chitietbangcc_FK" FromRole="chitietbangcc" ToRole="bangcc" />
           <NavigationProperty Name="dmnv" Relationship="ketoantienluongModel.FK__chitietban__manv__6D0D32F4" FromRole="chitietbangcc" ToRole="dmnv" />
+          <Property Name="tienphat" Type="Decimal" Precision="38" Scale="0" />
         </EntityType>
         <EntityType Name="nguoidung">
           <Key>
@@ -1156,6 +1158,7 @@
           <EntitySetMapping Name="chitietbangccs">
             <EntityTypeMapping TypeName="ketoantienluongModel.chitietbangcc">
               <MappingFragment StoreEntitySet="chitietbangcc">
+                <ScalarProperty Name="tienphat" ColumnName="tienphat" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="tienthuong" ColumnName="tienthuong" />
                 <ScalarProperty Name="tienphucap" ColumnName="tienphucap" />
