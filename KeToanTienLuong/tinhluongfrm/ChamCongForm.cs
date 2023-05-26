@@ -136,8 +136,13 @@ namespace KeToanTienLuong.tinhluongfrm
                 }
             } catch
             {
-                File.Replace(Path.Combine(Application.StartupPath + @"\Resources\cham_cong_form.xlsx"), saveFileDialog.FileName, null);
-
+                try
+                {
+                    File.Replace(Path.Combine(Application.StartupPath + @"\Resources\cham_cong_form.xlsx"), saveFileDialog.FileName, null);
+                } catch
+                {
+                    MessageBox.Show("File đang được mở bởi chương trình khác, vui lòng đóng file và thử lại");
+                }
             }
         }
 

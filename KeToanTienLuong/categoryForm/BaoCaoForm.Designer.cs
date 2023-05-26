@@ -41,6 +41,7 @@ namespace KeToanTienLuong.categoryForm
             this.button3 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.crystalReportViewer = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
+            this.button5 = new System.Windows.Forms.Button();
             this.panelContent.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -97,6 +98,7 @@ namespace KeToanTienLuong.categoryForm
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.panel1.Controls.Add(this.button5);
             this.panel1.Controls.Add(this.button4);
             this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.button1);
@@ -167,6 +169,22 @@ namespace KeToanTienLuong.categoryForm
             this.crystalReportViewer.Size = new System.Drawing.Size(1174, 710);
             this.crystalReportViewer.TabIndex = 0;
             // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.SystemColors.Control;
+            this.button5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.ForeColor = System.Drawing.Color.Black;
+            this.button5.Image = global::KeToanTienLuong.Properties.Resources.market_positioning;
+            this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button5.Location = new System.Drawing.Point(0, 201);
+            this.button5.Name = "button5";
+            this.button5.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.button5.Size = new System.Drawing.Size(194, 67);
+            this.button5.TabIndex = 3;
+            this.button5.Text = "Lương";
+            this.button5.UseVisualStyleBackColor = false;
+            // 
             // BaoCaoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -196,5 +214,6 @@ namespace KeToanTienLuong.categoryForm
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button1;
         public CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReportViewer;
+        private System.Windows.Forms.Button button5;
     }
 }
