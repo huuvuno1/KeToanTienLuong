@@ -39,6 +39,19 @@ namespace KeToanTienLuong.categoryForm
             //}
             //rpt.SetDataSource(dataTable);
             //crystalReportViewer.ReportSource = rpt;
+
+
+            rptSoCai rpt = new rptSoCai();
+            SqlConnection sqlConnection = new SqlConnection(Util.Util.getConnectionString());
+            sqlConnection.Open();
+            SqlCommand cmd = sqlConnection.CreateCommand();
+            cmd.CommandText = @"select b.manv, b.tenv, b.ngaysinh, l.nam, l.thang, l.giamtrucanhan, l.giamtruphuthuoc, l.tientruocthue, l.tienthue, l.tientruocthue  - 730000 as tienthunhaptinhthue, l.tonggiamtru, l.tienthuclinh
+                                from  dmnv as b join bangluongnhanvien as l on b.manv = l.manv";
+            var datatable = new DataTable();
+            datatable.Load(cmd.ExecuteReader());
+            rpt.SetDataSource(datatable);
+            sqlConnection.Close();
+            crystalReportViewer.ReportSource = rpt;
         }
 
         private void button4_Click(object sender, EventArgs e)

@@ -19,7 +19,7 @@ namespace KeToanTienLuong.chungtu
 
         private void PhieuKeToanForm_Load(object sender, EventArgs e)
         {
-            cbomanv.DataSource = new ketoantienluongEntities().dmnvs.Select(p => p).ToList();
+            cbomanv.DataSource = new ketoantienluongEntities().dmnvs.ToList().Where(p => p.trangthai == 1).ToList();
             cbomanv.DisplayMember = "tenv";
             cbomanv.ValueMember = "manv";
 
@@ -34,6 +34,7 @@ namespace KeToanTienLuong.chungtu
         private void buttonLuu_Click(object sender, EventArgs e)
         {
             List<chitietphieuketoan> list = new List<chitietphieuketoan>();
+            var so = "PKT_" + DateTime.Now.ToString("HH") + DateTime.Now.ToString("mm") + DateTime.Now.ToString("ss");
 
             foreach (DataGridViewRow clickedRow in dgvchitietchungtu.Rows)
             {
@@ -46,19 +47,18 @@ namespace KeToanTienLuong.chungtu
 
                 string tien = string.IsNullOrEmpty(rowData[3]) ? "0" : rowData[3];
                 list.Add(new chitietphieuketoan() {
-                    so = txtso.Text,
+                    so = so,
                     tkno = rowData[0],
                     tkco = rowData[1],
                     noidung = rowData[2],
                     tien = double.Parse(tien),
-
                 });
             }
 
 
             var db = new ketoantienluongEntities();
             db.phieuketoans.Add(new phieuketoan() {
-                so = txtso.Text,
+                so = so,
                 ctlq = txtctlq.Text,
                 manv = cbomanv.SelectedValue.ToString(),
                 ngay = dtngay.Value,
@@ -81,6 +81,11 @@ namespace KeToanTienLuong.chungtu
             dgvchitietchungtu.Rows.Clear();
 
             //labelMessage.Text = $"* Lưu phiếu {txtso.Text} thành công!";
+
+        }
+
+        private void pnDoiTuong_Paint(object sender, PaintEventArgs e)
+        {
 
         }
     }
