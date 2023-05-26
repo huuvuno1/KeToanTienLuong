@@ -152,7 +152,6 @@ CREATE TABLE bangcc (
 CREATE TABLE bangluongnhanvien (
 	thang int NULL,
 	nam int NULL,
-	Ngaycong int NULL,
 	noidung nchar(250) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
 	tienphucap numeric(18,0) NULL,
 	tienthuong numeric(18,0) NULL,
@@ -184,6 +183,10 @@ CREATE TABLE bangluongnhanvien (
 	luongngoaigio numeric(38,0) NULL,
 	phucapantrue numeric(38,0) NULL,
 	phucapkhac numeric(38,0) NULL,
+	tienphat numeric(38,0) NULL,
+	ngaycong float NULL,
+	manv nchar(10) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	ngaycongcuathang numeric(38,0) NULL,
 	CONSTRAINT PK__bangluon__3213E83FDEDCFC26 PRIMARY KEY (id),
 	CONSTRAINT bangluongnhanvien_FK FOREIGN KEY (mabcc) REFERENCES bangcc(so) ON DELETE CASCADE ON UPDATE CASCADE
 );
@@ -308,9 +311,11 @@ CREATE TABLE chitietbangcc (
 	ngaycong float NULL,
 	ngayphep float NULL,
 	ngaykhongphep float NULL,
-	tienphucap float NULL,
-	tienthuong float NULL,
 	id int IDENTITY(0,1) NOT NULL,
+	tienphat numeric(38,0) NULL,
+	tienphucap numeric(38,0) NULL,
+	tienthuong numeric(38,0) NULL,
+	sogiotangca float NULL,
 	CONSTRAINT chitietbangcc_PK PRIMARY KEY (id),
 	CONSTRAINT FK__chitietban__manv__6D0D32F4 FOREIGN KEY (manv) REFERENCES dmnv(manv),
 	CONSTRAINT chitietbangcc_FK FOREIGN KEY (so) REFERENCES bangcc(so) ON DELETE CASCADE ON UPDATE CASCADE
