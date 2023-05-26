@@ -321,6 +321,9 @@
       <DependentUpon>rptThueTNCN.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="socai.cs">
+      <DependentUpon>KeToan.tt</DependentUpon>
+    </Compile>
     <Compile Include="thamsoluong.cs">
       <DependentUpon>KeToan.tt</DependentUpon>
     </Compile>

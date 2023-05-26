@@ -170,169 +170,182 @@ namespace KeToanTienLuong.tinhluongfrm
 
         private void buttonLuu_Click(object sender, EventArgs e)
         {
-            var list = new List<chitietbangcc>();
-            var db = new ketoantienluongEntities();
-            var listNvKoTonTai = new List<string>();
-            var listNvKoThuocBP = new List<string>();
+            try
+            {
+                var list = new List<chitietbangcc>();
+                var db = new ketoantienluongEntities();
+                var listNvKoTonTai = new List<string>();
+                var listNvKoThuocBP = new List<string>();
 
                 string so = "BCC_" + DateTime.Now.ToString("HH") + DateTime.Now.ToString("mm") + DateTime.Now.ToString("ss");
 
-            DataTable dataTable = (DataTable)dataGridViewChamCong.DataSource;
-            foreach (DataRow row in dataTable.Rows)
-            {
-                string manv = row[1].ToString();
-
-                var nv = db.dmnvs.FirstOrDefault(p => p.manv == manv && p.trangthai == 1);
-
-                if (nv == null)
+                DataTable dataTable = (DataTable)dataGridViewChamCong.DataSource;
+                foreach (DataRow row in dataTable.Rows)
                 {
-                    listNvKoTonTai.Add(manv);
-                    continue;
+                    string manv = row[1].ToString();
+
+                    var nv = db.dmnvs.FirstOrDefault(p => p.manv == manv && p.trangthai == 1);
+
+                    if (nv == null)
+                    {
+                        listNvKoTonTai.Add(manv);
+                        continue;
+                    }
+                    else if (nv.mabp.Trim() != cbomabp.SelectedValue?.ToString()?.Trim())
+                    {
+                        listNvKoThuocBP.Add(manv + " - " + nv.tenv);
+                        continue;
+                    }
+
+                    string ngaycong = row[2].ToString();
+                    string ngayphep = row[3].ToString();
+                    string ngaykhongphep = row[4].ToString();
+                    string tienphucap = row[5].ToString();
+                    string tienthuong = row[6].ToString();
+                    string tienphat = row[6].ToString();
+                    string sogiotangca = row[7].ToString();
+
+                    list.Add(new chitietbangcc() {
+                        so = so,
+                        manv = manv,
+                        ngaycong = double.Parse(ngaycong),
+                        ngayphep = double.Parse(ngayphep),
+                        ngaykhongphep = double.Parse(ngaykhongphep),
+                        tienphucap = decimal.Parse(tienphucap),
+                        tienthuong = decimal.Parse(tienthuong),
+                        tienphat = decimal.Parse(tienphat),
+                        sogiotangca = double.Parse(sogiotangca)
+                    });
                 }
-                else if (nv.mabp.Trim() != cbomabp.SelectedValue?.ToString()?.Trim())
-                {
-                    listNvKoThuocBP.Add(manv + " - " + nv.tenv);
-                    continue;
-                }
 
-                string ngaycong = row[2].ToString();
-                string ngayphep = row[3].ToString();
-                string ngaykhongphep = row[4].ToString();
-                string tienphucap = row[5].ToString();
-                string tienthuong = row[6].ToString();
-                string tienphat = row[6].ToString();
-                string sogiotangca = row[7].ToString();
-
-                list.Add(new chitietbangcc() {
-                    so = so,
-                    manv = manv,
-                    ngaycong = double.Parse(ngaycong),
-                    ngayphep = double.Parse(ngayphep),
-                    ngaykhongphep = double.Parse(ngaykhongphep),
-                    tienphucap = decimal.Parse(tienphucap),
-                    tienthuong = decimal.Parse(tienthuong),
-                    tienphat = decimal.Parse(tienphat),
-                    sogiotangca = double.Parse(sogiotangca)
-                });
-            }
-
-            log.Text =
-$@"
+                log.Text =
+    $@"
 {string.Join("\n", listNvKoTonTai.Select(item => $"Không tìm thấy nhân viên nào có mã {item} !"))}
 ----------------------------------------
 {string.Join("\n", listNvKoThuocBP.Select(item => $"Nhân viên nào có mã {item} không thuộc bộ phận {((dmbp)cbomabp.SelectedItem).Tenbp}!"))}
 
 ";
 
-            if (list.Count == 0)
-            {
-                MessageBox.Show("Không có nhân viên nào hợp lệ, vui lòng cập nhật lại!");
-                return;
+                if (list.Count == 0)
+                {
+                    MessageBox.Show("Không có nhân viên nào hợp lệ, vui lòng cập nhật lại!");
+                    return;
+                }
+
+                int thang = int.Parse(inpThang.Text);
+                int nam = int.Parse(inpNam.Text);
+                string mabp = cbomabp.SelectedValue?.ToString();
+
+                // delete old value in same month
+                var oldValue = db.bangccs.Where(x => x.thang == thang
+                 && x.nam == nam && x.mabp == mabp);
+
+                db.bangccs.RemoveRange(oldValue);
+                db.SaveChanges();
+
+                var data = new bangcc() {
+                    so = so,
+                    mabp = cbomabp.SelectedValue.ToString(),
+                    ngaycong = int.Parse(txtngaycong.Text),
+                    nam = int.Parse(txtnam.Text),
+                    noidung = txtnoidung.Text,
+                    thang = int.Parse(txtthang.Text),
+                    chitietbangccs = list
+                };
+                db.bangccs.Add(data);
+                db.SaveChanges();
+
+                UpdateBangLuong(db, so);
+                dataGridViewChamCong.DataSource = null;
+                txtso.Text
+                    = txtngaycong.Text
+                    = txtngaycong.Text
+                    = txtnoidung.Text
+                   = txtthang.Text = "";
+
+                cbomabp.SelectedIndex = 0;
+
+                // update bang luong
+
+                MessageBox.Show("Lưu thành công!");
+
+
             }
-
-            int thang = int.Parse(inpThang.Text);
-            int nam = int.Parse(inpNam.Text);
-            string mabp = cbomabp.SelectedValue?.ToString();
-
-            // delete old value in same month
-            var oldValue = db.bangccs.Where(x => x.thang == thang
-             && x.nam == nam && x.mabp == mabp);
-
-            db.bangccs.RemoveRange(oldValue);
-            db.SaveChanges();
-
-            var data = new bangcc() {
-                so = so,
-                mabp = cbomabp.SelectedValue.ToString(),
-                ngaycong = int.Parse(txtngaycong.Text),
-                nam = int.Parse(txtnam.Text),
-                noidung = txtnoidung.Text,
-                thang = int.Parse(txtthang.Text),
-                chitietbangccs = list
-            };
-            db.bangccs.Add(data);
-            db.SaveChanges();
-
-            UpdateBangLuong(db, so);
-            dataGridViewChamCong.DataSource = null;
-            txtso.Text
-                = txtngaycong.Text
-                = txtngaycong.Text
-                = txtnoidung.Text
-               = txtthang.Text = "";
-
-            cbomabp.SelectedIndex = 0;
-
-            // update bang luong
-
-            MessageBox.Show("Lưu thành công!");
-
-            
+            catch
+            {
+                MessageBox.Show("Đã có lỗi xảy ra!");
+            }
         }
 
         private void UpdateBangLuong(ketoantienluongEntities db, string so)
         {
-            var list = new List<bangluongnhanvien>();
-            int thang = int.Parse(inpThang.Text);
-            int nam = int.Parse(inpNam.Text);
-            //var bangcc = db.bangccs.Where(p => p.nam == nam && p.thang == thang);
-            var data = db.bangccs.Find(so);
-            data.chitietbangccs.ToList().ForEach((ctbcc) => {
-                var ngaycongthangcuabophan = double.Parse(txtngaycong.Text);
-                var nv = db.dmnvs.Find(ctbcc.manv);
-                var lcb = nv.luongcoban;
-                var tientheongaycong = floor(lcb / data.ngaycong * decimal.Parse(ctbcc.ngaycong.ToString()));
-                var congthucte = ngaycongthangcuabophan - ctbcc.ngaykhongphep + ctbcc.ngayphep;
-                var luongngoaigio = floor(Convert.ToDecimal(ctbcc.sogiotangca) * (nv.luongcoban / Convert.ToDecimal((ngaycongthangcuabophan * 8).ToString())) * 1.5m);
-                decimal tientruocthue = (decimal)(tientheongaycong + 750000m + ctbcc.tienphucap + ctbcc.tienthuong - ctbcc.tienphat + luongngoaigio);
-                decimal tienthue = Util.Util.CalculatePersonalIncomeTax((decimal)(tientruocthue - 11000000 - nv.songuoiphuthuoc * 4400000));
+            try
+            {
+                var list = new List<bangluongnhanvien>();
+                int thang = int.Parse(inpThang.Text);
+                int nam = int.Parse(inpNam.Text);
+                //var bangcc = db.bangccs.Where(p => p.nam == nam && p.thang == thang);
+                var data = db.bangccs.Find(so);
+                data.chitietbangccs.ToList().ForEach((ctbcc) => {
+                    var ngaycongthangcuabophan = double.Parse(txtngaycong.Text);
+                    var nv = db.dmnvs.Find(ctbcc.manv);
+                    var lcb = nv.luongcoban;
+                    var tientheongaycong = floor(lcb / data.ngaycong * decimal.Parse(ctbcc.ngaycong.ToString()));
+                    var congthucte = ngaycongthangcuabophan - ctbcc.ngaykhongphep + ctbcc.ngayphep;
+                    var luongngoaigio = floor(Convert.ToDecimal(ctbcc.sogiotangca) * (nv.luongcoban / Convert.ToDecimal((ngaycongthangcuabophan * 8).ToString())) * 1.5m);
+                    decimal tientruocthue = (decimal)(tientheongaycong + 750000m + ctbcc.tienphucap + ctbcc.tienthuong - ctbcc.tienphat + luongngoaigio);
+                    decimal tienthue = Util.Util.CalculatePersonalIncomeTax((decimal)(tientruocthue - 11000000 - nv.songuoiphuthuoc * 4400000));
 
-                var x = db.phieuchis.ToList();
-                // tam ung
-                var phieuchi = db.phieuchis.ToList().Where(p => p.tkno.Trim() == "3341" && p.ngay.Value.Month == thang && p.ngay.Value.Year == nam && p.manv.Trim() == nv.manv.Trim()).ToList();
-                decimal tamung = phieuchi.Aggregate(0m, (prev, curr) => (decimal)(prev + curr.tien));
+                    var x = db.phieuchis.ToList();
+                    // tam ung
+                    var phieuchi = db.phieuchis.ToList().Where(p => p.tkno.Trim() == "3341" && p.ngay.Value.Month == thang && p.ngay.Value.Year == nam && p.manv.Trim() == nv.manv.Trim()).ToList();
+                    decimal tamung = phieuchi.Aggregate(0m, (prev, curr) => (decimal)(prev + curr.tien));
 
-                var giaybaono = db.giaybaonoes.ToList().Where(p => p.tkno.Trim() == "3341" && p.ngay.Value.Month == thang && p.ngay.Value.Year == nam && p.manv.Trim() == nv.manv.Trim()).ToList();
-                tamung += giaybaono.Aggregate(0m, (prev, curr) => (decimal)(prev + curr.tien));
+                    var giaybaono = db.giaybaonoes.ToList().Where(p => p.tkno.Trim() == "3341" && p.ngay.Value.Month == thang && p.ngay.Value.Year == nam && p.manv.Trim() == nv.manv.Trim()).ToList();
+                    tamung += giaybaono.Aggregate(0m, (prev, curr) => (decimal)(prev + curr.tien));
 
-                data.bangluongnhanviens.Add(new bangluongnhanvien() {
-                    bhtn = 1,
-                    bhxh = 8,
-                    bhyt = 1.5m,
-                    tienbhxh = lcb * 0.08m,
-                    tienbhyt = lcb * 0.01m,
-                    tienbhtn = lcb * 0.015m,
-                    tiencongdoan = 0,
-                    tienluongcoban = lcb,
-                    tienbhxhctytra = lcb * 1.75m,
-                    tienbhytctytra = lcb * 0.03m,
-                    tienbtntnctytra = lcb * 0.01m,
-                    phucapantrue = 750000,
-                    phucapkhac = ctbcc.tienphucap,
-                    tienthuong = ctbcc.tienthuong,
-                    tienphat = ctbcc.tienphat,
-                    tienluong = tientheongaycong,
-                    giamtrucanhan = 11000000,
-                    giamtruphuthuoc = 4400000 * nv.songuoiphuthuoc,
-                    luongngoaigio = luongngoaigio,
-                    tientruocthue = tientruocthue,
-                    tiencongdoanctytra = lcb * 0.01m,
-                    tienthue = tienthue,
-                    tientamung = tamung,
-                    tienthuclinh = tientruocthue - tamung - tienthue - (lcb * 0.105m),
-                    thang = thang,
-                    nam = nam,
-                    ngaycong = congthucte,
-                    tienphucap = ctbcc.tienphucap,
-                    manv = nv.manv,
-                    tonggiamtru = 11000000 + nv.songuoiphuthuoc * 4400000,
-                    tongbaohiem = lcb * 0.105m,
-                    noidung = data.noidung,
-                    ngaycongcuathang = data.ngaycong
-                }); ;
-            });
+                    data.bangluongnhanviens.Add(new bangluongnhanvien() {
+                        bhtn = 1,
+                        bhxh = 8,
+                        bhyt = 1.5m,
+                        tienbhxh = lcb * 0.08m,
+                        tienbhyt = lcb * 0.01m,
+                        tienbhtn = lcb * 0.015m,
+                        tiencongdoan = 0,
+                        tienluongcoban = lcb,
+                        tienbhxhctytra = lcb * 1.75m,
+                        tienbhytctytra = lcb * 0.03m,
+                        tienbtntnctytra = lcb * 0.01m,
+                        phucapantrue = 750000,
+                        phucapkhac = ctbcc.tienphucap,
+                        tienthuong = ctbcc.tienthuong,
+                        tienphat = ctbcc.tienphat,
+                        tienluong = tientheongaycong,
+                        giamtrucanhan = 11000000,
+                        giamtruphuthuoc = 4400000 * nv.songuoiphuthuoc,
+                        luongngoaigio = luongngoaigio,
+                        tientruocthue = tientruocthue,
+                        tiencongdoanctytra = lcb * 0.01m,
+                        tienthue = tienthue,
+                        tientamung = tamung,
+                        tienthuclinh = tientruocthue - tamung - tienthue - (lcb * 0.105m),
+                        thang = thang,
+                        nam = nam,
+                        ngaycong = congthucte,
+                        tienphucap = ctbcc.tienphucap,
+                        manv = nv.manv,
+                        tonggiamtru = 11000000 + nv.songuoiphuthuoc * 4400000,
+                        tongbaohiem = lcb * 0.105m,
+                        noidung = data.noidung,
+                        ngaycongcuathang = data.ngaycong
+                    }); ;
+                });
 
-            db.SaveChanges();
+                db.SaveChanges();
+            } catch
+            {
+                MessageBox.Show("Đã có lỗi xảy ra!");
+            }
         }
 
         private decimal floor(decimal? a)

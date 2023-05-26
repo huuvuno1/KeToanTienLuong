@@ -67,6 +67,7 @@ namespace KeToanTienLuong.tinhluongfrm
             this.layBangLuongFullTableAdapter = new KeToanTienLuong.ketoantienluongDataSetTableAdapters.LayBangLuongFullTableAdapter();
             this.comboBoxThang = new System.Windows.Forms.ComboBox();
             this.comboBoxNam = new System.Windows.Forms.ComboBox();
+            this.buttonUpdate = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBangLuong)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layBangLuongFullBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ketoantienluongDataSet)).BeginInit();
@@ -431,10 +432,25 @@ namespace KeToanTienLuong.tinhluongfrm
             this.comboBoxNam.Size = new System.Drawing.Size(119, 30);
             this.comboBoxNam.TabIndex = 71;
             // 
+            // buttonUpdate
+            // 
+            this.buttonUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonUpdate.Image = global::KeToanTienLuong.Properties.Resources.checkmark;
+            this.buttonUpdate.Location = new System.Drawing.Point(881, 43);
+            this.buttonUpdate.Name = "buttonUpdate";
+            this.buttonUpdate.Size = new System.Drawing.Size(207, 56);
+            this.buttonUpdate.TabIndex = 72;
+            this.buttonUpdate.Text = "   Cập nhật lại dữ liệu";
+            this.buttonUpdate.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonUpdate.UseVisualStyleBackColor = true;
+            this.buttonUpdate.Click += new System.EventHandler(this.buttonUpdate_Click);
+            // 
             // BangLuongForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.buttonUpdate);
             this.Controls.Add(this.comboBoxNam);
             this.Controls.Add(this.comboBoxThang);
             this.Controls.Add(this.buttonLookup);
@@ -492,5 +508,6 @@ namespace KeToanTienLuong.tinhluongfrm
         private ketoantienluongDataSetTableAdapters.LayBangLuongFullTableAdapter layBangLuongFullTableAdapter;
         private System.Windows.Forms.ComboBox comboBoxThang;
         private System.Windows.Forms.ComboBox comboBoxNam;
+        private System.Windows.Forms.Button buttonUpdate;
     }
 }

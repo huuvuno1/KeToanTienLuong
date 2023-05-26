@@ -232,37 +232,40 @@ namespace KeToanTienLuong.danhmucform
 
         private void cellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
-            {
-                DataGridView dataGridView = (DataGridView)sender;
-                DataGridViewRow clickedRow = dataGridView.Rows[e.RowIndex];
+            try {
+                if (e.RowIndex >= 0)
+                {
+                    DataGridView dataGridView = (DataGridView)sender;
+                    DataGridViewRow clickedRow = dataGridView.Rows[e.RowIndex];
 
-                // Lấy dữ liệu của cả hàng
-                string[] rowData = clickedRow.Cells.Cast<DataGridViewCell>()
-                                                  .Select(cell => {
-                                                      if (cell.Value is DateTime value)
-                                                      {
-                                                          return value.ToString("dd/MM/yyyy")?.Trim();
-                                                      }
-                                                      else
-                                                          return cell.Value?.ToString()?.Trim();
-                                                  })
-                                                  .ToArray();
+                    // Lấy dữ liệu của cả hàng
+                    string[] rowData = clickedRow.Cells.Cast<DataGridViewCell>()
+                                                      .Select(cell => {
+                                                          if (cell.Value is DateTime value)
+                                                          {
+                                                              return value.ToString("dd/MM/yyyy")?.Trim();
+                                                          }
+                                                          else
+                                                              return cell.Value?.ToString()?.Trim();
+                                                      })
+                                                      .ToArray();
 
-                inpMa.Text = rowData[0];
-                inpTen.Text = rowData[1];
-                inpNgaySinh.Text = rowData[2];
-                inpDiaChi.Text = rowData[3];
-                inpMaSoThue.Text = rowData[4];
-                comboBoxGioiTinh.SelectedItem = rowData[5];
-                comboBoxChucVu.SelectedValue = rowData[6];
-                comboBoxDMBP.SelectedValue = rowData[7];
-                inpBangCap.Text = rowData[8];
-                inpTrinhDo.Text = rowData[9];
-                inpPhuThuoc.Text = rowData[10];
-                inpLuongCoban.Text = rowData[12];
-                
+                    inpMa.Text = rowData[0];
+                    inpTen.Text = rowData[1];
+                    inpNgaySinh.Text = rowData[2];
+                    inpDiaChi.Text = rowData[3];
+                    inpMaSoThue.Text = rowData[4];
+                    comboBoxGioiTinh.SelectedItem = rowData[5];
+                    comboBoxChucVu.SelectedValue = rowData[6];
+                    comboBoxDMBP.SelectedValue = rowData[7];
+                    inpBangCap.Text = rowData[8];
+                    inpTrinhDo.Text = rowData[9];
+                    inpPhuThuoc.Text = rowData[10];
+                    inpLuongCoban.Text = rowData[12];
+
+                }
             }
+            catch { }
         }
     }
 }

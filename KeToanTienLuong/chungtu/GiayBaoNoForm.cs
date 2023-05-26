@@ -200,9 +200,11 @@ namespace KeToanTienLuong.chungtu
                 var db = new ketoantienluongEntities();
                 if (current_action == "add")
                 {
+                    var so = "PC_" + DateTime.Now.ToString("HH") + DateTime.Now.ToString("mm") + DateTime.Now.ToString("ss");
+
                     if (!validate()) return;
                     db.giaybaonoes.Add(new giaybaono() {
-                        so = "PC_" + DateTime.Now.ToString("HH") + DateTime.Now.ToString("mm") + DateTime.Now.ToString("ss"),
+                        so = so,
                         ctlq = txtctlq.Text,
                         manv = cbomanv.SelectedValue.ToString(),
                         ngay = dtngay.Value,
@@ -212,7 +214,12 @@ namespace KeToanTienLuong.chungtu
                         noidung = txtnoidung.Text,
                         manh = cbomanh.SelectedValue?.ToString()?.Trim(),
                     });
-
+                    db.socais.Add(new socai() {
+                        sophieu = so,
+                        diengiai = txtnoidung.Text,
+                        ngaytao = DateTime.Now,
+                        tkdu = inpTkCo.Text,
+                    });
                     db.SaveChanges();
 
 
@@ -227,11 +234,20 @@ namespace KeToanTienLuong.chungtu
                     var phieu = db.giaybaonoes.FirstOrDefault(p => p.so == txtso.Text);
                     if (phieu != null)
                     {
+                        var socai = db.socais.FirstOrDefault(p => p.sophieu == txtso.Text);
+                        if (socai != null)
+                        {
+                            socai.diengiai = txtnoidung.Text;
+                            socai.ngaytao = DateTime.Now;
+                            socai.tkdu = inpTkCo.Text;
+                        }
+
+
                         phieu.ctlq = txtctlq.Text;
                         phieu.ngay = dtngay.Value;
-                        phieu.tkno = comboBoxTkNo.SelectedValue.ToString();
+                        phieu.tkno = comboBoxTkNo.SelectedValue?.ToString();
                         phieu.tkco = inpTkCo.Text;
-                        phieu.manv = cbomanv.SelectedValue.ToString();
+                        phieu.manv = cbomanv.SelectedValue?.ToString();
                         phieu.tien = Decimal.Parse(inpTien.Text);
                         phieu.noidung = txtnoidung.Text;
                         phieu.manh = cbomanh.SelectedValue?.ToString()?.Trim();
@@ -272,27 +288,32 @@ namespace KeToanTienLuong.chungtu
         {
             if (e.RowIndex >= 0)
             {
-                DataGridView dataGridView = (DataGridView)sender;
-                DataGridViewRow clickedRow = dataGridView.Rows[e.RowIndex];
+                try
+                {
+                    DataGridView dataGridView = (DataGridView)sender;
+                    DataGridViewRow clickedRow = dataGridView.Rows[e.RowIndex];
 
-                // Lấy dữ liệu của cả hàng
-                string[] rowData = clickedRow.Cells.Cast<DataGridViewCell>()
-                                                  .Select(cell => {
-                                                      var x = cell.Value?.ToString()?.Trim();
-                                                      return x == null ? "" : x;
-                                                  })
-                                                  .ToArray();
+                    // Lấy dữ liệu của cả hàng
+                    string[] rowData = clickedRow.Cells.Cast<DataGridViewCell>()
+                                                      .Select(cell => {
+                                                          var x = cell.Value?.ToString()?.Trim();
+                                                          return x == null ? "" : x;
+                                                      })
+                                                      .ToArray();
 
-                if (current_action == "none")
-                    txtso.Text = rowData[0];
-                dtngay.Value = DateTime.Parse(rowData[1]);
-                cbomanv.SelectedValue = rowData[2];
-                txtnoidung.Text = rowData[4];
-                txtctlq.Text = rowData[5];
-                comboBoxTkNo.SelectedValue = rowData[6];
-                inpTkCo.Text = rowData[7];
-                inpTien.Text = rowData[8];
-                cbomanh.SelectedValue = rowData[9];
+                    if (current_action == "none")
+                        txtso.Text = rowData[0];
+                    dtngay.Value = DateTime.Parse(rowData[1]);
+                    cbomanv.SelectedValue = rowData[2];
+                    txtnoidung.Text = rowData[4];
+                    txtctlq.Text = rowData[5];
+                    comboBoxTkNo.SelectedValue = rowData[6];
+                    inpTkCo.Text = rowData[7];
+                    inpTien.Text = rowData[8];
+                    cbomanh.SelectedValue = rowData[9];
+                } catch
+                {
+                }
 
 
             }

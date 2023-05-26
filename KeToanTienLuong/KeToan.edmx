@@ -199,6 +199,19 @@
           <Property Name="noidung" Type="nvarchar" MaxLength="250" />
           <Property Name="ctlq" Type="nvarchar" MaxLength="250" />
         </EntityType>
+        <EntityType Name="socai">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ngaytao" Type="datetime" />
+          <Property Name="sophieu" Type="nchar" MaxLength="100" />
+          <Property Name="diengiai" Type="nvarchar" MaxLength="100" />
+          <Property Name="nhatkychung" Type="nvarchar" MaxLength="100" />
+          <Property Name="tkdu" Type="nchar" MaxLength="100" />
+          <Property Name="sotienno" Type="numeric" Precision="38" Scale="0" />
+          <Property Name="sotienco" Type="numeric" Precision="38" Scale="0" />
+        </EntityType>
         <EntityType Name="thamsoluong">
           <Key>
             <PropertyRef Name="mats" />
@@ -444,6 +457,7 @@
           <EntitySet Name="nguoidung" EntityType="Self.nguoidung" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="phieuchi" EntityType="Self.phieuchi" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="phieuketoan" EntityType="Self.phieuketoan" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="socai" EntityType="Self.socai" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="thamsoluong" EntityType="Self.thamsoluong" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="thamsothuetncn" EntityType="Self.thamsothuetncn" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="vsocai" EntityType="Self.vsocai" Schema="dbo" store:Type="Tables" />
@@ -669,6 +683,7 @@
             <End Role="bangcc" EntitySet="bangccs" />
             <End Role="bangluongnhanvien" EntitySet="bangluongnhanviens" />
           </AssociationSet>
+          <EntitySet Name="socais" EntityType="ketoantienluongModel.socai" />
           </EntityContainer>
         <EntityType Name="dmtk">
           <Key>
@@ -1070,6 +1085,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="socai">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ngaytao" Type="DateTime" Precision="3" />
+          <Property Name="sophieu" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="diengiai" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="nhatkychung" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="tkdu" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="sotienno" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="sotienco" Type="Decimal" Precision="38" Scale="0" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1333,6 +1361,20 @@
                 <ScalarProperty Name="noidung" ColumnName="noidung" />
                 <ScalarProperty Name="nam" ColumnName="nam" />
                 <ScalarProperty Name="thang" ColumnName="thang" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="socais">
+            <EntityTypeMapping TypeName="ketoantienluongModel.socai">
+              <MappingFragment StoreEntitySet="socai">
+                <ScalarProperty Name="sotienco" ColumnName="sotienco" />
+                <ScalarProperty Name="sotienno" ColumnName="sotienno" />
+                <ScalarProperty Name="tkdu" ColumnName="tkdu" />
+                <ScalarProperty Name="nhatkychung" ColumnName="nhatkychung" />
+                <ScalarProperty Name="diengiai" ColumnName="diengiai" />
+                <ScalarProperty Name="sophieu" ColumnName="sophieu" />
+                <ScalarProperty Name="ngaytao" ColumnName="ngaytao" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

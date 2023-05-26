@@ -87,22 +87,26 @@ namespace KeToanTienLuong.danhmucform
 
         private void dgvdmtk_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
+            try
             {
-                DataGridView dataGridView = (DataGridView)sender;
-                DataGridViewRow clickedRow = dataGridView.Rows[e.RowIndex];
+                if (e.RowIndex >= 0)
+                {
+                    DataGridView dataGridView = (DataGridView)sender;
+                    DataGridViewRow clickedRow = dataGridView.Rows[e.RowIndex];
 
-                // Lấy dữ liệu của cả hàng
-                string[] rowData = clickedRow.Cells.Cast<DataGridViewCell>()
-                                                  .Select(cell => cell.Value.ToString().Trim())
-                                                  .ToArray();
+                    // Lấy dữ liệu của cả hàng
+                    string[] rowData = clickedRow.Cells.Cast<DataGridViewCell>()
+                                                      .Select(cell => cell.Value.ToString().Trim())
+                                                      .ToArray();
 
-                if (current_action == "none")
-                    inpMaTk.Text = rowData[0];
-                inpCapTk.Text = rowData[2];
-                cbotkme.SelectedValue = rowData[1];
-                inpTenTk.Text = rowData[3];
+                    if (current_action == "none")
+                        inpMaTk.Text = rowData[0];
+                    inpCapTk.Text = rowData[2];
+                    cbotkme.SelectedValue = rowData[1];
+                    inpTenTk.Text = rowData[3];
+                }
             }
+            catch { }
         }
 
 

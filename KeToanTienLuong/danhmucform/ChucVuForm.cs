@@ -177,22 +177,25 @@ namespace KeToanTienLuong.danhmucform
 
         private void dataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
-            {
-                DataGridView dataGridView = (DataGridView)sender;
-                DataGridViewRow clickedRow = dataGridView.Rows[e.RowIndex];
+            try {
 
-                // Lấy dữ liệu của cả hàng
-                string[] rowData = clickedRow.Cells.Cast<DataGridViewCell>()
-                                                  .Select(cell => cell.Value?.ToString()?.Trim())
-                                                  .ToArray();
+                if (e.RowIndex >= 0)
+                {
+                    DataGridView dataGridView = (DataGridView)sender;
+                    DataGridViewRow clickedRow = dataGridView.Rows[e.RowIndex];
 
-                if (current_action == "none")
-                    inpMaCv.Text = rowData[0];
-                inpTen.Text = rowData[1];
-                inpMoTa.Text = rowData[2];
+                    // Lấy dữ liệu của cả hàng
+                    string[] rowData = clickedRow.Cells.Cast<DataGridViewCell>()
+                                                      .Select(cell => cell.Value?.ToString()?.Trim())
+                                                      .ToArray();
 
-            }
+                    if (current_action == "none")
+                        inpMaCv.Text = rowData[0];
+                    inpTen.Text = rowData[1];
+                    inpMoTa.Text = rowData[2];
+
+                }
+            } catch { }
         }
     }
 }

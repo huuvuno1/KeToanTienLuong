@@ -38,6 +38,7 @@
         <AssociationConnector Association="ketoantienluongModel.FK__chitietban__manv__6D0D32F4" />
         <EntityTypeShape EntityType="ketoantienluongModel.bangluongnhanvien" Width="1.5" PointX="5.25" PointY="14.5" />
         <AssociationConnector Association="ketoantienluongModel.bangluongnhanvien_FK" />
+        <EntityTypeShape EntityType="ketoantienluongModel.socai" Width="1.5" PointX="11.375" PointY="3.75" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

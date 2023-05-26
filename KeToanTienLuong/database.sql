@@ -1,3 +1,15 @@
+CREATE TABLE ketoantienluong.dbo.socai (
+	id int IDENTITY(0,1) NOT NULL,
+	ngaytao datetime NULL,
+	sophieu nchar(100) NULL,
+	diengiai nvarchar(100) NULL,
+	nhatkychung nvarchar(100) NULL,
+	tkdu nchar(100) NULL,
+	sotienno numeric(38,0) NULL,
+	sotienco numeric(38,0) NULL
+);
+
+
 -- ketoantienluong.dbo.dmbp definition
 
 -- Drop table

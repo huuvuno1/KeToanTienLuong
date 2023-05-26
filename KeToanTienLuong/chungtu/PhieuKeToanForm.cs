@@ -33,9 +33,12 @@ namespace KeToanTienLuong.chungtu
 
         private void buttonLuu_Click(object sender, EventArgs e)
         {
+            var db = new ketoantienluongEntities();
+
             List<chitietphieuketoan> list = new List<chitietphieuketoan>();
             var so = "PKT_" + DateTime.Now.ToString("HH") + DateTime.Now.ToString("mm") + DateTime.Now.ToString("ss");
 
+            int i = 0;
             foreach (DataGridViewRow clickedRow in dgvchitietchungtu.Rows)
             {
                 if (clickedRow.IsNewRow)
@@ -53,10 +56,27 @@ namespace KeToanTienLuong.chungtu
                     noidung = rowData[2],
                     tien = double.Parse(tien),
                 });
+
+                if (i == 0)
+                {
+                    db.socais.Add(new socai() {
+                        sophieu = so,
+                        diengiai = txtnoidung.Text,
+                        ngaytao = DateTime.Now,
+                        tkdu = rowData[0],
+                    });
+                } else
+                {
+                    db.socais.Add(new socai() {
+                        diengiai = txtnoidung.Text,
+                        tkdu = rowData[0],
+                    });
+                }
+
+                i++;
             }
 
 
-            var db = new ketoantienluongEntities();
             db.phieuketoans.Add(new phieuketoan() {
                 so = so,
                 ctlq = txtctlq.Text,

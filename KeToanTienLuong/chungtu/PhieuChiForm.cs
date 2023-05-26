@@ -26,9 +26,10 @@ namespace KeToanTienLuong.chungtu
                 var db = new ketoantienluongEntities();
                 if (current_action == "add")
                 {
+                    var so = "PC_" + DateTime.Now.ToString("HH") + DateTime.Now.ToString("mm") + DateTime.Now.ToString("ss");
                     if (!validate()) return;
                     db.phieuchis.Add(new phieuchi() {
-                        so = "PC_" + DateTime.Now.ToString("HH") + DateTime.Now.ToString("mm") + DateTime.Now.ToString("ss"),
+                        so = so,
                         ctlq = txtctlq.Text,
                         manv = cbomanv.SelectedValue.ToString(),
                         ngay = dtngay.Value,
@@ -36,6 +37,13 @@ namespace KeToanTienLuong.chungtu
                         tkco = inpTkCo.Text,
                         tien = Decimal.Parse(inpTien.Text),
                         noidung = txtnoidung.Text
+                    });
+
+                    db.socais.Add(new socai() {
+                        sophieu = so,
+                        diengiai = txtnoidung.Text,
+                        ngaytao = DateTime.Now,
+                        tkdu = inpTkCo.Text,
                     });
 
                     db.SaveChanges();
@@ -60,6 +68,15 @@ namespace KeToanTienLuong.chungtu
                         phieu.tien = Decimal.Parse(inpTien.Text);
                         phieu.noidung = txtnoidung.Text;
 
+                        var socai = db.socais.FirstOrDefault(p => p.sophieu == txtso.Text);
+                        if (socai != null)
+                        {
+                            socai.diengiai = txtnoidung.Text;
+                            socai.ngaytao = DateTime.Now;
+                            socai.tkdu = inpTkCo.Text;
+                        }
+
+
                         var confirm = MessageBox.Show("Việc sửa có thể sẽ ảnh hưởng đến giấy tờ khác, bạn có đồng ý không?", "Xác nhận xóa", MessageBoxButtons.YesNo);
 
                         if (confirm == DialogResult.Yes)
@@ -80,7 +97,7 @@ namespace KeToanTienLuong.chungtu
                 current_action = Util.Util.activeButton("save", buttonThem, buttonLuu, buttonHuy, new Button(), buttonSua); ;
                 getDataSource();
             }
-            catch
+            catch (Exception ee)
             {
                 MessageBox.Show("Đã có lỗi xảy ra!");
             }
@@ -226,31 +243,35 @@ namespace KeToanTienLuong.chungtu
 
         private void dataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
+            try
             {
-                DataGridView dataGridView = (DataGridView)sender;
-                DataGridViewRow clickedRow = dataGridView.Rows[e.RowIndex];
+                if (e.RowIndex >= 0)
+                {
+                    DataGridView dataGridView = (DataGridView)sender;
+                    DataGridViewRow clickedRow = dataGridView.Rows[e.RowIndex];
 
-                // Lấy dữ liệu của cả hàng
-                string[] rowData = clickedRow.Cells.Cast<DataGridViewCell>()
-                                                  .Select(cell => {
-                                                      var x = cell.Value?.ToString()?.Trim();
-                                                      return x == null ? "" : x;
-                                                  })
-                                                  .ToArray();
+                    // Lấy dữ liệu của cả hàng
+                    string[] rowData = clickedRow.Cells.Cast<DataGridViewCell>()
+                                                      .Select(cell => {
+                                                          var x = cell.Value?.ToString()?.Trim();
+                                                          return x == null ? "" : x;
+                                                      })
+                                                      .ToArray();
 
-                if (current_action == "none")
-                    txtso.Text = rowData[0];
-                dtngay.Value = DateTime.Parse(rowData[1]);
-                cbomanv.SelectedValue = rowData[2];
-                txtnoidung.Text = rowData[4];
-                txtctlq.Text = rowData[5];
-                comboBoxTkNo.SelectedValue = rowData[6];
-                inpTkCo.Text = rowData[7];
-                inpTien.Text = rowData[8];
+                    if (current_action == "none")
+                        txtso.Text = rowData[0];
+                    dtngay.Value = DateTime.Parse(rowData[1]);
+                    cbomanv.SelectedValue = rowData[2];
+                    txtnoidung.Text = rowData[4];
+                    txtctlq.Text = rowData[5];
+                    comboBoxTkNo.SelectedValue = rowData[6];
+                    inpTkCo.Text = rowData[7];
+                    inpTien.Text = rowData[8];
 
 
+                } 
             }
+            catch { }
         }
 
         private void dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)

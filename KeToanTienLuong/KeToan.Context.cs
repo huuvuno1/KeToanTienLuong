@@ -44,6 +44,7 @@ namespace KeToanTienLuong
         public virtual DbSet<phieuchi> phieuchis { get; set; }
         public virtual DbSet<chitietbangcc> chitietbangccs { get; set; }
         public virtual DbSet<bangluongnhanvien> bangluongnhanviens { get; set; }
+        public virtual DbSet<socai> socais { get; set; }
     
         public virtual ObjectResult<laydsbangluong_Result> laydsbangluong(Nullable<int> thang, Nullable<int> nam)
         {

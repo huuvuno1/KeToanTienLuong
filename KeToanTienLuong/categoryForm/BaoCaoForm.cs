@@ -45,8 +45,7 @@ namespace KeToanTienLuong.categoryForm
             SqlConnection sqlConnection = new SqlConnection(Util.Util.getConnectionString());
             sqlConnection.Open();
             SqlCommand cmd = sqlConnection.CreateCommand();
-            cmd.CommandText = @"select b.manv, b.tenv, b.ngaysinh, l.nam, l.thang, l.giamtrucanhan, l.giamtruphuthuoc, l.tientruocthue, l.tienthue, l.tientruocthue  - 730000 as tienthunhaptinhthue, l.tonggiamtru, l.tienthuclinh
-                                from  dmnv as b join bangluongnhanvien as l on b.manv = l.manv";
+            cmd.CommandText = @"SELECT id, ngaytao, sophieu, diengiai, nhatkychung, tkdu, sotienno, sotienco FROM socai;";
             var datatable = new DataTable();
             datatable.Load(cmd.ExecuteReader());
             rpt.SetDataSource(datatable);

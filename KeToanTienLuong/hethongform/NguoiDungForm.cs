@@ -82,22 +82,26 @@ namespace KeToanTienLuong.hethongform
 
         private void dgvdmtk_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
+            try
             {
-                DataGridView dataGridView = (DataGridView)sender;
-                DataGridViewRow clickedRow = dataGridView.Rows[e.RowIndex];
+                if (e.RowIndex >= 0)
+                {
+                    DataGridView dataGridView = (DataGridView)sender;
+                    DataGridViewRow clickedRow = dataGridView.Rows[e.RowIndex];
 
-                // Lấy dữ liệu của cả hàng
-                string[] rowData = clickedRow.Cells.Cast<DataGridViewCell>()
-                                                  .Select(cell => cell.Value.ToString().Trim())
-                                                  .ToArray();
+                    // Lấy dữ liệu của cả hàng
+                    string[] rowData = clickedRow.Cells.Cast<DataGridViewCell>()
+                                                      .Select(cell => cell.Value.ToString().Trim())
+                                                      .ToArray();
 
-                inpMatKhau.Text = rowData[3];
-                if (current_action == "none")
-                    inpTenDangNhap.Text = rowData[1];
-                comboQuyenHeThong.SelectedItem = rowData[4];
-                inpTenNguoiDung.Text = rowData[2];
+                    inpMatKhau.Text = rowData[3];
+                    if (current_action == "none")
+                        inpTenDangNhap.Text = rowData[1];
+                    comboQuyenHeThong.SelectedItem = rowData[4];
+                    inpTenNguoiDung.Text = rowData[2];
+                }
             }
+            catch { }
         }
 
         private void button2_Click(object sender, EventArgs e)
