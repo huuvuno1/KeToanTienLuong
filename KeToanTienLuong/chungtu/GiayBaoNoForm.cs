@@ -24,84 +24,114 @@ namespace KeToanTienLuong.chungtu
             InitializeComponent();
         }
 
-        private void btnLuu_Click(object sender, EventArgs e)
+
+        ///--------------------------------
+
+        private string current_action = "none";
+        private void resetInput()
         {
-
-        }
-
-        private void dgvchitietchungtu_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        public bool kiemtradulieu()
-        {
-            if (txtso.Text.Trim() == "")
+            txtso.Text = txtnoidung.Text = txtctlq.Text = inpTien.Text = "";
+            try
             {
-                MessageBox.Show("số không được để trống");
-                txtso.Select();
-                return false;
+                cbomanv.SelectedIndex = 0;
             }
-            else return true;
-        }
+            catch { }
 
-        private void buttonLuu_Click(object sender, EventArgs e)
+
+            try { cbomanh.SelectedIndex = 0; } catch { }
+            dtngay.Value = DateTime.Now;
+            txtso.Enabled = txtnoidung.Enabled = txtctlq.Enabled = inpTien.Enabled = inpTkCo.Enabled = cbomanh.Enabled = cbomanv.Enabled = dtngay.Enabled = comboBoxTkNo.Enabled = false;
+        }
+        private void enableInput()
         {
+            comboBoxTkNo.Enabled = true;
+            txtnoidung.Enabled = txtctlq.Enabled = inpTien.Enabled = cbomanv.Enabled = dtngay.Enabled = cbomanh.Enabled =true;
+        }
+        private void getDataSource(params bool[] isChecked)
+        {
+            int trangthai = (isChecked.Length == 0 || !isChecked[0]) ? 1 : 0;
 
             var db = new ketoantienluongEntities();
-            db.giaybaonoes.Add(new giaybaono() {
-                so = txtso.Text,
-                ctlq = txtctlq.Text,
-                manv = cbomanv.SelectedValue.ToString(),
-                ngay = dtngay.Value,
-                manh = cbomanh.SelectedValue.ToString(),
-                tien = decimal.Parse(inpTien.Text),
-                tkno = comboBoxTkNo.SelectedValue.ToString(),
-                tkco = inpTkCo.Text,
-            }); ; ;
+            var query = from p in db.giaybaonoes
+                        join nv in db.dmnvs on p.manv equals nv.manv
+                        join nh in db.dmnhs on p.manh equals nh.so
+                        where nv.trangthai == trangthai
+                        select new {
+                            p.manv,
+                            p.ngay,
+                            p.noidung,
+                            p.so,
+                            p.tien,
+                            p.tkco,
+                            p.tkno,
+                            nv.tenv,
+                            p.ctlq,
+                            p.manh,
+                            nh.tennh,
+                            nh.stk
+                        };
+
+            dataGridView.DataSource = query.ToList();
+        }
+        private bool validate()
+        {
+            var check = Util.Util.validateInput(txtctlq, inpTien, inpTkCo);
 
             try
             {
-                db.SaveChanges();
+                Decimal.Parse(inpTien.Text);
             }
-            catch (Exception ee)
+            catch
             {
-                MessageBox.Show($"* Đã có lỗi xảy ra, có thể bị trùng mã phiếu!");
-                return;
-            };
-            MessageBox.Show($"* Lưu phiếu {txtso.Text} thành công!");
+                MessageBox.Show("Tiền không đúng định dạng!");
+                return false;
+            }
 
-            txtctlq.Text = txtnoidung.Text = txtso.Text = "";
-            dtngay.Value = DateTime.Now;
-            cbomanh.SelectedIndex = 0;
-            cbomanv.SelectedIndex = 0;
-            dgvchitietchungtu.Rows.Clear();
+            if (!check)
+            {
+                MessageBox.Show("Vui lòng nhập đủ thông tin!");
+                return false;
+            }
+
+            return true;
         }
+        ///--------------------------------
+        ///
+        private bool checkBoxShow = false;
 
         private void GiayBaoNoForm_Load(object sender, EventArgs e)
         {
+            checkBoxShowAll.Checked = checkBoxShow;
             var db = new ketoantienluongEntities();
-            cbomanh.DataSource = db.dmnhs.Select(p => p).ToList();
+            cbomanh.DataSource = db.dmnhs.ToList().Select(p => new dmnh(){ 
+                so = p.so.Trim(),
+                stk = p.stk,
+                tennh = p.tennh
+            }).ToList();
             cbomanh.DisplayMember = "stk";
             cbomanh.ValueMember = "so";
             cbomanh.Format += ComboBox1_Format;
 
-            cbomanv.DataSource = db.dmnvs.Select(p => p).ToList();
+            dataGridView.ReadOnly = true;
+            cbomanv.DataSource = new ketoantienluongEntities().dmnvs.ToList().Where(p => p.trangthai == 1).Select(p => new dmnv() {
+                manv = p.manv.Trim(),
+                tenv = p.tenv.Trim()
+            }).ToList();
             cbomanv.DisplayMember = "tenv";
             cbomanv.ValueMember = "manv";
 
-            DataGridViewComboBoxColumn a = dgvchitietchungtu.Columns["tkno"] as DataGridViewComboBoxColumn;
-            a.DataSource = db.dmtks.Select(p => p).ToList();
+            comboBoxTkNo.DataSource = new ketoantienluongEntities().dmtks.ToList().Select(p => new dmtk() {
+                matk = p.matk.Trim()
+            }).ToList();
 
-            comboBoxTkNo.DataSource = db.dmtks.Select(p => p).ToList();
             comboBoxTkNo.DisplayMember = "matk";
             comboBoxTkNo.ValueMember = "matk";
 
-            foreach (DataGridViewRow row in dgvchitietchungtu.Rows)
-            {
-                row.Cells["tkco"].Value = "1112";
-                row.Cells["tkco"].ReadOnly = true;
-            }
+            getDataSource();
+
+            inpTkCo.Text = "1111";
+
+            cbomanv.Format += ComboBox1_Format1;
         }
 
         private void ComboBox1_Format(object sender, ListControlConvertEventArgs e)
@@ -111,6 +141,16 @@ namespace KeToanTienLuong.chungtu
             {
                 // Tùy chỉnh định dạng ở đây, ví dụ: thêm tiền tố vào tên
                 e.Value = value.stk.Trim() + " - " + value.tennh;
+            }
+        }
+
+        private void ComboBox1_Format1(object sender, ListControlConvertEventArgs e)
+        {
+            // Định dạng lại giá trị hiển thị cho từng mục trong ComboBox
+            if (e.ListItem is dmnv value)
+            {
+                // Tùy chỉnh định dạng ở đây, ví dụ: thêm tiền tố vào tên
+                e.Value = value.manv.Trim() + " - " + value.tenv;
             }
         }
 
@@ -127,6 +167,150 @@ namespace KeToanTienLuong.chungtu
         private void inpTkCo_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void buttonThem_Click(object sender, EventArgs e)
+        {
+            resetInput();
+            enableInput();
+            txtso.Text = "Mã phiếu sẽ được tạo tự động";
+            current_action = Util.Util.activeButton("add", buttonThem, buttonLuu, buttonHuy, new Button(), buttonSua);
+        }
+
+        private void buttonSua_Click(object sender, EventArgs e)
+        {
+            if (txtso.Text == "")
+            {
+                MessageBox.Show("Vui lòng chọn 1 phiếu từ bảng để sửa!");
+                current_action = Util.Util.activeButton("cancel", buttonThem, buttonLuu, buttonHuy, new Button(), buttonSua);
+                return;
+            }
+            else
+            {
+                enableInput();
+            }
+
+            current_action = Util.Util.activeButton("edit", buttonThem, buttonLuu, buttonHuy, new Button(), buttonSua);
+        }
+
+        private void buttonLuu_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                var db = new ketoantienluongEntities();
+                if (current_action == "add")
+                {
+                    if (!validate()) return;
+                    db.giaybaonoes.Add(new giaybaono() {
+                        so = "PC_" + DateTime.Now.ToString("HH") + DateTime.Now.ToString("mm") + DateTime.Now.ToString("ss"),
+                        ctlq = txtctlq.Text,
+                        manv = cbomanv.SelectedValue.ToString(),
+                        ngay = dtngay.Value,
+                        tkno = comboBoxTkNo.SelectedValue.ToString(),
+                        tkco = inpTkCo.Text,
+                        tien = Decimal.Parse(inpTien.Text),
+                        noidung = txtnoidung.Text,
+                        manh = cbomanh.SelectedValue?.ToString()?.Trim(),
+                    });
+
+                    db.SaveChanges();
+
+
+                    MessageBox.Show("Lưu thành công!");
+                    resetInput();
+
+                }
+
+                if (current_action == "edit")
+                {
+                    if (!validate()) return;
+                    var phieu = db.giaybaonoes.FirstOrDefault(p => p.so == txtso.Text);
+                    if (phieu != null)
+                    {
+                        phieu.ctlq = txtctlq.Text;
+                        phieu.ngay = dtngay.Value;
+                        phieu.tkno = comboBoxTkNo.SelectedValue.ToString();
+                        phieu.tkco = inpTkCo.Text;
+                        phieu.manv = cbomanv.SelectedValue.ToString();
+                        phieu.tien = Decimal.Parse(inpTien.Text);
+                        phieu.noidung = txtnoidung.Text;
+                        phieu.manh = cbomanh.SelectedValue?.ToString()?.Trim();
+
+                        var confirm = MessageBox.Show("Việc sửa có thể sẽ ảnh hưởng đến giấy tờ khác, bạn có đồng ý không?", "Xác nhận xóa", MessageBoxButtons.YesNo);
+
+                        if (confirm == DialogResult.Yes)
+                        {
+                            db.SaveChanges();
+                            MessageBox.Show("Cập nhật thành công!");
+                            resetInput();
+                        }
+                        else
+                        {
+                            return;
+                        }
+
+                    }
+
+                }
+
+                current_action = Util.Util.activeButton("save", buttonThem, buttonLuu, buttonHuy, new Button(), buttonSua); ;
+                getDataSource();
+            }
+            catch
+            {
+                MessageBox.Show("Đã có lỗi xảy ra!");
+            }
+        }
+
+        private void buttonHuy_Click(object sender, EventArgs e)
+        {
+            current_action = Util.Util.activeButton("cancel", buttonThem, buttonLuu, buttonHuy, new Button(), buttonSua);
+            resetInput();
+        }
+
+        private void dataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridView dataGridView = (DataGridView)sender;
+                DataGridViewRow clickedRow = dataGridView.Rows[e.RowIndex];
+
+                // Lấy dữ liệu của cả hàng
+                string[] rowData = clickedRow.Cells.Cast<DataGridViewCell>()
+                                                  .Select(cell => {
+                                                      var x = cell.Value?.ToString()?.Trim();
+                                                      return x == null ? "" : x;
+                                                  })
+                                                  .ToArray();
+
+                if (current_action == "none")
+                    txtso.Text = rowData[0];
+                dtngay.Value = DateTime.Parse(rowData[1]);
+                cbomanv.SelectedValue = rowData[2];
+                txtnoidung.Text = rowData[4];
+                txtctlq.Text = rowData[5];
+                comboBoxTkNo.SelectedValue = rowData[6];
+                inpTkCo.Text = rowData[7];
+                inpTien.Text = rowData[8];
+                cbomanh.SelectedValue = rowData[9];
+
+
+            }
+        }
+
+        private void checkBoxShowAll_CheckedChanged(object sender, EventArgs e)
+        {
+            getDataSource(checkBoxShowAll.Checked);
+
+            if (checkBoxShowAll.Checked)
+            {
+                buttonHuy.Enabled = buttonThem.Enabled = buttonLuu.Enabled = buttonSua.Enabled = false;
+            }
+            else
+            {
+                buttonHuy.Enabled = buttonThem.Enabled = buttonLuu.Enabled = buttonSua.Enabled = true;
+                resetInput();
+            }
         }
     }
 }
