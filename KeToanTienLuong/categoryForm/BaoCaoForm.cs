@@ -70,5 +70,20 @@ namespace KeToanTienLuong.categoryForm
             sqlConnection.Close();
             crystalReportViewer.ReportSource = rpt;
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            rptBaocaoluong rpt = new rptBaocaoluong();
+            SqlConnection sqlConnection = new SqlConnection(Util.Util.getConnectionString());
+            sqlConnection.Open();
+            SqlCommand cmd = sqlConnection.CreateCommand();
+            cmd.CommandText = @"select b.manv, b.tenv, ngaycongthucte = l.ngaycong, l.tienluongcoban, l.tienthuong, l.tienthue, l.tientamung, l.tienthuclinh
+from  dmnv as b join bangluongnhanvien as l on b.manv = l.manv";
+            var datatable = new DataTable();
+            datatable.Load(cmd.ExecuteReader());
+            rpt.SetDataSource(datatable);
+            sqlConnection.Close();
+            crystalReportViewer.ReportSource = rpt;
+        }
     }
 }

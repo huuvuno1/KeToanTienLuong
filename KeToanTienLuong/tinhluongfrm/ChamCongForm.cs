@@ -289,10 +289,10 @@ $@"
 
                 var x = db.phieuchis.ToList();
                 // tam ung
-                var phieuchi = db.phieuchis.ToList().Where(p => p.tkno.Trim() == "141" && p.ngay.Value.Month == thang && p.ngay.Value.Year == nam && p.manv.Trim() == nv.manv.Trim()).ToList();
+                var phieuchi = db.phieuchis.ToList().Where(p => p.tkno.Trim() == "3341" && p.ngay.Value.Month == thang && p.ngay.Value.Year == nam && p.manv.Trim() == nv.manv.Trim()).ToList();
                 decimal tamung = phieuchi.Aggregate(0m, (prev, curr) => (decimal)(prev + curr.tien));
 
-                var giaybaono = db.giaybaonoes.ToList().Where(p => p.tkno.Trim() == "141" && p.ngay.Value.Month == thang && p.ngay.Value.Year == nam && p.manv.Trim() == nv.manv.Trim()).ToList();
+                var giaybaono = db.giaybaonoes.ToList().Where(p => p.tkno.Trim() == "3341" && p.ngay.Value.Month == thang && p.ngay.Value.Year == nam && p.manv.Trim() == nv.manv.Trim()).ToList();
                 tamung += giaybaono.Aggregate(0m, (prev, curr) => (decimal)(prev + curr.tien));
 
                 data.bangluongnhanviens.Add(new bangluongnhanvien() {
