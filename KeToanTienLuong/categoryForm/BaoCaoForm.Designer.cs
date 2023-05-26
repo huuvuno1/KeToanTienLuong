@@ -36,11 +36,11 @@ namespace KeToanTienLuong.categoryForm
             this.imageList2 = new System.Windows.Forms.ImageList(this.components);
             this.button2 = new System.Windows.Forms.Button();
             this.panelContent = new System.Windows.Forms.Panel();
-            this.crystalReportViewer = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
             this.panel1 = new System.Windows.Forms.Panel();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.crystalReportViewer = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
             this.panelContent.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -92,17 +92,6 @@ namespace KeToanTienLuong.categoryForm
             this.panelContent.Size = new System.Drawing.Size(1174, 710);
             this.panelContent.TabIndex = 16;
             // 
-            // crystalReportViewer
-            // 
-            this.crystalReportViewer.ActiveViewIndex = -1;
-            this.crystalReportViewer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.crystalReportViewer.Cursor = System.Windows.Forms.Cursors.Default;
-            this.crystalReportViewer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.crystalReportViewer.Location = new System.Drawing.Point(0, 0);
-            this.crystalReportViewer.Name = "crystalReportViewer";
-            this.crystalReportViewer.Size = new System.Drawing.Size(1174, 710);
-            this.crystalReportViewer.TabIndex = 0;
-            // 
             // panel1
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -131,6 +120,7 @@ namespace KeToanTienLuong.categoryForm
             this.button4.TabIndex = 2;
             this.button4.Text = "Thuế TNCN";
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button3
             // 
@@ -164,6 +154,17 @@ namespace KeToanTienLuong.categoryForm
             this.button1.Text = "Sổ cái";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // crystalReportViewer
+            // 
+            this.crystalReportViewer.ActiveViewIndex = -1;
+            this.crystalReportViewer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.crystalReportViewer.Cursor = System.Windows.Forms.Cursors.Default;
+            this.crystalReportViewer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.crystalReportViewer.Location = new System.Drawing.Point(0, 0);
+            this.crystalReportViewer.Name = "crystalReportViewer";
+            this.crystalReportViewer.Size = new System.Drawing.Size(1174, 710);
+            this.crystalReportViewer.TabIndex = 0;
             // 
             // BaoCaoForm
             // 

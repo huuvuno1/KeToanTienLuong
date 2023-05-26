@@ -118,7 +118,7 @@ namespace KeToanTienLuong.danhmucform
             }
             catch
             {
-                MessageBox.Show("Ngày cần nhập theo định dạng dd/mm/yyyy\n Số người phụ thuộc và lương cơ bản phải là số");
+                MessageBox.Show(" - Ngày cần nhập theo định dạng dd/mm/yyyy\n - Số người phụ thuộc và lương cơ bản phải là số");
                 return false;
             }
 
@@ -134,20 +134,21 @@ namespace KeToanTienLuong.danhmucform
                 {
                     if (!validate()) return;
                     db.dmnvs.Add(new dmnv() {
-                        bangcap = inpBangCap.Text,
-                        diachi = inpDiaChi.Text,
                         manv = "NV_" + DateTime.Now.ToString("HH") + DateTime.Now.ToString("mm") + DateTime.Now.ToString("ss"),
-                        masothue = inpMaSoThue.Text,
-                        ngaysinh = DateTime.ParseExact(inpNgaySinh.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture),
                         tenv = inpTen.Text,
+                        ngaysinh = DateTime.ParseExact(inpNgaySinh.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture),
+                        diachi = inpDiaChi.Text,
                         trinhdo = inpTrinhDo.Text,
-                        macv = comboBoxChucVu.SelectedValue.ToString(),
-                        mabp = comboBoxDMBP.SelectedValue.ToString(),
                         songuoiphuthuoc = int.Parse(inpPhuThuoc.Text),
+                        mabp = comboBoxDMBP.SelectedValue.ToString(),
+                        macv = comboBoxChucVu.SelectedValue.ToString(),
+                        masothue = inpMaSoThue.Text,
+                        bangcap = inpBangCap.Text,
                         luongcoban = decimal.Parse(inpLuongCoban.Text),
                         gioitinh = comboBoxGioiTinh.SelectedItem.ToString(),
                         trangthai = 1
                     }); ;
+                    db.SaveChanges();
 
                     MessageBox.Show("Lưu thành công!");
                 }
@@ -157,12 +158,23 @@ namespace KeToanTienLuong.danhmucform
                     var nv = db.dmnvs.FirstOrDefault(p => p.manv == inpMa.Text);
                     if (nv != null)
                     {
+                        nv.tenv = inpTen.Text;
+                        nv.ngaysinh = DateTime.ParseExact(inpNgaySinh.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                        nv.diachi = inpDiaChi.Text;
+                        nv.trinhdo = inpTrinhDo.Text;
+                        nv.songuoiphuthuoc = int.Parse(inpPhuThuoc.Text);
+                        nv.mabp = comboBoxDMBP.SelectedValue.ToString();
+                        nv.macv = comboBoxChucVu.SelectedValue.ToString();
+                        nv.masothue = inpMaSoThue.Text;
+                        nv.bangcap = inpBangCap.Text;
+                        nv.luongcoban = decimal.Parse(inpLuongCoban.Text);
+                        nv.gioitinh = comboBoxGioiTinh.SelectedItem.ToString();
+                        db.SaveChanges();
 
                         MessageBox.Show("Sửa thành công!");
                     }
                 }
 
-                db.SaveChanges();
                 dataGridView.DataSource = getDataSource();
                 resetInput();
 
@@ -227,7 +239,14 @@ namespace KeToanTienLuong.danhmucform
 
                 // Lấy dữ liệu của cả hàng
                 string[] rowData = clickedRow.Cells.Cast<DataGridViewCell>()
-                                                  .Select(cell => cell.Value?.ToString()?.Trim())
+                                                  .Select(cell => {
+                                                      if (cell.Value is DateTime value)
+                                                      {
+                                                          return value.ToString("dd/MM/yyyy")?.Trim();
+                                                      }
+                                                      else
+                                                          return cell.Value?.ToString()?.Trim();
+                                                  })
                                                   .ToArray();
 
                 inpMa.Text = rowData[0];

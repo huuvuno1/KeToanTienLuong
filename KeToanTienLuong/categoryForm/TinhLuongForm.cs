@@ -20,7 +20,7 @@ namespace KeToanTienLuong.categoryForm
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Util.Util.changeBackground(btnChamCong, btnThueTNCN, btnTinhLuong);
+            Util.Util.changeBackground(btnChamCong, btnTinhLuong);
 
             ChamCongForm f = new ChamCongForm();
             f.Dock = DockStyle.Top;
@@ -36,7 +36,7 @@ namespace KeToanTienLuong.categoryForm
 
         private void btnTinhLuong_Click(object sender, EventArgs e)
         {
-            Util.Util.changeBackground(btnTinhLuong, btnChamCong, btnThueTNCN);
+            Util.Util.changeBackground(btnTinhLuong, btnChamCong);
 
             BangLuongForm f = new BangLuongForm();
             f.Dock = DockStyle.Top;
